@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="meta.title">Talktail | 반려동물 건강을 매일 확인하는 웨어러블 솔루션</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="탈테일은 반려동물의 심박수, 체온, 활동량을 24시간 측정하고 평소와 다른 변화를 알려주는 웨어러블 솔루션입니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo" data-page="home">Talktail<small data-i18n="logo.tag">by Creamoff</small></a>
+    <div class="nav-menu" id="navMenu">
+      <button class="nav-link active" data-page="home" data-i18n="nav.home">홈</button>
+      <button class="nav-link" data-page="monitor" data-i18n="nav.monitor">모니터</button>
+      <button class="nav-link" data-page="ai-skin" data-i18n="nav.aiSkin">AI 피부분석</button>
+      <button class="nav-link" data-page="price" data-i18n="nav.price">가격</button>
+      <button class="nav-link" data-page="contact" data-i18n="nav.contact">문의</button>
+      <a href="#" class="nav-cta" data-page="contact" data-i18n="nav.cta">상담 신청</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="ko" class="active">KR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active" id="page-home">
+
+  <section class="hero" style="padding-top:64px">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-pretitle">
+          <span class="status-dot"></span>
+          <span data-i18n="hero.preLaunch">2026년 7월 정식 출시 · 사전 도입 문의 받습니다</span>
+        </div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Pet Health, Closer to You</span>
+        <h1 data-i18n="hero.title">꼬리로 말하는 신호,<br/><span class="accent">탈테일</span>이 매일 확인합니다.</h1>
+        <p class="lead" data-i18n="hero.lead">반려동물의 심박수, 체온, 활동량을 24시간 측정하고 평소와 달라진 변화가 있을 때 알려드립니다. 이상이 의심되는 순간에는 AI 피부분석과 수의사 상담으로 이어집니다.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" data-page="price" data-i18n="hero.cta1">가격 살펴보기</a>
+          <a href="#" class="btn btn-secondary" data-page="contact" data-i18n="hero.cta2">도입 문의하기</a>
+          <a href="#" class="btn btn-ghost" data-page="ai-skin" data-i18n="hero.cta3">AI 피부분석 무료 체험 →</a>
+        </div>
+        <div class="hero-meta">
+          <div><b data-i18n="hero.meta1Num">3가지</b><span data-i18n="hero.meta1">핵심 센서 탑재</span></div>
+          <div><b data-i18n="hero.meta2Num">24/7</b><span data-i18n="hero.meta2">실시간 데이터 수집</span></div>
+          <div><b data-i18n="hero.meta3Num">5대</b><span data-i18n="hero.meta3">허브 1대당 디바이스</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-tag t1"><span class="dot"></span> <span data-i18n="hero.tag1">심박수 118 bpm</span></div>
+        <div class="hero-tag t2"><span class="dot"></span> <span data-i18n="hero.tag2">체온 38.4°C</span></div>
+        <div class="hero-tag t3"><span data-i18n="hero.tag3">SpO₂ 98%</span></div>
+        <div class="device-mock">
+          <div class="pulse"></div>
+          <b data-i18n="hero.deviceLabel">정상 범위</b>
+          <span data-i18n="hero.deviceTime">오늘 12시 32분 측정</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="container trust-row">
+      <span><strong data-i18n="trust.1.k">Creamoff Co., Ltd.</strong> <span data-i18n="trust.1.v">경북 경산 본사</span></span>
+      <span><strong data-i18n="trust.2.k">Tailing Device</strong> <span data-i18n="trust.2.v">PPG · 체온 · IMU 센서</span></span>
+      <span><strong data-i18n="trust.3.k">Talktail Hub</strong> <span data-i18n="trust.3.v">스마트폰 없이도 데이터 수집</span></span>
+      <span><strong data-i18n="trust.4.k">Talktail Care</strong> <span data-i18n="trust.4.v">AI 피부 분석 + 수의사 연계</span></span>
+    </div>
+  </div>
+
+  <section class="problem">
+    <div class="container">
+      <span class="eyebrow" data-i18n="problem.eyebrow">왜 필요한가요</span>
+      <h2 class="section-title" data-i18n="problem.title">평소엔 멀쩡해 보였는데,<br/>병원 가면 늦은 경우가 많습니다.</h2>
+      <p class="section-lead" data-i18n="problem.lead">반려동물은 아픈 티를 잘 내지 않습니다. 보호자가 '이상하다'고 느꼈을 때는 이미 진행된 경우가 많아, 평소 상태를 숫자로 기록해 두는 것이 도움이 됩니다.</p>
+
+      <div class="problem-stats">
+        <div class="ps-item">
+          <b data-i18n="bg.stat1.num">1,500만</b>
+          <span data-i18n="bg.stat1.label">국내 반려가구 수</span>
+          <small data-i18n="bg.stat1.sub">전체 가구의 약 28%</small>
+        </div>
+        <div class="ps-item">
+          <b data-i18n="bg.stat2.num">40%</b>
+          <span data-i18n="bg.stat2.label">8세 이상 노령기 심장질환 발생 비율</span>
+          <small data-i18n="bg.stat2.sub">고령기 가장 흔한 사망 원인 중 하나</small>
+        </div>
+        <div class="ps-item">
+          <b data-i18n="bg.stat3.num">24h</b>
+          <span data-i18n="bg.stat3.label">증상이 잘 보이지 않는 경우 다수</span>
+          <small data-i18n="bg.stat3.sub">검진을 통해서만 발견되는 사례가 많음</small>
+        </div>
+      </div>
+
+      <div class="problem-list">
+        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q1">요즘 들어 잠이 늘었는데, 원래 이 정도였는지 기억이 잘 나지 않습니다.</p></div>
+        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q2">호흡이 빠른 것 같은데, 측정해서 비교할 만한 기준이 없습니다.</p></div>
+        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q3">피부 발진이 생겼는데 병원에 갈지 지켜볼지 판단이 어렵습니다.</p></div>
+        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q4">병원에 다녀와도 진료 기록이 종이나 사진으로 흩어져 있습니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow" data-i18n="solution.eyebrow">Talktail이 하는 일</span>
+      <h2 class="section-title" data-i18n="solution.title">측정, 분석, 상담을<br/>한 흐름으로 이어줍니다.</h2>
+      <p class="section-lead" data-i18n="solution.lead">디바이스로 데이터를 모으고, 플랫폼에서 흐름을 정리하고, 이상이 의심되는 부분은 AI 분석과 수의사 상담으로 연결합니다.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="ico">●</div>
+          <h3 data-i18n="pillar1.title">Tailing Device</h3>
+          <p data-i18n="pillar1.desc">목에 걸어두는 웨어러블 기기. 평소 활동과 체온을 자동으로 기록합니다.</p>
+          <ul>
+            <li data-i18n="pillar1.li1">심박수와 산소포화도(SpO₂)</li>
+            <li data-i18n="pillar1.li2">체온 변화 감지</li>
+            <li data-i18n="pillar1.li3">걷기·뛰기 등 활동 패턴</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="ico">▤</div>
+          <h3 data-i18n="pillar2.title">Talktail Platform</h3>
+          <p data-i18n="pillar2.desc">수집된 데이터를 확인하고, 평소와 달라진 점을 함께 정리해 보여줍니다.</p>
+          <ul>
+            <li data-i18n="pillar2.li1">실시간 대시보드</li>
+            <li data-i18n="pillar2.li2">HRV(심박 변이도) 스트레스 분석</li>
+            <li data-i18n="pillar2.li3">이상 신호 발생 시 알림</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="ico">♥</div>
+          <h3 data-i18n="pillar3.title">Talktail Care</h3>
+          <p data-i18n="pillar3.desc">피부 사진을 올리면 AI가 의심 질환을 정리해 주고, 필요시 수의사 상담까지 이어집니다.</p>
+          <ul>
+            <li data-i18n="pillar3.li1">설문 기반 증상 정리</li>
+            <li data-i18n="pillar3.li2">AI 피부 질환 분석</li>
+            <li data-i18n="pillar3.li3">제휴 동물병원 상담 연결</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sensors">
+    <div class="container">
+      <span class="eyebrow" data-i18n="sensors.eyebrow">기술 구성</span>
+      <h2 class="section-title" data-i18n="sensors.title">사람용 기기에서 쓰는 센서를<br/>반려동물에 맞게 다시 설계했습니다.</h2>
+      <p class="section-lead" data-i18n="sensors.lead">착용감을 해치지 않는 크기로 줄이고, 털과 움직임이 많은 환경에서도 측정값이 흔들리지 않도록 알고리즘을 보정했습니다.</p>
+      <div class="sensors-grid">
+        <div class="sensors-list">
+          <div class="sensor"><div class="icon">♡</div><div><h4 data-i18n="sensor1.title">PPG 센서 — 심박수 / SpO₂</h4><p data-i18n="sensor1.desc">털을 깎지 않고도 측정되도록 광학 구조를 새로 설계했습니다. 목 경동맥 부위에서 심박과 혈중 산소 농도를 지속적으로 측정합니다.</p></div></div>
+          <div class="sensor"><div class="icon">°</div><div><h4 data-i18n="sensor2.title">온도 센서 — 체온</h4><p data-i18n="sensor2.desc">피부 접촉 부위의 온도 변화를 측정해 발열 같은 이상 신호를 빠르게 확인합니다.</p></div></div>
+          <div class="sensor"><div class="icon">⌖</div><div><h4 data-i18n="sensor3.title">IMU 센서 — 자세 / 활동</h4><p data-i18n="sensor3.desc">가속도와 자이로 데이터를 활용해 걷기, 뛰기, 휴식 시간을 자동으로 분류합니다.</p></div></div>
+          <div class="sensor"><div class="icon">✦</div><div><h4 data-i18n="sensor4.title">AI 분석 — 평소와의 차이</h4><p data-i18n="sensor4.desc">수집된 데이터를 누적해 평소 패턴을 학습하고, 달라진 부분이 있으면 알려줍니다.</p></div></div>
+        </div>
+        <div class="sensors-visual">
+          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.heartLabel">심박수</div><div class="val">118 <small>bpm</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normal">정상</div></div>
+          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.spo2Label">SpO₂</div><div class="val">98 <small>%</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normal2">정상</div></div>
+          <div class="vital-card warn"><div><div class="lbl" data-i18n="vital.tempLabel">체온</div><div class="val">38.6 <small>°C</small></div></div><div style="font-size:13px;color:var(--primary);font-weight:600" data-i18n="vital.observe">관찰 권장</div></div>
+          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.activityLabel">활동량 (오늘)</div><div class="val">2,842 <small>step</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normalRange">평소 범위</div></div>
+          <p style="margin-top:14px;font-size:13px;color:var(--ink-3);text-align:left" data-i18n="sensors.note">※ 화면은 예시이며, 실제 수치는 반려동물의 종, 나이, 체중에 따라 다르게 보정됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <span class="eyebrow" data-i18n="process.eyebrow">진행 과정</span>
+      <h2 class="section-title" data-i18n="process.title">설치부터 상담까지,<br/>5단계로 정리됩니다.</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 01</span><h4 data-i18n="step1.title">구매 또는 구독</h4><p data-i18n="step1.desc">디바이스와 허브를 함께 받습니다. 추가 디바이스는 한 허브에 5대까지 연결됩니다.</p></div>
+        <div class="step"><span class="num">STEP 02</span><h4 data-i18n="step2.title">허브 설치</h4><p data-i18n="step2.desc">집에 허브를 두고 디바이스를 반려동물에 착용시키면 자동으로 페어링됩니다.</p></div>
+        <div class="step"><span class="num">STEP 03</span><h4 data-i18n="step3.title">데이터 수집</h4><p data-i18n="step3.desc">스마트폰이 곁에 없어도 허브를 통해 데이터가 안정적으로 전송됩니다.</p></div>
+        <div class="step"><span class="num">STEP 04</span><h4 data-i18n="step4.title">이상 신호 알림</h4><p data-i18n="step4.desc">평소와 다른 패턴이 보이면 앱으로 알려드립니다. 단, 진단을 대신하지는 않습니다.</p></div>
+        <div class="step"><span class="num">STEP 05</span><h4 data-i18n="step5.title">수의사 상담</h4><p data-i18n="step5.desc">필요할 때 제휴 병원과 연결해 데이터를 함께 보며 상담을 진행합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow" data-i18n="diff.eyebrow">왜 탈테일인지</span>
+      <h2 class="section-title" data-i18n="diff.title">기능을 늘리기보다,<br/>실제로 쓰는 흐름에 집중했습니다.</h2>
+      <div class="diff-list">
+        <div class="diff-item"><div class="num">01</div><div><h3 data-i18n="diff1.title">스마트폰이 없어도 데이터가 끊기지 않습니다</h3><p data-i18n="diff1.desc">외출 중이거나 보호자가 잠시 자리를 비워도 허브가 데이터를 받아 둡니다. 네트워크가 다시 연결되면 그 사이의 기록까지 함께 정리됩니다.</p></div></div>
+        <div class="diff-item"><div class="num">02</div><div><h3 data-i18n="diff2.title">한 마리만 보지 않습니다</h3><p data-i18n="diff2.desc">가정에서 여러 마리를 키우거나, 동물병원·요양시설처럼 여러 개체를 관리해야 하는 경우에도 같은 화면에서 한꺼번에 확인할 수 있도록 만들었습니다.</p></div></div>
+        <div class="diff-item"><div class="num">03</div><div><h3 data-i18n="diff3.title">이상 신호와 진료 기록을 분리하지 않습니다</h3><p data-i18n="diff3.desc">측정 데이터, AI 피부 분석 결과, 수의사 상담 내용을 하나의 기록으로 묶어 다음 진료 때 다시 설명할 필요가 줄도록 정리합니다.</p></div></div>
+        <div class="diff-item"><div class="num">04</div><div><h3 data-i18n="diff4.title">처음부터 모든 기능을 강요하지 않습니다</h3><p data-i18n="diff4.desc">월 29달러부터 시작해 필요할 때 상위 플랜으로 옮길 수 있습니다. AI 분석이나 수의사 상담은 사용 빈도에 맞는 플랜에서만 활성화됩니다.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="validation">
+    <div class="container">
+      <span class="eyebrow" data-i18n="val.eyebrow">검증과 정확도</span>
+      <h2 class="section-title" data-i18n="val.title">데이터로 신뢰를<br/>먼저 만들어두었습니다.</h2>
+      <p class="section-lead" data-i18n="val.lead">측정 정확도, AI 분류 성능, 국내외 인증을 출시 전에 단계별로 확인했습니다. 진단을 대신하지는 않지만, 보호자와 수의사가 함께 참고할 수 있는 수준을 목표로 합니다.</p>
+      <div class="metric-grid">
+        <div class="metric-card"><b data-i18n="val.m1.num">98%+</b><h4 data-i18n="val.m1.title">측정 정확도</h4><p data-i18n="val.m1.desc">입회 시험 기관 검증 결과 기준</p></div>
+        <div class="metric-card"><b data-i18n="val.m2.num">96–99%</b><h4 data-i18n="val.m2.title">부정맥 탐지 AI</h4><p data-i18n="val.m2.desc">전처리·신호 증강 학습으로 가정 환경 노이즈에서도 안정적</p></div>
+        <div class="metric-card"><b data-i18n="val.m3.num">84%</b><h4 data-i18n="val.m3.title">피부 질환 분류</h4><p data-i18n="val.m3.desc">사진 한 장으로 의심 질환 종류를 분류, 동물병원 진료로 자연스럽게 연결</p></div>
+        <div class="metric-card"><b data-i18n="val.m4.num">36h+</b><h4 data-i18n="val.m4.title">배터리 사용 시간</h4><p data-i18n="val.m4.desc">충전 1회 기준 연속 사용 가능 시간</p></div>
+      </div>
+      <div class="cert-row">
+        <div class="cert"><b>KC</b><span data-i18n="val.cert1">국내 판매 적합성 확보</span></div>
+        <div class="cert"><b>FCC</b><span data-i18n="val.cert2">북미 판매 적합성 확보</span></div>
+        <div class="cert"><b data-i18n="val.cert3.b">특허 3건</b><span data-i18n="val.cert3">PPG · AI 학습 관련 출원</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <span class="eyebrow" data-i18n="faq.eyebrow">자주 묻는 질문</span>
+      <h2 class="section-title" data-i18n="faq.title">시작 전에 자주 받는 질문들</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary data-i18n="faq1.q">어떤 동물에 사용할 수 있나요?</summary><div class="answer" data-i18n="faq1.a">현재는 반려견을 우선으로 데이터를 보정해두었습니다. 반려묘의 경우 베타 단계로 일부 측정 항목이 제한될 수 있어, 도입 전 사용 환경을 확인한 뒤 안내드립니다.</div></details>
+        <details class="faq-item"><summary data-i18n="faq2.q">측정 정확도는 어느 정도인가요?</summary><div class="answer" data-i18n="faq2.a">가정용 측정기 수준의 참고 데이터입니다. 진단을 대신하지는 않으며, 평소 상태를 누적 기록해 변화 시점을 빠르게 알아채는 용도로 활용해 주세요. 치료가 필요한 경우 수의사와 함께 데이터를 확인하시는 것을 권장합니다.</div></details>
+        <details class="faq-item"><summary data-i18n="faq3.q">배터리는 얼마나 가나요?</summary><div class="answer" data-i18n="faq3.a">현재 양산 기준 충전 1회당 36시간 이상 사용 가능하도록 설계되어 있습니다. 측정 빈도와 통신 환경에 따라 차이가 생길 수 있어, 정확한 충전 주기는 출시 시점에 사용 설명서로 함께 안내드립니다.</div></details>
+        <details class="faq-item"><summary data-i18n="faq4.q">AI 피부 분석은 정확한가요?</summary><div class="answer" data-i18n="faq4.a">의심되는 질환의 가능성을 정리해 주는 보조 도구입니다. 확정 진단은 수의사의 검사가 필요하며, 분석 결과를 바탕으로 제휴 병원 상담을 바로 신청할 수 있도록 연결해 드립니다.</div></details>
+        <details class="faq-item"><summary data-i18n="faq5.q">한 허브에 디바이스를 몇 대까지 연결할 수 있나요?</summary><div class="answer" data-i18n="faq5.a">허브 1대당 디바이스 5대까지 연결됩니다. 병원, 호텔, 보호소처럼 6대 이상이 필요한 경우 허브를 추가하거나, 기관용 견적으로 별도 안내드립니다.</div></details>
+        <details class="faq-item"><summary data-i18n="faq6.q">구독은 언제든 변경할 수 있나요?</summary><div class="answer" data-i18n="faq6.a">가능합니다. Basic에서 시작해 필요한 시점에 Standard, Premium으로 변경하거나 반대로 낮추는 것도 됩니다. 상위 플랜에서만 제공되는 기능은 변경 즉시 활성화·비활성화됩니다.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container cta-grid">
+      <div>
+        <h2 data-i18n="cta.title">먼저 우리 환경에 맞는지<br/>확인해 보고 싶으시다면</h2>
+        <p data-i18n="cta.desc">가정용/병원용/시설용 등 사용 환경을 알려주시면, 그에 맞는 구성과 견적을 정리해 드립니다.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary" data-page="contact" data-i18n="cta.action1">상담 신청하기</a>
+        <a href="#" class="btn-light" data-page="ai-skin" data-i18n="cta.action2">AI 피부분석 체험</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-monitor">
+  <section class="auth-page">
+    <div class="container">
+      <div class="auth-card">
+        <div class="lock-ico">🔒</div>
+        <h2 data-i18n="monitor.title">모니터링 화면은 로그인 후 이용할 수 있습니다.</h2>
+        <p data-i18n="monitor.desc">등록된 디바이스의 실시간 데이터, 기록, HRV 분석 등 개인 데이터가 포함되어 있어 회원 인증이 필요합니다.</p>
+        <form class="auth-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['monitor.toast']);">
+          <input type="email" data-i18n-attr="placeholder:monitor.email" placeholder="이메일" required />
+          <input type="password" data-i18n-attr="placeholder:monitor.password" placeholder="비밀번호" required />
+          <button type="submit" class="btn btn-primary" data-i18n="monitor.login">로그인</button>
+          <div class="or" data-i18n="monitor.or">또는</div>
+          <button type="button" class="btn btn-secondary" onclick="showToast(window.I18N[CURRENT_LANG]['monitor.kakaoToast'])" data-i18n="monitor.kakao">카카오로 시작하기</button>
+        </form>
+        <div class="auth-foot">
+          <span data-i18n="monitor.signup">아직 계정이 없으신가요?</span> <a href="#" data-page="contact" data-i18n="monitor.signupLink">도입 문의 후 계정을 발급받아 보세요.</a>
+        </div>
+      </div>
+      <div class="container" style="max-width:680px">
+        <div class="monitor-preview">
+          <h3 data-i18n="monitor.previewTitle">로그인 후 어떤 화면을 보게 되나요?</h3>
+          <p data-i18n="monitor.previewDesc">회원 로그인 후에는 등록한 반려동물 기준으로 다음 데이터를 확인할 수 있습니다.</p>
+          <ul>
+            <li data-i18n="monitor.li1">실시간 대시보드 — 심박, SpO₂, 체온, 활동량</li>
+            <li data-i18n="monitor.li2">기간별 기록 다운로드(CSV)</li>
+            <li data-i18n="monitor.li3">HRV 기반 스트레스 분석</li>
+            <li data-i18n="monitor.li4">여러 마리를 한 화면에서 비교</li>
+            <li data-i18n="monitor.li5">이상 신호 알림 내역과 후속 조치 기록</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-ai-skin">
+  <section class="ai-hero">
+    <div class="container">
+      <span class="free-tag" data-i18n="aiSkin.freeTag">● 회원가입 없이 무료 체험</span>
+      <h1 style="font-size:38px;font-weight:800;margin-bottom:14px" data-i18n="aiSkin.title">사진 한 장으로<br/>피부 상태를 먼저 확인해 보세요.</h1>
+      <p class="lead" data-i18n="aiSkin.lead">의심되는 부위를 촬영해 올리면 AI가 가능한 질환을 정리해 알려드립니다. 결과는 참고용이며, 필요할 때는 제휴 동물병원 상담으로 바로 이어집니다.</p>
+    </div>
+  </section>
+
+  <section class="ai-flow">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:48px;font-size:26px" data-i18n="aiSkin.flowTitle">진행은 4단계로 끝납니다</h2>
+      <div class="ai-steps">
+        <div class="ai-step"><div class="num">1</div><h4 data-i18n="aiStep1.title">설문 작성</h4><p data-i18n="aiStep1.desc">가려움, 발진, 탈모 등 현재 보이는 증상을 체크합니다. 1~2분이면 끝납니다.</p></div>
+        <div class="ai-step"><div class="num">2</div><h4 data-i18n="aiStep2.title">사진 업로드</h4><p data-i18n="aiStep2.desc">의심 부위가 잘 보이도록 가까이서 촬영해 올려주세요. 여러 장도 가능합니다.</p></div>
+        <div class="ai-step"><div class="num">3</div><h4 data-i18n="aiStep3.title">AI 분석 결과 확인</h4><p data-i18n="aiStep3.desc">가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는 즉시 확인할 수 있습니다.</p></div>
+        <div class="ai-step"><div class="num">4</div><h4 data-i18n="aiStep4.title">필요 시 수의사 상담</h4><p data-i18n="aiStep4.desc">결과가 애매하거나 진료가 필요해 보이면, 그 자리에서 제휴 병원 예약으로 이어집니다.</p></div>
+      </div>
+
+      <form class="ai-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['aiForm.toast']);">
+        <h3 data-i18n="aiForm.title">지금 무료로 시작하기</h3>
+        <p data-i18n="aiForm.desc">이메일 입력이나 회원가입 없이 바로 진행할 수 있습니다.</p>
+        <div class="field">
+          <label data-i18n="aiForm.petType">반려동물 종류</label>
+          <select required>
+            <option value="" data-i18n="aiForm.petTypeSelect">선택해 주세요</option>
+            <option data-i18n="aiForm.petDog">반려견</option>
+            <option data-i18n="aiForm.petCat">반려묘</option>
+            <option data-i18n="aiForm.petOther">기타</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="aiForm.symptoms">현재 보이는 증상 (복수 선택)</label>
+          <div class="check-row">
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom1">가려움</span></label>
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom2">발진/홍반</span></label>
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom3">탈모</span></label>
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom4">각질</span></label>
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom5">진물</span></label>
+            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom6">기타</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="aiForm.onset">증상이 시작된 시점</label>
+          <select>
+            <option data-i18n="aiForm.onset1">3일 이내</option>
+            <option data-i18n="aiForm.onset2">1주일 이내</option>
+            <option data-i18n="aiForm.onset3">2~4주 이내</option>
+            <option data-i18n="aiForm.onset4">한 달 이상</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="aiForm.uploadLabel">의심 부위 사진</label>
+          <label class="upload">
+            <p data-i18n="aiForm.uploadHint">📷 클릭해서 사진을 업로드하세요</p>
+            <p style="font-size:12px;margin-top:6px" data-i18n="aiForm.uploadSubhint">최대 5장 / JPG, PNG 가능</p>
+            <input type="file" accept="image/*" multiple style="display:none" />
+          </label>
+        </div>
+        <div class="field">
+          <label data-i18n="aiForm.notes">추가로 알려주실 내용 (선택)</label>
+          <textarea data-i18n-attr="placeholder:aiForm.notesPlaceholder" placeholder="예) 평소 알레르기가 있어요 / 최근 사료를 바꿨어요"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:14px" data-i18n="aiForm.submit">AI 분석 시작</button>
+        <div class="ai-disclaimer" data-i18n="aiForm.disclaimer">※ AI 분석 결과는 의심 질환 가능성을 정리한 참고 자료이며, 확정 진단은 수의사 검사가 필요합니다. 업로드한 사진과 설문 내용은 분석 후 일정 기간 보관되며, 회원이 아닌 경우 식별 정보 없이 처리됩니다.</div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-price">
+  <section class="price-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="price.eyebrow">가격 안내</span>
+      <h1 data-i18n="price.title">디바이스는 한 번 구매,<br/>플랫폼은 필요한 만큼만 구독합니다.</h1>
+      <p data-i18n="price.desc">가정에서 한 마리를 측정하는 경우와, 병원/시설에서 여러 마리를 관리하는 경우의 구성이 다릅니다. 현재 환경을 알려주시면 더 적합한 구성으로 안내드립니다.</p>
+    </div>
+  </section>
+
+  <section class="price-section">
+    <div class="container">
+      <h2 data-i18n="price.section1">1. 디바이스 가격</h2>
+      <p class="note" data-i18n="price.note1">Tailing Device(웨어러블) + Talktail Hub(통신 허브) 조합으로 제공됩니다. 허브 1대에 디바이스 5대까지 연결됩니다.</p>
+      <table class="price-table">
+        <thead><tr><th data-i18n="price.col1">구분</th><th data-i18n="price.col2">구성</th><th class="center">USD</th><th class="center">EUR</th></tr></thead>
+        <tbody>
+          <tr><td><b data-i18n="price.basicPkg">기본 패키지</b></td><td data-i18n="price.basicDesc">Tailing Device 1대 + Talktail Hub 1대</td><td class="center">$299 / set</td><td class="center">€299 / set</td></tr>
+          <tr><td><b data-i18n="price.addDev">추가 디바이스</b></td><td data-i18n="price.addDevDesc">허브 1대 기준 최대 4대 추가 (총 5대)</td><td class="center" data-i18n="price.perDevice">$299 / 대</td><td class="center" data-i18n="price.perDeviceEur">€299 / 대</td></tr>
+          <tr><td><b data-i18n="price.bulk">대량 구매</b></td><td data-i18n="price.bulkDesc">디바이스 6대 이상 또는 다수 허브가 필요한 경우</td><td class="center" colspan="2" data-i18n="price.bulkPrice">별도 견적 (문의)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 data-i18n="price.section2">2. 솔루션 구독 플랜</h2>
+      <p class="note" data-i18n="price.note2">Basic부터 시작해 필요한 시점에 상위 플랜으로 변경할 수 있습니다.</p>
+
+      <div class="plan-grid">
+        <div class="plan">
+          <div class="name">Basic</div>
+          <div class="price">$29<small data-i18n="plan.month"> / 월</small></div>
+          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.basicSubtitle">기본 측정과 알림이 필요한 가정용 사용자에게.</p>
+          <ul>
+            <li data-i18n="plan.basic.f1">24/7 실시간 측정 (심박·호흡·활동·수면)</li>
+            <li data-i18n="plan.basic.f2">데이터 저장 / 다운로드</li>
+            <li data-i18n="plan.basic.f3">여러 마리 모니터링</li>
+            <li data-i18n="plan.basic.f4">이상 행동 알림</li>
+            <li class="off" data-i18n="plan.basic.f5">AI 행동 분석 인사이트</li>
+            <li class="off" data-i18n="plan.basic.f6">HRV 스트레스 분석</li>
+            <li class="off" data-i18n="plan.basic.f7">AI 헬스 요약</li>
+            <li class="off" data-i18n="plan.basic.f8">건강 위험 감지</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.basicCta">시작 문의</a>
+        </div>
+        <div class="plan featured">
+          <div class="badge" data-i18n="plan.recommended">추천</div>
+          <div class="name">Standard</div>
+          <div class="price">$59<small data-i18n="plan.month2"> / 월</small></div>
+          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.standardSubtitle">행동 분석과 스트레스 지표까지 보고 싶을 때.</p>
+          <ul>
+            <li data-i18n="plan.standard.f1">Basic의 모든 기능</li>
+            <li data-i18n="plan.standard.f2">AI 행동 분석 인사이트</li>
+            <li data-i18n="plan.standard.f3">HRV(심박 변이도) 스트레스 분석</li>
+            <li class="off" data-i18n="plan.standard.f4">AI 헬스 요약</li>
+            <li class="off" data-i18n="plan.standard.f5">건강 위험 감지</li>
+            <li class="off" data-i18n="plan.standard.f6">AI 챗봇 / Agent</li>
+          </ul>
+          <a href="#" class="btn btn-primary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.standardCta">Standard 문의</a>
+        </div>
+        <div class="plan">
+          <div class="name">Premium</div>
+          <div class="price">$99<small data-i18n="plan.month3"> / 월</small></div>
+          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.premiumSubtitle">병원·시설 등 여러 개체를 깊게 관리해야 하는 경우.</p>
+          <ul>
+            <li data-i18n="plan.premium.f1">Standard의 모든 기능</li>
+            <li data-i18n="plan.premium.f2">AI 헬스 요약</li>
+            <li data-i18n="plan.premium.f3">건강 위험 감지</li>
+            <li data-i18n="plan.premium.f4">AI 챗봇 지원</li>
+            <li data-i18n="plan.premium.f5">AI Agent 연동</li>
+            <li data-i18n="plan.premium.f6">맞춤형 마케팅 솔루션</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.premiumCta">기관용 견적</a>
+        </div>
+      </div>
+
+      <div style="margin-top:36px;padding:20px;background:var(--bg-cream);border-radius:var(--radius);font-size:14px;color:var(--ink-2);line-height:1.75">
+        <b data-i18n="price.notice">안내사항</b><br/>
+        <span data-i18n="price.notice1">· 표시된 가격은 부가세 별도이며, 환율과 결제 방식에 따라 최종 결제 금액이 달라질 수 있습니다.</span><br/>
+        <span data-i18n="price.notice2">· 도입 후 일정 기간 사용 피드백을 받아, 필요한 부분은 함께 조정합니다.</span><br/>
+        <span data-i18n="price.notice3">· 기관/병원 도입은 별도 계약과 결제 방식으로 진행됩니다.</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-contact">
+  <section class="contact-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="contact.eyebrow">문의</span>
+      <h1 style="font-size:38px;font-weight:800;margin-bottom:12px" data-i18n="contact.title">사용 환경을 알려주시면<br/>맞는 구성으로 회신드립니다.</h1>
+      <p style="color:var(--ink-3);font-size:17px;max-width:620px" data-i18n="contact.desc">가정용, 병원용, 시설용에 따라 권장 구성이 달라집니다. 간단한 정보만 적어 보내주시면 보통 1~2영업일 내에 회신드립니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container contact-grid">
+      <form class="contact-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['contact.toast']);">
+        <div class="field"><label data-i18n="contact.name">이름 / 담당자명 *</label><input type="text" required /></div>
+        <div class="field"><label data-i18n="contact.phone">연락처 *</label><input type="tel" data-i18n-attr="placeholder:contact.phonePh" placeholder="010-0000-0000" required /></div>
+        <div class="field"><label data-i18n="contact.email">이메일 *</label><input type="email" required /></div>
+        <div class="field">
+          <label data-i18n="contact.type">문의 유형</label>
+          <select>
+            <option data-i18n="contact.type1">개인(가정용) 도입 문의</option>
+            <option data-i18n="contact.type2">동물병원 도입 문의</option>
+            <option data-i18n="contact.type3">호텔/펜션/보호소 등 기관 문의</option>
+            <option data-i18n="contact.type4">제휴 / 파트너십</option>
+            <option data-i18n="contact.type5">기타</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="contact.count">예상 사용 마리 수</label>
+          <select>
+            <option data-i18n="contact.count1">1~2마리</option>
+            <option data-i18n="contact.count2">3~5마리</option>
+            <option data-i18n="contact.count3">6~20마리</option>
+            <option data-i18n="contact.count4">20마리 이상</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="contact.message">문의 내용</label>
+          <textarea data-i18n-attr="placeholder:contact.messagePh" placeholder="현재 어떤 상황에서 사용을 검토하고 계신지 자유롭게 적어주세요."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="contact.submit">문의 보내기</button>
+      </form>
+
+      <aside class="contact-info">
+        <h3>Creamoff Co., Ltd.</h3>
+        <dl>
+          <dt data-i18n="contact.info.address">주소</dt>
+          <dd data-i18n="contact.info.addressVal">309호, Global Venture Building<br/>경북 경산시 삼풍로 27</dd>
+          <dt data-i18n="contact.info.email">대표 이메일</dt>
+          <dd>creamoff2021@creamoff.co.kr</dd>
+          <dt data-i18n="contact.info.phone">전화</dt>
+          <dd>+82 10-4026-5955</dd>
+          <dt data-i18n="contact.info.hours">운영 시간</dt>
+          <dd data-i18n="contact.info.hoursVal">평일 09:30 – 18:30 (KST)</dd>
+          <dt data-i18n="contact.info.web">웹사이트</dt>
+          <dd>www.creamoff.co.kr</dd>
+        </dl>
+        <div class="channels">
+          <a href="tel:+821040265955" data-i18n="contact.channel.call">전화로 문의</a>
+          <a href="mailto:creamoff2021@creamoff.co.kr" data-i18n="contact.channel.mail">이메일 보내기</a>
+          <a href="https://creamoff.co.kr" target="_blank" rel="noopener" data-i18n="contact.channel.web">회사 사이트</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-info">
+        <b>Talktail</b>
+        <span data-i18n="footer.brand">반려동물의 건강 신호를 매일 가까이서 확인합니다.<br/>Tailing Device, Talktail Platform, Talktail Care를<br/>하나의 흐름으로 연결합니다.</span>
+      </div>
+      <div>
+        <h4 data-i18n="footer.product">제품</h4>
+        <ul>
+          <li><a href="#" data-page="home" data-i18n="nav.home2">홈</a></li>
+          <li><a href="#" data-page="monitor" data-i18n="nav.monitor2">모니터</a></li>
+          <li><a href="#" data-page="ai-skin" data-i18n="nav.aiSkin2">AI 피부분석</a></li>
+          <li><a href="#" data-page="price" data-i18n="nav.price2">가격</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.companyInfo">회사 정보</h4>
+        <ul>
+          <li>Creamoff Co., Ltd.</li>
+          <li data-i18n="footer.address">경북 경산시 삼풍로 27, 309호</li>
+          <li>creamoff2021@creamoff.co.kr</li>
+          <li>+82 10-4026-5955</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Creamoff Co., Ltd. All rights reserved.</span>
+      <span>www.creamoff.co.kr · talktail.co.kr</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="i18n.js"></script>
+<script>
+let CURRENT_LANG = 'ko';
+function applyLang(lang) {
+  if (!window.I18N || !window.I18N[lang]) lang = 'ko';
+  CURRENT_LANG = lang;
+  document.documentElement.lang = lang;
+  const dict = window.I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    const spec = el.getAttribute('data-i18n-attr');
+    spec.split(',').forEach(pair => {
+      const [attr, key] = pair.trim().split(':');
+      if (dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+    });
+  });
+  if (dict['meta.title']) document.title = dict['meta.title'];
+  document.querySelectorAll('.lang-toggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  try { localStorage.setItem('talktail.lang', lang); } catch (e) {}
+}
+
+const pages = ['home', 'monitor', 'ai-skin', 'price', 'contact'];
+function go(page) {
+  if (!pages.includes(page)) page = 'home';
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.toggle('active', p === page);
+  });
+  document.querySelectorAll('.nav-menu .nav-link').forEach(b => {
+    b.classList.toggle('active', b.dataset.page === page);
+  });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.replaceState(null, '', '#' + page);
+  document.getElementById('navMenu').classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  const langBtn = e.target.closest('.lang-toggle button');
+  if (langBtn) { applyLang(langBtn.dataset.lang); return; }
+  const t = e.target.closest('[data-page]');
+  if (t) { e.preventDefault(); go(t.dataset.page); }
+});
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navMenu').classList.toggle('open');
+});
+
+let initialLang = 'ko';
+try {
+  const saved = localStorage.getItem('talktail.lang');
+  if (saved && window.I18N && window.I18N[saved]) initialLang = saved;
+  else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) initialLang = 'en';
+} catch (e) {}
+applyLang(initialLang);
+
+const initial = (location.hash || '#home').slice(1);
+go(initial);
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._tt);
+  window._tt = setTimeout(() => t.classList.remove('show'), 2400);
+}
+window.showToast = showToast;
+</script>
+
+</body>
+</html>
