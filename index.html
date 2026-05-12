@@ -5532,11 +5532,11 @@
         return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
       }
 
-      /** 피부 체험 업로드 API — 정적 랜딩과 분리된 백엔드 (입력 UI 없음, 여기만 수정) */
-      var SKIN_TRIAL_API_BASE = 'http://103.218.158.33:4000';
+      /** 피부 체험 업로드 API — 베이스에 /api 포함 시 경로는 /upload/image/trial 만 연결 */
+      var SKIN_TRIAL_API_BASE = 'https://talktail.co.kr/api';
 
       function apiTrialUrl() {
-        return SKIN_TRIAL_API_BASE.replace(/\/$/, '') + '/api/upload/image/trial';
+        return SKIN_TRIAL_API_BASE.replace(/\/$/, '') + '/upload/image/trial';
       }
 
       function normalizeBreedRows(raw) {
