@@ -1,612 +1,4379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-i18n="meta.title">Talktail | 반려동물 건강을 매일 확인하는 웨어러블 솔루션</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="탈테일은 반려동물의 심박수, 체온, 활동량을 24시간 측정하고 평소와 다른 변화를 알려주는 웨어러블 솔루션입니다." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title data-i18n="meta.title">
+      Talktail | 반려동물 건강을 매일 확인하는 웨어러블 솔루션
+    </title>
+    <meta
+      name="description"
+      data-i18n-attr="content:meta.desc"
+      content="탈테일은 반려동물의 심박수, 체온, 활동량을 24시간 측정하고 평소와 다른 변화를 알려주는 웨어러블 솔루션입니다."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --primary: #f2581b;
+        --primary-soft: #fff1e8;
+        --primary-deep: #c7400d;
+        --ink: #1a1a1a;
+        --ink-2: #3f3f3f;
+        --ink-3: #6b6b6b;
+        --line: #e8e4df;
+        --bg: #ffffff;
+        --bg-cream: #fbf6f0;
+        --radius: 14px;
+        --max: 1180px;
+      }
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="#" class="logo" data-page="home">Talktail<small data-i18n="logo.tag">by Creamoff</small></a>
-    <div class="nav-menu" id="navMenu">
-      <button class="nav-link active" data-page="home" data-i18n="nav.home">홈</button>
-      <button class="nav-link" data-page="monitor" data-i18n="nav.monitor">모니터</button>
-      <button class="nav-link" data-page="ai-skin" data-i18n="nav.aiSkin">AI 피부분석</button>
-      <button class="nav-link" data-page="price" data-i18n="nav.price">가격</button>
-      <button class="nav-link" data-page="contact" data-i18n="nav.contact">문의</button>
-      <a href="#" class="nav-cta" data-page="contact" data-i18n="nav.cta">상담 신청</a>
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button data-lang="ko" class="active">KR</button>
-        <button data-lang="en">EN</button>
-      </div>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family:
+          "Pretendard",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.65;
+        font-size: 16px;
+      }
+      html[lang="en"] body {
+        font-family: "Inter", "Pretendard", system-ui, sans-serif;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+      .container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-<div class="page active" id="page-home">
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 22px;
+        color: var(--primary);
+        letter-spacing: -0.02em;
+      }
+      .logo small {
+        color: var(--ink-3);
+        font-weight: 500;
+        font-size: 12px;
+        margin-left: 6px;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .nav-menu button.nav-link {
+        padding: 9px 16px;
+        border-radius: 8px;
+        color: var(--ink-2);
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .nav-menu button.nav-link:hover {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+      .nav-menu button.nav-link.active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      .nav-cta {
+        background: var(--ink);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .nav-cta:hover {
+        background: var(--primary);
+      }
 
-  <section class="hero" style="padding-top:64px">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-pretitle">
-          <span class="status-dot"></span>
-          <span data-i18n="hero.preLaunch">2026년 7월 정식 출시 · 사전 도입 문의 받습니다</span>
-        </div>
-        <span class="eyebrow" data-i18n="hero.eyebrow">Pet Health, Closer to You</span>
-        <h1 data-i18n="hero.title">꼬리로 말하는 신호,<br/><span class="accent">탈테일</span>이 매일 확인합니다.</h1>
-        <p class="lead" data-i18n="hero.lead">반려동물의 심박수, 체온, 활동량을 24시간 측정하고 평소와 달라진 변화가 있을 때 알려드립니다. 이상이 의심되는 순간에는 AI 피부분석과 수의사 상담으로 이어집니다.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary" data-page="price" data-i18n="hero.cta1">가격 살펴보기</a>
-          <a href="#" class="btn btn-secondary" data-page="contact" data-i18n="hero.cta2">도입 문의하기</a>
-          <a href="#" class="btn btn-ghost" data-page="ai-skin" data-i18n="hero.cta3">AI 피부분석 무료 체험 →</a>
-        </div>
-        <div class="hero-meta">
-          <div><b data-i18n="hero.meta1Num">3가지</b><span data-i18n="hero.meta1">핵심 센서 탑재</span></div>
-          <div><b data-i18n="hero.meta2Num">24/7</b><span data-i18n="hero.meta2">실시간 데이터 수집</span></div>
-          <div><b data-i18n="hero.meta3Num">5대</b><span data-i18n="hero.meta3">허브 1대당 디바이스</span></div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-tag t1"><span class="dot"></span> <span data-i18n="hero.tag1">심박수 118 bpm</span></div>
-        <div class="hero-tag t2"><span class="dot"></span> <span data-i18n="hero.tag2">체온 38.4°C</span></div>
-        <div class="hero-tag t3"><span data-i18n="hero.tag3">SpO₂ 98%</span></div>
-        <div class="device-mock">
-          <div class="pulse"></div>
-          <b data-i18n="hero.deviceLabel">정상 범위</b>
-          <span data-i18n="hero.deviceTime">오늘 12시 32분 측정</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 8px;
+        padding: 4px;
+        background: var(--bg-cream);
+        border-radius: 8px;
+        border: 1px solid var(--line);
+      }
+      .lang-toggle button {
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-3);
+        transition: all 0.15s;
+      }
+      .lang-toggle button.active {
+        background: #fff;
+        color: var(--ink);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .lang-toggle button:hover:not(.active) {
+        color: var(--ink);
+      }
 
-  <div class="trust-bar">
-    <div class="container trust-row">
-      <span><strong data-i18n="trust.1.k">Creamoff Co., Ltd.</strong> <span data-i18n="trust.1.v">경북 경산 본사</span></span>
-      <span><strong data-i18n="trust.2.k">Tailing Device</strong> <span data-i18n="trust.2.v">PPG · 체온 · IMU 센서</span></span>
-      <span><strong data-i18n="trust.3.k">Talktail Hub</strong> <span data-i18n="trust.3.v">스마트폰 없이도 데이터 수집</span></span>
-      <span><strong data-i18n="trust.4.k">Talktail Care</strong> <span data-i18n="trust.4.v">AI 피부 분석 + 수의사 연계</span></span>
-    </div>
-  </div>
+      .hamburger {
+        display: none;
+      }
+      @media (max-width: 900px) {
+        .nav-menu .nav-link,
+        .nav-cta {
+          display: none;
+        }
+        .nav-menu.open .nav-link,
+        .nav-menu.open .nav-cta {
+          display: block;
+        }
+        .nav-menu.open {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          position: absolute;
+          top: 68px;
+          left: 0;
+          right: 0;
+          background: #fff;
+          border-bottom: 1px solid var(--line);
+          padding: 12px 16px;
+          gap: 4px;
+        }
+        .nav-menu.open .nav-link {
+          text-align: left;
+          padding: 12px;
+        }
+        .nav-menu.open .nav-cta {
+          margin-top: 6px;
+          text-align: center;
+        }
+        .hamburger {
+          display: block;
+          width: 36px;
+          height: 36px;
+          padding: 6px;
+        }
+        .hamburger span {
+          display: block;
+          height: 2px;
+          background: var(--ink);
+          margin: 5px 0;
+        }
+        .lang-toggle {
+          margin-left: 0;
+        }
+      }
 
-  <section class="problem">
-    <div class="container">
-      <span class="eyebrow" data-i18n="problem.eyebrow">왜 필요한가요</span>
-      <h2 class="section-title" data-i18n="problem.title">평소엔 멀쩡해 보였는데,<br/>병원 가면 늦은 경우가 많습니다.</h2>
-      <p class="section-lead" data-i18n="problem.lead">반려동물은 아픈 티를 잘 내지 않습니다. 보호자가 '이상하다'고 느꼈을 때는 이미 진행된 경우가 많아, 평소 상태를 숫자로 기록해 두는 것이 도움이 됩니다.</p>
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+      section {
+        padding: 96px 0;
+      }
+      @media (max-width: 720px) {
+        section {
+          padding: 64px 0;
+        }
+      }
+      .eyebrow {
+        display: inline-block;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .eyebrow .no-upper {
+        text-transform: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        margin: 0;
+      }
+      h2.section-title {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+      h2.section-title + p.section-lead {
+        color: var(--ink-3);
+        font-size: 17px;
+        max-width: 640px;
+        margin: 0;
+      }
+      @media (max-width: 720px) {
+        h2.section-title {
+          font-size: 28px;
+        }
+      }
 
-      <div class="problem-stats">
-        <div class="ps-item">
-          <b data-i18n="bg.stat1.num">1,500만</b>
-          <span data-i18n="bg.stat1.label">국내 반려가구 수</span>
-          <small data-i18n="bg.stat1.sub">전체 가구의 약 28%</small>
-        </div>
-        <div class="ps-item">
-          <b data-i18n="bg.stat2.num">40%</b>
-          <span data-i18n="bg.stat2.label">8세 이상 노령기 심장질환 발생 비율</span>
-          <small data-i18n="bg.stat2.sub">고령기 가장 흔한 사망 원인 중 하나</small>
-        </div>
-        <div class="ps-item">
-          <b data-i18n="bg.stat3.num">24h</b>
-          <span data-i18n="bg.stat3.label">증상이 잘 보이지 않는 경우 다수</span>
-          <small data-i18n="bg.stat3.sub">검진을 통해서만 발견되는 사례가 많음</small>
-        </div>
-      </div>
+      .hero {
+        background: linear-gradient(180deg, var(--bg-cream) 0%, #fff8f1 100%);
+        padding: 88px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 22px;
+      }
+      .hero h1 .accent {
+        color: var(--primary);
+      }
+      .hero h1 .nowrap {
+        white-space: nowrap;
+      }
+      .hero .lead {
+        font-size: 18px;
+        color: var(--ink-2);
+        max-width: 540px;
+        margin-bottom: 32px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.15s;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--primary-deep);
+      }
+      .btn-secondary {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      .btn-secondary:hover {
+        border-color: var(--ink);
+      }
+      .btn-ghost {
+        color: var(--primary);
+        padding: 14px 16px;
+      }
+      .btn-ghost:hover {
+        text-decoration: underline;
+      }
+      .hero-meta {
+        display: flex;
+        gap: 28px;
+        margin-top: 36px;
+        color: var(--ink-3);
+        font-size: 14px;
+      }
+      .hero-meta b {
+        color: var(--ink);
+        font-weight: 700;
+        display: block;
+        font-size: 22px;
+      }
+      .hero-visual {
+        position: relative;
+        aspect-ratio: 1/1;
+        border-radius: 24px;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        box-sizing: border-box;
+        isolation: isolate;
+      }
+      .hero-visual img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        border-radius: 0;
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1))
+          drop-shadow(0 5px 14px rgba(0, 0, 0, 0.06));
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero-visual {
+          max-width: 420px;
+          margin: 0 auto;
+        }
+      }
 
-      <div class="problem-list">
-        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q1">요즘 들어 잠이 늘었는데, 원래 이 정도였는지 기억이 잘 나지 않습니다.</p></div>
-        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q2">호흡이 빠른 것 같은데, 측정해서 비교할 만한 기준이 없습니다.</p></div>
-        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q3">피부 발진이 생겼는데 병원에 갈지 지켜볼지 판단이 어렵습니다.</p></div>
-        <div class="problem-item"><span class="q">Q</span><p data-i18n="problem.q4">병원에 다녀와도 진료 기록이 종이나 사진으로 흩어져 있습니다.</p></div>
-      </div>
-    </div>
-  </section>
+      .hero-pretitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        font-size: 13px;
+        color: var(--ink-2);
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        position: relative;
+      }
+      .status-dot::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        opacity: 0.5;
+        animation: pulse 1.6s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(1.8);
+          opacity: 0;
+        }
+      }
 
-  <section>
-    <div class="container">
-      <span class="eyebrow" data-i18n="solution.eyebrow">Talktail이 하는 일</span>
-      <h2 class="section-title" data-i18n="solution.title">측정, 분석, 상담을<br/>한 흐름으로 이어줍니다.</h2>
-      <p class="section-lead" data-i18n="solution.lead">디바이스로 데이터를 모으고, 플랫폼에서 흐름을 정리하고, 이상이 의심되는 부분은 AI 분석과 수의사 상담으로 연결합니다.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="ico">●</div>
-          <h3 data-i18n="pillar1.title">Tailing Device</h3>
-          <p data-i18n="pillar1.desc">목에 걸어두는 웨어러블 기기. 평소 활동과 체온을 자동으로 기록합니다.</p>
-          <ul>
-            <li data-i18n="pillar1.li1">심박수와 산소포화도(SpO₂)</li>
-            <li data-i18n="pillar1.li2">체온 변화 감지</li>
-            <li data-i18n="pillar1.li3">걷기·뛰기 등 활동 패턴</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="ico">▤</div>
-          <h3 data-i18n="pillar2.title">Talktail Platform</h3>
-          <p data-i18n="pillar2.desc">수집된 데이터를 확인하고, 평소와 달라진 점을 함께 정리해 보여줍니다.</p>
-          <ul>
-            <li data-i18n="pillar2.li1">실시간 대시보드</li>
-            <li data-i18n="pillar2.li2">HRV(심박 변이도) 스트레스 분석</li>
-            <li data-i18n="pillar2.li3">이상 신호 발생 시 알림</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="ico">♥</div>
-          <h3 data-i18n="pillar3.title">Talktail Care</h3>
-          <p data-i18n="pillar3.desc">피부 사진을 올리면 AI가 의심 질환을 정리해 주고, 필요시 수의사 상담까지 이어집니다.</p>
-          <ul>
-            <li data-i18n="pillar3.li1">설문 기반 증상 정리</li>
-            <li data-i18n="pillar3.li2">AI 피부 질환 분석</li>
-            <li data-i18n="pillar3.li3">제휴 동물병원 상담 연결</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      .trust-bar {
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .trust-row {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        align-items: center;
+        color: var(--ink-3);
+        font-size: 14px;
+      }
+      .trust-row strong {
+        color: var(--ink);
+        font-weight: 700;
+        margin-right: 6px;
+      }
 
-  <section class="sensors">
-    <div class="container">
-      <span class="eyebrow" data-i18n="sensors.eyebrow">기술 구성</span>
-      <h2 class="section-title" data-i18n="sensors.title">사람용 기기에서 쓰는 센서를<br/>반려동물에 맞게 다시 설계했습니다.</h2>
-      <p class="section-lead" data-i18n="sensors.lead">착용감을 해치지 않는 크기로 줄이고, 털과 움직임이 많은 환경에서도 측정값이 흔들리지 않도록 알고리즘을 보정했습니다.</p>
-      <div class="sensors-grid">
-        <div class="sensors-list">
-          <div class="sensor"><div class="icon">♡</div><div><h4 data-i18n="sensor1.title">PPG 센서 — 심박수 / SpO₂</h4><p data-i18n="sensor1.desc">털을 깎지 않고도 측정되도록 광학 구조를 새로 설계했습니다. 목 경동맥 부위에서 심박과 혈중 산소 농도를 지속적으로 측정합니다.</p></div></div>
-          <div class="sensor"><div class="icon">°</div><div><h4 data-i18n="sensor2.title">온도 센서 — 체온</h4><p data-i18n="sensor2.desc">피부 접촉 부위의 온도 변화를 측정해 발열 같은 이상 신호를 빠르게 확인합니다.</p></div></div>
-          <div class="sensor"><div class="icon">⌖</div><div><h4 data-i18n="sensor3.title">IMU 센서 — 자세 / 활동</h4><p data-i18n="sensor3.desc">가속도와 자이로 데이터를 활용해 걷기, 뛰기, 휴식 시간을 자동으로 분류합니다.</p></div></div>
-          <div class="sensor"><div class="icon">✦</div><div><h4 data-i18n="sensor4.title">AI 분석 — 평소와의 차이</h4><p data-i18n="sensor4.desc">수집된 데이터를 누적해 평소 패턴을 학습하고, 달라진 부분이 있으면 알려줍니다.</p></div></div>
-        </div>
-        <div class="sensors-visual">
-          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.heartLabel">심박수</div><div class="val">118 <small>bpm</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normal">정상</div></div>
-          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.spo2Label">SpO₂</div><div class="val">98 <small>%</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normal2">정상</div></div>
-          <div class="vital-card warn"><div><div class="lbl" data-i18n="vital.tempLabel">체온</div><div class="val">38.6 <small>°C</small></div></div><div style="font-size:13px;color:var(--primary);font-weight:600" data-i18n="vital.observe">관찰 권장</div></div>
-          <div class="vital-card ok"><div><div class="lbl" data-i18n="vital.activityLabel">활동량 (오늘)</div><div class="val">2,842 <small>step</small></div></div><div style="font-size:13px;color:#2DBE6C;font-weight:600" data-i18n="vital.normalRange">평소 범위</div></div>
-          <p style="margin-top:14px;font-size:13px;color:var(--ink-3);text-align:left" data-i18n="sensors.note">※ 화면은 예시이며, 실제 수치는 반려동물의 종, 나이, 체중에 따라 다르게 보정됩니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      .problem {
+        background: var(--bg-cream);
+      }
+      .problem-list {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .problem-item {
+        background: #fff;
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .problem-item .q {
+        flex: 0 0 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+      .problem-item p {
+        margin: 0;
+        color: var(--ink-2);
+      }
+      @media (max-width: 720px) {
+        .problem-list {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  <section class="process">
-    <div class="container">
-      <span class="eyebrow" data-i18n="process.eyebrow">진행 과정</span>
-      <h2 class="section-title" data-i18n="process.title">설치부터 상담까지,<br/>5단계로 정리됩니다.</h2>
-      <div class="steps">
-        <div class="step"><span class="num">STEP 01</span><h4 data-i18n="step1.title">구매 또는 구독</h4><p data-i18n="step1.desc">디바이스와 허브를 함께 받습니다. 추가 디바이스는 한 허브에 5대까지 연결됩니다.</p></div>
-        <div class="step"><span class="num">STEP 02</span><h4 data-i18n="step2.title">허브 설치</h4><p data-i18n="step2.desc">집에 허브를 두고 디바이스를 반려동물에 착용시키면 자동으로 페어링됩니다.</p></div>
-        <div class="step"><span class="num">STEP 03</span><h4 data-i18n="step3.title">데이터 수집</h4><p data-i18n="step3.desc">스마트폰이 곁에 없어도 허브를 통해 데이터가 안정적으로 전송됩니다.</p></div>
-        <div class="step"><span class="num">STEP 04</span><h4 data-i18n="step4.title">이상 신호 알림</h4><p data-i18n="step4.desc">평소와 다른 패턴이 보이면 앱으로 알려드립니다. 단, 진단을 대신하지는 않습니다.</p></div>
-        <div class="step"><span class="num">STEP 05</span><h4 data-i18n="step5.title">수의사 상담</h4><p data-i18n="step5.desc">필요할 때 제휴 병원과 연결해 데이터를 함께 보며 상담을 진행합니다.</p></div>
-      </div>
-    </div>
-  </section>
+      .problem-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin: 36px 0 8px;
+        padding: 28px;
+        background: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+      }
+      .ps-item {
+        padding: 0 24px;
+        border-left: 1px solid var(--line);
+      }
+      .ps-item:first-child {
+        border-left: none;
+        padding-left: 0;
+      }
+      .ps-item b {
+        display: block;
+        font-size: 30px;
+        color: var(--primary);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 6px;
+      }
+      .ps-item span {
+        color: var(--ink-3);
+        font-size: 13px;
+        line-height: 1.5;
+        display: block;
+      }
+      .ps-item small {
+        color: var(--ink-3);
+        font-size: 12px;
+        display: block;
+        margin-top: 4px;
+      }
+      @media (max-width: 720px) {
+        .problem-stats {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .ps-item {
+          padding: 0;
+          border-left: none;
+          border-top: 1px solid var(--line);
+          padding-top: 20px;
+        }
+        .ps-item:first-child {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
 
-  <section>
-    <div class="container">
-      <span class="eyebrow" data-i18n="diff.eyebrow">왜 탈테일인지</span>
-      <h2 class="section-title" data-i18n="diff.title">기능을 늘리기보다,<br/>실제로 쓰는 흐름에 집중했습니다.</h2>
-      <div class="diff-list">
-        <div class="diff-item"><div class="num">01</div><div><h3 data-i18n="diff1.title">스마트폰이 없어도 데이터가 끊기지 않습니다</h3><p data-i18n="diff1.desc">외출 중이거나 보호자가 잠시 자리를 비워도 허브가 데이터를 받아 둡니다. 네트워크가 다시 연결되면 그 사이의 기록까지 함께 정리됩니다.</p></div></div>
-        <div class="diff-item"><div class="num">02</div><div><h3 data-i18n="diff2.title">한 마리만 보지 않습니다</h3><p data-i18n="diff2.desc">가정에서 여러 마리를 키우거나, 동물병원·요양시설처럼 여러 개체를 관리해야 하는 경우에도 같은 화면에서 한꺼번에 확인할 수 있도록 만들었습니다.</p></div></div>
-        <div class="diff-item"><div class="num">03</div><div><h3 data-i18n="diff3.title">이상 신호와 진료 기록을 분리하지 않습니다</h3><p data-i18n="diff3.desc">측정 데이터, AI 피부 분석 결과, 수의사 상담 내용을 하나의 기록으로 묶어 다음 진료 때 다시 설명할 필요가 줄도록 정리합니다.</p></div></div>
-        <div class="diff-item"><div class="num">04</div><div><h3 data-i18n="diff4.title">처음부터 모든 기능을 강요하지 않습니다</h3><p data-i18n="diff4.desc">월 29달러부터 시작해 필요할 때 상위 플랜으로 옮길 수 있습니다. AI 분석이나 수의사 상담은 사용 빈도에 맞는 플랜에서만 활성화됩니다.</p></div></div>
-      </div>
-    </div>
-  </section>
+      .pillars {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .pillar {
+        padding: 32px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .pillar:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .pillar .ico {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        font-size: 22px;
+      }
+      .pillar h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .pillar p {
+        color: var(--ink-3);
+        margin: 0 0 16px;
+        font-size: 15px;
+      }
+      .pillar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-top: 1px dashed var(--line);
+        padding-top: 16px;
+      }
+      .pillar ul li {
+        color: var(--ink-2);
+        font-size: 14px;
+        padding: 4px 0 4px 18px;
+        position: relative;
+      }
+      .pillar ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+      @media (max-width: 820px) {
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  <section class="validation">
-    <div class="container">
-      <span class="eyebrow" data-i18n="val.eyebrow">검증과 정확도</span>
-      <h2 class="section-title" data-i18n="val.title">데이터로 신뢰를<br/>먼저 만들어두었습니다.</h2>
-      <p class="section-lead" data-i18n="val.lead">측정 정확도, AI 분류 성능, 국내외 인증을 출시 전에 단계별로 확인했습니다. 진단을 대신하지는 않지만, 보호자와 수의사가 함께 참고할 수 있는 수준을 목표로 합니다.</p>
-      <div class="metric-grid">
-        <div class="metric-card"><b data-i18n="val.m1.num">98%+</b><h4 data-i18n="val.m1.title">측정 정확도</h4><p data-i18n="val.m1.desc">입회 시험 기관 검증 결과 기준</p></div>
-        <div class="metric-card"><b data-i18n="val.m2.num">96–99%</b><h4 data-i18n="val.m2.title">부정맥 탐지 AI</h4><p data-i18n="val.m2.desc">전처리·신호 증강 학습으로 가정 환경 노이즈에서도 안정적</p></div>
-        <div class="metric-card"><b data-i18n="val.m3.num">84%</b><h4 data-i18n="val.m3.title">피부 질환 분류</h4><p data-i18n="val.m3.desc">사진 한 장으로 의심 질환 종류를 분류, 동물병원 진료로 자연스럽게 연결</p></div>
-        <div class="metric-card"><b data-i18n="val.m4.num">36h+</b><h4 data-i18n="val.m4.title">배터리 사용 시간</h4><p data-i18n="val.m4.desc">충전 1회 기준 연속 사용 가능 시간</p></div>
-      </div>
-      <div class="cert-row">
-        <div class="cert"><b>KC</b><span data-i18n="val.cert1">국내 판매 적합성 확보</span></div>
-        <div class="cert"><b>FCC</b><span data-i18n="val.cert2">북미 판매 적합성 확보</span></div>
-        <div class="cert"><b data-i18n="val.cert3.b">특허 3건</b><span data-i18n="val.cert3">PPG · AI 학습 관련 출원</span></div>
-      </div>
-    </div>
-  </section>
+      .sensors {
+        background: #fff;
+      }
+      .sensors-grid {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .sensors-list {
+        display: grid;
+        gap: 20px;
+      }
+      .sensor {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 18px;
+        padding: 22px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+      .sensor .icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .sensor h4 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .sensor p {
+        margin: 0;
+        color: var(--ink-3);
+        font-size: 14px;
+      }
+      .sensors-visual {
+        background: var(--bg-cream);
+        border-radius: 20px;
+        padding: 36px;
+        text-align: center;
+        border: 1px solid var(--line);
+      }
+      .vital-card {
+        background: #fff;
+        padding: 18px 20px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--line);
+      }
+      .vital-card .lbl {
+        color: var(--ink-3);
+        font-size: 13px;
+      }
+      .vital-card .val {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .vital-card .val small {
+        font-size: 14px;
+        color: var(--ink-3);
+        font-weight: 500;
+      }
+      .vital-card.ok .val {
+        color: #2dbe6c;
+      }
+      .vital-card.warn .val {
+        color: var(--primary);
+      }
+      @media (max-width: 820px) {
+        .sensors-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
 
-  <section class="faq">
-    <div class="container">
-      <span class="eyebrow" data-i18n="faq.eyebrow">자주 묻는 질문</span>
-      <h2 class="section-title" data-i18n="faq.title">시작 전에 자주 받는 질문들</h2>
-      <div class="faq-list">
-        <details class="faq-item"><summary data-i18n="faq1.q">어떤 동물에 사용할 수 있나요?</summary><div class="answer" data-i18n="faq1.a">현재는 반려견을 우선으로 데이터를 보정해두었습니다. 반려묘의 경우 베타 단계로 일부 측정 항목이 제한될 수 있어, 도입 전 사용 환경을 확인한 뒤 안내드립니다.</div></details>
-        <details class="faq-item"><summary data-i18n="faq2.q">측정 정확도는 어느 정도인가요?</summary><div class="answer" data-i18n="faq2.a">가정용 측정기 수준의 참고 데이터입니다. 진단을 대신하지는 않으며, 평소 상태를 누적 기록해 변화 시점을 빠르게 알아채는 용도로 활용해 주세요. 치료가 필요한 경우 수의사와 함께 데이터를 확인하시는 것을 권장합니다.</div></details>
-        <details class="faq-item"><summary data-i18n="faq3.q">배터리는 얼마나 가나요?</summary><div class="answer" data-i18n="faq3.a">현재 양산 기준 충전 1회당 36시간 이상 사용 가능하도록 설계되어 있습니다. 측정 빈도와 통신 환경에 따라 차이가 생길 수 있어, 정확한 충전 주기는 출시 시점에 사용 설명서로 함께 안내드립니다.</div></details>
-        <details class="faq-item"><summary data-i18n="faq4.q">AI 피부 분석은 정확한가요?</summary><div class="answer" data-i18n="faq4.a">의심되는 질환의 가능성을 정리해 주는 보조 도구입니다. 확정 진단은 수의사의 검사가 필요하며, 분석 결과를 바탕으로 제휴 병원 상담을 바로 신청할 수 있도록 연결해 드립니다.</div></details>
-        <details class="faq-item"><summary data-i18n="faq5.q">한 허브에 디바이스를 몇 대까지 연결할 수 있나요?</summary><div class="answer" data-i18n="faq5.a">허브 1대당 디바이스 5대까지 연결됩니다. 병원, 호텔, 보호소처럼 6대 이상이 필요한 경우 허브를 추가하거나, 기관용 견적으로 별도 안내드립니다.</div></details>
-        <details class="faq-item"><summary data-i18n="faq6.q">구독은 언제든 변경할 수 있나요?</summary><div class="answer" data-i18n="faq6.a">가능합니다. Basic에서 시작해 필요한 시점에 Standard, Premium으로 변경하거나 반대로 낮추는 것도 됩니다. 상위 플랜에서만 제공되는 기능은 변경 즉시 활성화·비활성화됩니다.</div></details>
-      </div>
-    </div>
-  </section>
+      .process {
+        background: var(--bg-cream);
+      }
+      .steps {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+      .step {
+        background: #fff;
+        padding: 24px 20px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        position: relative;
+      }
+      .step .num {
+        color: var(--primary);
+        font-weight: 800;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .step h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .step p {
+        color: var(--ink-3);
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.55;
+      }
+      @media (max-width: 980px) {
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .steps {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  <section class="cta-banner">
-    <div class="container cta-grid">
-      <div>
-        <h2 data-i18n="cta.title">먼저 우리 환경에 맞는지<br/>확인해 보고 싶으시다면</h2>
-        <p data-i18n="cta.desc">가정용/병원용/시설용 등 사용 환경을 알려주시면, 그에 맞는 구성과 견적을 정리해 드립니다.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#" class="btn btn-primary" data-page="contact" data-i18n="cta.action1">상담 신청하기</a>
-        <a href="#" class="btn-light" data-page="ai-skin" data-i18n="cta.action2">AI 피부분석 체험</a>
-      </div>
-    </div>
-  </section>
-</div>
+      .diff-list {
+        margin-top: 48px;
+        display: grid;
+        gap: 28px;
+      }
+      .diff-item {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 28px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .diff-item:last-child {
+        border-bottom: none;
+      }
+      .diff-item .num {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+      }
+      .diff-item h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .diff-item p {
+        color: var(--ink-2);
+        margin: 0;
+        font-size: 16px;
+        max-width: 720px;
+      }
+      @media (max-width: 720px) {
+        .diff-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .diff-item .num {
+          font-size: 28px;
+        }
+      }
 
-<div class="page" id="page-monitor">
-  <section class="auth-page">
-    <div class="container">
-      <div class="auth-card">
-        <div class="lock-ico">🔒</div>
-        <h2 data-i18n="monitor.title">모니터링 화면은 로그인 후 이용할 수 있습니다.</h2>
-        <p data-i18n="monitor.desc">등록된 디바이스의 실시간 데이터, 기록, HRV 분석 등 개인 데이터가 포함되어 있어 회원 인증이 필요합니다.</p>
-        <form class="auth-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['monitor.toast']);">
-          <input type="email" data-i18n-attr="placeholder:monitor.email" placeholder="이메일" required />
-          <input type="password" data-i18n-attr="placeholder:monitor.password" placeholder="비밀번호" required />
-          <button type="submit" class="btn btn-primary" data-i18n="monitor.login">로그인</button>
-          <div class="or" data-i18n="monitor.or">또는</div>
-          <button type="button" class="btn btn-secondary" onclick="showToast(window.I18N[CURRENT_LANG]['monitor.kakaoToast'])" data-i18n="monitor.kakao">카카오로 시작하기</button>
-        </form>
-        <div class="auth-foot">
-          <span data-i18n="monitor.signup">아직 계정이 없으신가요?</span> <a href="#" data-page="contact" data-i18n="monitor.signupLink">도입 문의 후 계정을 발급받아 보세요.</a>
-        </div>
-      </div>
-      <div class="container" style="max-width:680px">
-        <div class="monitor-preview">
-          <h3 data-i18n="monitor.previewTitle">로그인 후 어떤 화면을 보게 되나요?</h3>
-          <p data-i18n="monitor.previewDesc">회원 로그인 후에는 등록한 반려동물 기준으로 다음 데이터를 확인할 수 있습니다.</p>
-          <ul>
-            <li data-i18n="monitor.li1">실시간 대시보드 — 심박, SpO₂, 체온, 활동량</li>
-            <li data-i18n="monitor.li2">기간별 기록 다운로드(CSV)</li>
-            <li data-i18n="monitor.li3">HRV 기반 스트레스 분석</li>
-            <li data-i18n="monitor.li4">여러 마리를 한 화면에서 비교</li>
-            <li data-i18n="monitor.li5">이상 신호 알림 내역과 후속 조치 기록</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+      .validation {
+        background: #fff;
+      }
+      .metric-groups {
+        display: grid;
+        grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+        align-items: stretch;
+      }
+      .metric-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .metric-group-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        color: var(--ink-3);
+        margin-bottom: 14px;
+      }
+      .metric-group-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+      .metric-group--device .metric-group-label {
+        color: var(--primary);
+      }
+      .metric-group--device .metric-group-label::after {
+        background: rgba(242, 88, 27, 0.35);
+      }
+      .metric-grid {
+        display: grid;
+        gap: 16px;
+        flex: 1;
+      }
+      .metric-group--device .metric-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .metric-group--care .metric-grid {
+        grid-template-columns: 1fr;
+      }
+      .metric-card {
+        padding: 24px 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--bg-cream);
+        display: flex;
+        flex-direction: column;
+      }
+      .metric-group--device .metric-card {
+        background: var(--primary-soft);
+        border-color: var(--primary);
+      }
+      .metric-group--care .metric-card {
+        justify-content: center;
+      }
+      .metric-card b {
+        display: block;
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1.1;
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
+      }
+      .metric-card h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .metric-card p {
+        color: var(--ink-3);
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.55;
+      }
+      @media (max-width: 980px) {
+        .metric-groups {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 820px) {
+        .metric-group--device .metric-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .metric-group--device .metric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cert-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .cert {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 22px;
+        background: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+      }
+      .cert b {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 64px;
+        height: 36px;
+        padding: 0 14px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .cert span {
+        color: var(--ink-2);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      @media (max-width: 820px) {
+        .cert-row {
+          grid-template-columns: 1fr;
+        }
+      }
 
-<div class="page" id="page-ai-skin">
-  <section class="ai-hero">
-    <div class="container">
-      <span class="free-tag" data-i18n="aiSkin.freeTag">● 회원가입 없이 무료 체험</span>
-      <h1 style="font-size:38px;font-weight:800;margin-bottom:14px" data-i18n="aiSkin.title">사진 한 장으로<br/>피부 상태를 먼저 확인해 보세요.</h1>
-      <p class="lead" data-i18n="aiSkin.lead">의심되는 부위를 촬영해 올리면 AI가 가능한 질환을 정리해 알려드립니다. 결과는 참고용이며, 필요할 때는 제휴 동물병원 상담으로 바로 이어집니다.</p>
-    </div>
-  </section>
+      .faq {
+        background: var(--bg-cream);
+      }
+      .faq-list {
+        margin-top: 40px;
+      }
+      details.faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 4px 24px;
+        margin-bottom: 12px;
+      }
+      details.faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 0;
+        font-weight: 600;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      details.faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      details.faq-item summary::after {
+        content: "+";
+        font-size: 22px;
+        color: var(--ink-3);
+        font-weight: 400;
+        transition: transform 0.2s;
+      }
+      details.faq-item[open] summary::after {
+        content: "−";
+      }
+      details.faq-item div.answer {
+        padding: 0 0 18px;
+        color: var(--ink-2);
+        line-height: 1.75;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
 
-  <section class="ai-flow">
-    <div class="container">
-      <h2 class="section-title" style="text-align:center;margin-bottom:48px;font-size:26px" data-i18n="aiSkin.flowTitle">진행은 4단계로 끝납니다</h2>
-      <div class="ai-steps">
-        <div class="ai-step"><div class="num">1</div><h4 data-i18n="aiStep1.title">설문 작성</h4><p data-i18n="aiStep1.desc">가려움, 발진, 탈모 등 현재 보이는 증상을 체크합니다. 1~2분이면 끝납니다.</p></div>
-        <div class="ai-step"><div class="num">2</div><h4 data-i18n="aiStep2.title">사진 업로드</h4><p data-i18n="aiStep2.desc">의심 부위가 잘 보이도록 가까이서 촬영해 올려주세요. 여러 장도 가능합니다.</p></div>
-        <div class="ai-step"><div class="num">3</div><h4 data-i18n="aiStep3.title">AI 분석 결과 확인</h4><p data-i18n="aiStep3.desc">가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는 즉시 확인할 수 있습니다.</p></div>
-        <div class="ai-step"><div class="num">4</div><h4 data-i18n="aiStep4.title">필요 시 수의사 상담</h4><p data-i18n="aiStep4.desc">결과가 애매하거나 진료가 필요해 보이면, 그 자리에서 제휴 병원 예약으로 이어집니다.</p></div>
-      </div>
+      .cta-banner {
+        background: var(--ink);
+        color: #fff;
+        padding: 72px 0;
+      }
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .cta-banner h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 14px;
+        line-height: 1.3;
+      }
+      .cta-banner p {
+        color: #bfbfbf;
+        margin: 0;
+        font-size: 16px;
+        max-width: 480px;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+      .cta-actions .btn-primary {
+        background: var(--primary);
+      }
+      .cta-actions .btn-light {
+        background: #fff;
+        color: var(--ink);
+        padding: 14px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+      @media (max-width: 820px) {
+        .cta-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-actions {
+          justify-content: flex-start;
+        }
+        .cta-banner h2 {
+          font-size: 24px;
+        }
+      }
 
-      <form class="ai-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['aiForm.toast']);">
-        <h3 data-i18n="aiForm.title">지금 무료로 시작하기</h3>
-        <p data-i18n="aiForm.desc">이메일 입력이나 회원가입 없이 바로 진행할 수 있습니다.</p>
-        <div class="field">
-          <label data-i18n="aiForm.petType">반려동물 종류</label>
-          <select required>
-            <option value="" data-i18n="aiForm.petTypeSelect">선택해 주세요</option>
-            <option data-i18n="aiForm.petDog">반려견</option>
-            <option data-i18n="aiForm.petCat">반려묘</option>
-            <option data-i18n="aiForm.petOther">기타</option>
-          </select>
-        </div>
-        <div class="field">
-          <label data-i18n="aiForm.symptoms">현재 보이는 증상 (복수 선택)</label>
-          <div class="check-row">
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom1">가려움</span></label>
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom2">발진/홍반</span></label>
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom3">탈모</span></label>
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom4">각질</span></label>
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom5">진물</span></label>
-            <label><input type="checkbox" /> <span data-i18n="aiForm.symptom6">기타</span></label>
+      footer {
+        background: #0f0f0f;
+        color: #9a9a9a;
+        padding: 56px 0 36px;
+        font-size: 14px;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 36px;
+      }
+      footer h4 {
+        color: #fff;
+        font-size: 14px;
+        margin-bottom: 14px;
+        font-weight: 700;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      footer ul li {
+        margin-bottom: 8px;
+      }
+      footer ul li a:hover {
+        color: #fff;
+      }
+      .foot-info {
+        line-height: 1.85;
+      }
+      .foot-info b {
+        color: #fff;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 12px;
+      }
+      .foot-bottom {
+        border-top: 1px solid #2a2a2a;
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 12px;
+      }
+      @media (max-width: 720px) {
+        .foot-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+
+      .price-hero {
+        background: var(--bg-cream);
+        padding: 64px 0 32px;
+      }
+      .price-hero h1 {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .price-hero p {
+        color: var(--ink-3);
+        font-size: 17px;
+        max-width: 620px;
+      }
+      .price-section {
+        padding: 48px 0 96px;
+      }
+      .price-section h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 48px 0 18px;
+      }
+      .price-section h2:first-child {
+        margin-top: 0;
+      }
+      .price-section p.note {
+        color: var(--ink-3);
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+      .price-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .price-table th,
+      .price-table td {
+        padding: 16px 20px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        font-size: 15px;
+      }
+      .price-table thead th {
+        background: var(--primary);
+        color: #fff;
+        font-weight: 600;
+      }
+      .price-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .price-table td.center {
+        text-align: center;
+      }
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 24px;
+      }
+      .plan {
+        padding: 30px 26px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        position: relative;
+      }
+      .plan.featured {
+        border-color: var(--primary);
+        border-width: 2px;
+      }
+      .plan .badge {
+        position: absolute;
+        top: -12px;
+        left: 24px;
+        background: var(--primary);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .plan .name {
+        font-size: 14px;
+        color: var(--ink-3);
+        font-weight: 600;
+      }
+      .plan .price {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 8px 0 4px;
+      }
+      .plan .price small {
+        font-size: 14px;
+        color: var(--ink-3);
+        font-weight: 500;
+      }
+      .plan ul {
+        list-style: none;
+        padding: 18px 0 0;
+        margin: 16px 0 0;
+        border-top: 1px solid var(--line);
+      }
+      .plan ul li {
+        padding: 6px 0 6px 22px;
+        position: relative;
+        font-size: 14px;
+        color: var(--ink-2);
+      }
+      .plan ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: 700;
+      }
+      .plan ul li.off {
+        color: #bfbfbf;
+      }
+      .plan ul li.off::before {
+        content: "–";
+        color: #bfbfbf;
+      }
+      @media (max-width: 820px) {
+        .plan-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .auth-page {
+        padding: 96px 0;
+        min-height: 60vh;
+      }
+      .auth-card {
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 40px 36px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        text-align: center;
+      }
+      .auth-card .lock-ico {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--primary-soft);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+      }
+      .auth-card h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .auth-card p {
+        color: var(--ink-3);
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+      .auth-form {
+        display: grid;
+        gap: 12px;
+        text-align: left;
+      }
+      .auth-form input {
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: inherit;
+      }
+      .auth-form input:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .auth-form .btn {
+        width: 100%;
+        margin-top: 4px;
+      }
+      .auth-form .or {
+        text-align: center;
+        color: var(--ink-3);
+        font-size: 13px;
+        margin: 6px 0;
+      }
+      .auth-foot {
+        margin-top: 18px;
+        font-size: 13px;
+        color: var(--ink-3);
+      }
+      .auth-foot a {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      .monitor-preview {
+        margin-top: 48px;
+        background: var(--bg-cream);
+        padding: 32px;
+        border-radius: var(--radius);
+        text-align: left;
+      }
+      .monitor-preview h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .monitor-preview p {
+        color: var(--ink-3);
+        font-size: 14px;
+        margin: 0 0 18px;
+      }
+      .monitor-preview ul {
+        padding-left: 18px;
+        color: var(--ink-2);
+        font-size: 14px;
+      }
+      .monitor-preview ul li {
+        margin-bottom: 6px;
+      }
+      .monitor-hub-intro {
+        max-width: 960px;
+        margin: 0 auto 40px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        align-items: stretch;
+      }
+      .monitor-hub-intro .hub-content {
+        padding: 40px 44px;
+      }
+      .monitor-hub-intro h2 {
+        font-size: 26px;
+        font-weight: 800;
+        margin: 0 0 18px;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      .monitor-hub-intro p {
+        margin: 0;
+        font-size: 15.5px;
+        line-height: 1.75;
+        color: var(--ink-2);
+      }
+      .monitor-hub-intro .hub-cta-pane {
+        background: var(--primary-soft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 36px 32px;
+        border-left: 1px solid var(--line);
+        gap: 14px;
+      }
+      .monitor-hub-intro .hub-cta-hint {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+      .monitor-hub-intro .monitor-hub-cta {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 22px 34px;
+        border-radius: 14px;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-deep) 100%
+        );
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        box-shadow:
+          0 10px 24px rgba(242, 88, 27, 0.4),
+          0 2px 6px rgba(199, 64, 13, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        animation: hubCtaPulse 2.4s ease-in-out infinite;
+      }
+      .monitor-hub-intro .monitor-hub-cta::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        animation: hubCtaRing 2.4s ease-out infinite;
+        pointer-events: none;
+      }
+      .monitor-hub-intro .monitor-hub-cta:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow:
+          0 16px 34px rgba(242, 88, 27, 0.5),
+          0 4px 10px rgba(199, 64, 13, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        animation-play-state: paused;
+      }
+      .monitor-hub-intro .monitor-hub-cta:active {
+        transform: translateY(-1px) scale(1);
+      }
+      @keyframes hubCtaPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 10px 24px rgba(242, 88, 27, 0.4),
+            0 2px 6px rgba(199, 64, 13, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        }
+        50% {
+          box-shadow:
+            0 12px 28px rgba(242, 88, 27, 0.55),
+            0 2px 6px rgba(199, 64, 13, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        }
+      }
+      @keyframes hubCtaRing {
+        0% {
+          box-shadow: 0 0 0 0 rgba(242, 88, 27, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 14px rgba(242, 88, 27, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(242, 88, 27, 0);
+        }
+      }
+      @media (max-width: 760px) {
+        .monitor-hub-intro {
+          grid-template-columns: 1fr;
+        }
+        .monitor-hub-intro .hub-content {
+          padding: 32px 28px;
+        }
+        .monitor-hub-intro h2 {
+          font-size: 22px;
+        }
+        .monitor-hub-intro .hub-cta-pane {
+          border-left: none;
+          border-top: 1px solid var(--line);
+          padding: 28px 24px;
+        }
+      }
+
+      .ai-hero {
+        background: var(--bg-cream);
+        padding: 64px 0 40px;
+      }
+      .ai-hero .lead {
+        color: var(--ink-3);
+        font-size: 17px;
+        max-width: 620px;
+      }
+      .ai-hero .free-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #2dbe6c;
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .monitor-hero {
+        background: var(--bg-cream);
+        padding: 64px 0 40px;
+      }
+      .monitor-hero .lead {
+        color: var(--ink-3);
+        font-size: 17px;
+        max-width: 620px;
+      }
+      .monitor-hero .live-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--primary);
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .ai-flow {
+        padding: 64px 0;
+      }
+      .ai-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .ai-step {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px;
+        position: relative;
+      }
+      .ai-step .num {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      .ai-step h4 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .ai-step p {
+        color: var(--ink-3);
+        font-size: 14px;
+        margin: 0;
+      }
+      @media (max-width: 980px) {
+        .ai-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .ai-steps {
+          grid-template-columns: 1fr;
+        }
+      }
+      .ai-form {
+        max-width: 580px;
+        margin: 48px auto 0;
+        padding: 36px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+      .ai-form h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .ai-form p {
+        color: var(--ink-3);
+        font-size: 14px;
+        margin: 0 0 20px;
+      }
+      .ai-form .field {
+        margin-bottom: 16px;
+      }
+      .ai-form label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .ai-form input,
+      .ai-form select,
+      .ai-form textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+      .ai-form input:focus,
+      .ai-form select:focus,
+      .ai-form textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .ai-form textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .ai-form .check-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .ai-form .check-row label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+        margin: 0;
+        cursor: pointer;
+      }
+      .ai-form .upload {
+        border: 2px dashed var(--line);
+        border-radius: 8px;
+        padding: 24px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .ai-form .upload:hover {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+      }
+      .ai-form .upload p {
+        margin: 0;
+        color: var(--ink-3);
+      }
+      .ai-disclaimer {
+        background: var(--primary-soft);
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        color: var(--ink-2);
+        border-left: 3px solid var(--primary);
+        margin-top: 16px;
+      }
+
+      .contact-hero {
+        background: var(--bg-cream);
+        padding: 64px 0 40px;
+      }
+      .contact-grid {
+        padding: 48px 0 96px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 56px;
+      }
+      .contact-form .field {
+        margin-bottom: 18px;
+      }
+      .contact-form label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 15px;
+      }
+      .contact-form input:focus,
+      .contact-form select:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 130px;
+      }
+      .contact-form .btn {
+        padding: 14px 28px;
+      }
+      .contact-info {
+        padding: 32px;
+        background: var(--bg-cream);
+        border-radius: var(--radius);
+        height: fit-content;
+      }
+      .contact-info h3 {
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+      .contact-info dl {
+        margin: 0;
+      }
+      .contact-info dt {
+        color: var(--ink-3);
+        font-size: 13px;
+        margin-top: 18px;
+        font-weight: 500;
+      }
+      .contact-info dt:first-child {
+        margin-top: 0;
+      }
+      .contact-info dd {
+        margin: 4px 0 0;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .contact-info .channels {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .contact-info .channels a {
+        padding: 8px 14px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .contact-info .channels a:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      @media (max-width: 820px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--ink);
+        color: #fff;
+        padding: 14px 22px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        z-index: 200;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-6px);
+      }
+
+      /* ---- AI 피부 체험 (skinFrontEnd 문진·업로드 흐름) ---- */
+      .skin-trial {
+        max-width: 560px;
+        margin: 0 auto;
+      }
+      .skin-trial-steps {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 28px;
+        padding: 16px 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+      .skin-trial-step {
+        flex: 1;
+        text-align: center;
+      }
+      .skin-trial-step .bubble {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 8px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 14px;
+        background: #f3f3f3;
+        color: var(--ink-3);
+        border: 2px solid var(--line);
+      }
+      .skin-trial-step.active .bubble {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary-deep);
+        box-shadow: 0 4px 14px rgba(242, 88, 27, 0.35);
+      }
+      .skin-trial-step.done .bubble {
+        background: #2dbe6c;
+        color: #fff;
+        border-color: #1fa355;
+      }
+      .skin-trial-step span {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink-3);
+      }
+      .skin-trial-step.active span {
+        color: var(--primary);
+      }
+      .skin-trial-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        margin-bottom: 16px;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+      }
+      .skin-trial-card h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+      }
+      .skin-trial-card .sub {
+        margin: 0 0 18px;
+        color: var(--ink-3);
+        font-size: 14px;
+      }
+      .skin-field {
+        margin-bottom: 16px;
+      }
+      .skin-field label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .skin-field input[type="text"],
+      .skin-field input[type="number"],
+      .skin-field input[type="date"],
+      .skin-field select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+      .skin-field input:focus,
+      .skin-field select:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .skin-dob-selects {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 8px;
+      }
+      .skin-dob-sel {
+        flex: 1;
+        min-width: 88px;
+        max-width: 160px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        background: #fff;
+      }
+      .skin-dob-sep,
+      .skin-dob-suf {
+        font-size: 14px;
+        color: var(--ink-2);
+        user-select: none;
+      }
+      .skin-breed-list {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin-top: 4px;
+        max-height: 360px;
+        overflow-y: auto;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        z-index: 50;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+      .skin-breed-empty {
+        padding: 12px;
+        font-size: 13px;
+        color: var(--ink-3);
+        text-align: center;
+      }
+      .skin-choice-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .skin-choice {
+        padding: 12px;
+        border: 2px solid var(--line);
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .skin-choice:hover {
+        border-color: var(--primary);
+      }
+      .skin-choice.selected {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+        color: var(--primary-deep);
+      }
+      .skin-pruritus .skin-choice {
+        text-align: left;
+      }
+      .skin-pruritus .skin-choice small {
+        display: block;
+        font-weight: 500;
+        color: var(--ink-3);
+        font-size: 12px;
+        margin-top: 4px;
+      }
+      .skin-subgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .skin-sub {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .skin-sub input {
+        width: 16px;
+        height: 16px;
+      }
+      .skin-upload-zone {
+        border: 2px dashed var(--line);
+        border-radius: 12px;
+        padding: 32px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .skin-upload-zone:hover {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+      }
+      .skin-crop-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .skin-crop-modal[hidden] {
+        display: none !important;
+      }
+      .skin-crop-inner {
+        background: #fff;
+        border-radius: 16px;
+        max-width: 900px;
+        width: 100%;
+        max-height: 92vh;
+        overflow: auto;
+        padding: 20px;
+      }
+      .skin-crop-inner img {
+        max-height: 55vh;
+        display: block;
+        margin: 0 auto;
+      }
+      .skin-crop-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      /* skinFrontEnd DiagnosisResult 와 동일: 224×224 크롭 미리보기 */
+      .skin-preview-wrap {
+        text-align: center;
+        margin: 18px 0 8px;
+      }
+      .skin-preview-wrap .skin-preview-caption {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-2);
+        margin: 0 0 10px;
+      }
+      .skin-preview-img {
+        width: 224px;
+        height: 224px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 2px solid #93c5fd;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        margin: 0 auto;
+        display: block;
+        background: #f8fafc;
+      }
+      .skin-preview-result {
+        margin-bottom: 16px;
+      }
+      .skin-result-box {
+        background: var(--bg-cream);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        margin-top: 12px;
+      }
+      .skin-result-box h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .skin-result-box p {
+        margin: 0;
+        color: var(--ink-2);
+        font-size: 14px;
+        line-height: 1.65;
+        white-space: pre-wrap;
+      }
+      .skin-error {
+        color: #b91c1c;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .skin-breed-dd {
+        position: relative;
+      }
+      .skin-breed-list.open {
+        display: block;
+      }
+      .skin-breed-list button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 8px 12px;
+        border: none;
+        background: none;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .skin-breed-list button:hover {
+        background: var(--primary-soft);
+      }
+      .skin-breed-list button.skin-breed-row {
+        padding: 10px 12px;
+      }
+      .skin-breed-line1 {
+        display: block;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--ink);
+        line-height: 1.35;
+      }
+      .skin-breed-line2 {
+        display: block;
+        font-size: 12px;
+        color: var(--ink-3);
+        font-weight: 500;
+        margin-top: 3px;
+        line-height: 1.35;
+      }
+      .skin-breed-picked {
+        margin-top: 10px;
+        padding: 10px 12px;
+        background: var(--bg-cream);
+        border-radius: 8px;
+        border: 1px solid var(--line);
+      }
+      .skin-breed-pick-ko {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .skin-breed-pick-en {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: var(--ink-3);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="logo" data-page="home"
+          >Talktail<small data-i18n="logo.tag">by Creamoff</small></a
+        >
+        <div class="nav-menu" id="navMenu">
+          <button class="nav-link active" data-page="home" data-i18n="nav.home">
+            홈
+          </button>
+          <button class="nav-link" data-page="monitor" data-i18n="nav.monitor">
+            Tailing
+          </button>
+          <button class="nav-link" data-page="ai-skin" data-i18n="nav.aiSkin">
+            Talktail Care
+          </button>
+          <button class="nav-link" data-page="price" data-i18n="nav.price">
+            가격
+          </button>
+          <button class="nav-link" data-page="contact" data-i18n="nav.contact">
+            문의
+          </button>
+          <a href="#" class="nav-cta" data-page="contact" data-i18n="nav.cta"
+            >상담 신청</a
+          >
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button data-lang="ko" class="active">KR</button>
+            <button data-lang="en">EN</button>
           </div>
         </div>
-        <div class="field">
-          <label data-i18n="aiForm.onset">증상이 시작된 시점</label>
-          <select>
-            <option data-i18n="aiForm.onset1">3일 이내</option>
-            <option data-i18n="aiForm.onset2">1주일 이내</option>
-            <option data-i18n="aiForm.onset3">2~4주 이내</option>
-            <option data-i18n="aiForm.onset4">한 달 이상</option>
-          </select>
-        </div>
-        <div class="field">
-          <label data-i18n="aiForm.uploadLabel">의심 부위 사진</label>
-          <label class="upload">
-            <p data-i18n="aiForm.uploadHint">📷 클릭해서 사진을 업로드하세요</p>
-            <p style="font-size:12px;margin-top:6px" data-i18n="aiForm.uploadSubhint">최대 5장 / JPG, PNG 가능</p>
-            <input type="file" accept="image/*" multiple style="display:none" />
-          </label>
-        </div>
-        <div class="field">
-          <label data-i18n="aiForm.notes">추가로 알려주실 내용 (선택)</label>
-          <textarea data-i18n-attr="placeholder:aiForm.notesPlaceholder" placeholder="예) 평소 알레르기가 있어요 / 최근 사료를 바꿨어요"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;padding:14px" data-i18n="aiForm.submit">AI 분석 시작</button>
-        <div class="ai-disclaimer" data-i18n="aiForm.disclaimer">※ AI 분석 결과는 의심 질환 가능성을 정리한 참고 자료이며, 확정 진단은 수의사 검사가 필요합니다. 업로드한 사진과 설문 내용은 분석 후 일정 기간 보관되며, 회원이 아닌 경우 식별 정보 없이 처리됩니다.</div>
-      </form>
-    </div>
-  </section>
-</div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
-<div class="page" id="page-price">
-  <section class="price-hero">
-    <div class="container">
-      <span class="eyebrow" data-i18n="price.eyebrow">가격 안내</span>
-      <h1 data-i18n="price.title">디바이스는 한 번 구매,<br/>플랫폼은 필요한 만큼만 구독합니다.</h1>
-      <p data-i18n="price.desc">가정에서 한 마리를 측정하는 경우와, 병원/시설에서 여러 마리를 관리하는 경우의 구성이 다릅니다. 현재 환경을 알려주시면 더 적합한 구성으로 안내드립니다.</p>
-    </div>
-  </section>
-
-  <section class="price-section">
-    <div class="container">
-      <h2 data-i18n="price.section1">1. 디바이스 가격</h2>
-      <p class="note" data-i18n="price.note1">Tailing Device(웨어러블) + Talktail Hub(통신 허브) 조합으로 제공됩니다. 허브 1대에 디바이스 5대까지 연결됩니다.</p>
-      <table class="price-table">
-        <thead><tr><th data-i18n="price.col1">구분</th><th data-i18n="price.col2">구성</th><th class="center">USD</th><th class="center">EUR</th></tr></thead>
-        <tbody>
-          <tr><td><b data-i18n="price.basicPkg">기본 패키지</b></td><td data-i18n="price.basicDesc">Tailing Device 1대 + Talktail Hub 1대</td><td class="center">$299 / set</td><td class="center">€299 / set</td></tr>
-          <tr><td><b data-i18n="price.addDev">추가 디바이스</b></td><td data-i18n="price.addDevDesc">허브 1대 기준 최대 4대 추가 (총 5대)</td><td class="center" data-i18n="price.perDevice">$299 / 대</td><td class="center" data-i18n="price.perDeviceEur">€299 / 대</td></tr>
-          <tr><td><b data-i18n="price.bulk">대량 구매</b></td><td data-i18n="price.bulkDesc">디바이스 6대 이상 또는 다수 허브가 필요한 경우</td><td class="center" colspan="2" data-i18n="price.bulkPrice">별도 견적 (문의)</td></tr>
-        </tbody>
-      </table>
-
-      <h2 data-i18n="price.section2">2. 솔루션 구독 플랜</h2>
-      <p class="note" data-i18n="price.note2">Basic부터 시작해 필요한 시점에 상위 플랜으로 변경할 수 있습니다.</p>
-
-      <div class="plan-grid">
-        <div class="plan">
-          <div class="name">Basic</div>
-          <div class="price">$29<small data-i18n="plan.month"> / 월</small></div>
-          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.basicSubtitle">기본 측정과 알림이 필요한 가정용 사용자에게.</p>
-          <ul>
-            <li data-i18n="plan.basic.f1">24/7 실시간 측정 (심박·호흡·활동·수면)</li>
-            <li data-i18n="plan.basic.f2">데이터 저장 / 다운로드</li>
-            <li data-i18n="plan.basic.f3">여러 마리 모니터링</li>
-            <li data-i18n="plan.basic.f4">이상 행동 알림</li>
-            <li class="off" data-i18n="plan.basic.f5">AI 행동 분석 인사이트</li>
-            <li class="off" data-i18n="plan.basic.f6">HRV 스트레스 분석</li>
-            <li class="off" data-i18n="plan.basic.f7">AI 헬스 요약</li>
-            <li class="off" data-i18n="plan.basic.f8">건강 위험 감지</li>
-          </ul>
-          <a href="#" class="btn btn-secondary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.basicCta">시작 문의</a>
+    <div class="page active" id="page-home">
+      <section class="hero" style="padding-top: 64px">
+        <div class="container hero-grid">
+          <div>
+            <div class="hero-pretitle">
+              <span class="status-dot"></span>
+              <span data-i18n="hero.preLaunch"
+                >2026년 7월 정식 출시 , 문의 받습니다</span
+              >
+            </div>
+            <span class="eyebrow" data-i18n="hero.eyebrow"
+              >Pet Health, Closer to You</span
+            >
+            <h1 data-i18n="hero.title">
+              꼬리로 말하는 신호,<br /><span class="nowrap"
+                ><span class="accent">Talktail</span>로 매일 확인하세요.</span
+              >
+            </h1>
+            <p class="lead" data-i18n="hero.lead">
+              반려동물의 심박수, 체온, 활동량을 24시간 측정하고<br />평소와
+              달라진 변화가 있을 때 알려드립니다.
+            </p>
+            <div class="hero-actions">
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-page="price"
+                data-i18n="hero.cta1"
+                >가격 살펴보기</a
+              >
+              <a
+                href="#"
+                class="btn btn-secondary"
+                data-page="contact"
+                data-i18n="hero.cta2"
+                >도입 문의하기</a
+              >
+              <a
+                href="#"
+                class="btn btn-ghost"
+                data-page="ai-skin"
+                data-i18n="hero.cta3"
+                >AI 피부분석 무료 체험 →</a
+              >
+            </div>
+            <div class="hero-meta">
+              <div>
+                <b data-i18n="hero.meta1Num">3가지</b
+                ><span data-i18n="hero.meta1">핵심 센서 탑재</span>
+              </div>
+              <div>
+                <b data-i18n="hero.meta2Num">24/7</b
+                ><span data-i18n="hero.meta2">실시간 데이터 수집</span>
+              </div>
+              <div>
+                <b data-i18n="hero.meta3Num">5대</b
+                ><span data-i18n="hero.meta3">허브 1대당 최대 연결 수</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="image1.png" alt="Talktail" />
+          </div>
         </div>
-        <div class="plan featured">
-          <div class="badge" data-i18n="plan.recommended">추천</div>
-          <div class="name">Standard</div>
-          <div class="price">$59<small data-i18n="plan.month2"> / 월</small></div>
-          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.standardSubtitle">행동 분석과 스트레스 지표까지 보고 싶을 때.</p>
-          <ul>
-            <li data-i18n="plan.standard.f1">Basic의 모든 기능</li>
-            <li data-i18n="plan.standard.f2">AI 행동 분석 인사이트</li>
-            <li data-i18n="plan.standard.f3">HRV(심박 변이도) 스트레스 분석</li>
-            <li class="off" data-i18n="plan.standard.f4">AI 헬스 요약</li>
-            <li class="off" data-i18n="plan.standard.f5">건강 위험 감지</li>
-            <li class="off" data-i18n="plan.standard.f6">AI 챗봇 / Agent</li>
-          </ul>
-          <a href="#" class="btn btn-primary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.standardCta">Standard 문의</a>
-        </div>
-        <div class="plan">
-          <div class="name">Premium</div>
-          <div class="price">$99<small data-i18n="plan.month3"> / 월</small></div>
-          <p style="font-size:14px;color:var(--ink-3);margin:0" data-i18n="plan.premiumSubtitle">병원·시설 등 여러 개체를 깊게 관리해야 하는 경우.</p>
-          <ul>
-            <li data-i18n="plan.premium.f1">Standard의 모든 기능</li>
-            <li data-i18n="plan.premium.f2">AI 헬스 요약</li>
-            <li data-i18n="plan.premium.f3">건강 위험 감지</li>
-            <li data-i18n="plan.premium.f4">AI 챗봇 지원</li>
-            <li data-i18n="plan.premium.f5">AI Agent 연동</li>
-            <li data-i18n="plan.premium.f6">맞춤형 마케팅 솔루션</li>
-          </ul>
-          <a href="#" class="btn btn-secondary" data-page="contact" style="margin-top:18px;display:block;text-align:center" data-i18n="plan.premiumCta">기관용 견적</a>
+      </section>
+
+      <div class="trust-bar">
+        <div class="container trust-row">
+          <span
+            ><strong data-i18n="trust.1.k">Creamoff Co., Ltd.</strong>
+            <span data-i18n="trust.1.v">경북 경산 본사</span></span
+          >
+          <span
+            ><strong data-i18n="trust.2.k">Tailing Device</strong>
+            <span data-i18n="trust.2.v">PPG · 체온 · IMU 센서</span></span
+          >
+          <span
+            ><strong data-i18n="trust.3.k">Tailing Hub</strong>
+            <span data-i18n="trust.3.v">스마트폰 없이도 데이터 수집</span></span
+          >
+          <span
+            ><strong data-i18n="trust.4.k">Talktail Care</strong>
+            <span data-i18n="trust.4.v">AI 피부 분석</span></span
+          >
         </div>
       </div>
 
-      <div style="margin-top:36px;padding:20px;background:var(--bg-cream);border-radius:var(--radius);font-size:14px;color:var(--ink-2);line-height:1.75">
-        <b data-i18n="price.notice">안내사항</b><br/>
-        <span data-i18n="price.notice1">· 표시된 가격은 부가세 별도이며, 환율과 결제 방식에 따라 최종 결제 금액이 달라질 수 있습니다.</span><br/>
-        <span data-i18n="price.notice2">· 도입 후 일정 기간 사용 피드백을 받아, 필요한 부분은 함께 조정합니다.</span><br/>
-        <span data-i18n="price.notice3">· 기관/병원 도입은 별도 계약과 결제 방식으로 진행됩니다.</span>
+      <section class="problem">
+        <div class="container">
+          <span class="eyebrow" data-i18n="problem.eyebrow">왜 필요한가요</span>
+          <h2 class="section-title" data-i18n="problem.title">
+            평소엔 멀쩡해 보였는데,<br />병원 가면 늦은 경우가 많습니다.
+          </h2>
+          <p class="section-lead" data-i18n="problem.lead">
+            반려동물은 아픈 티를 잘 내지 않습니다. 보호자가 '이상하다'고 느꼈을
+            때는 이미 질병이<br />진행된 경우가 많아, 평소 상태를 수치로 기록해
+            두는 것이 도움이 됩니다.
+          </p>
+
+          <div class="problem-stats">
+            <div class="ps-item">
+              <b data-i18n="bg.stat1.num">1,500만</b>
+              <span data-i18n="bg.stat1.label">국내 반려가구 수</span>
+              <small data-i18n="bg.stat1.sub">전체 가구의 약 28%</small>
+            </div>
+            <div class="ps-item">
+              <b data-i18n="bg.stat2.num">40%</b>
+              <span data-i18n="bg.stat2.label"
+                >8세 이상 노령기 심장질환 발생 비율</span
+              >
+              <small data-i18n="bg.stat2.sub"
+                >고령기 가장 흔한 사망 원인 중 하나</small
+              >
+            </div>
+            <div class="ps-item">
+              <b data-i18n="bg.stat3.num">24h</b>
+              <span data-i18n="bg.stat3.label"
+                >증상이 잘 보이지 않는 경우 다수</span
+              >
+              <small data-i18n="bg.stat3.sub"
+                >진단을 통해서만 발견되는 사례가 많음</small
+              >
+            </div>
+          </div>
+
+          <div class="problem-list">
+            <div class="problem-item">
+              <span class="q">Q</span>
+              <p data-i18n="problem.q1">
+                요즘 들어 잠이 늘었는데, 원래 이 정도였는지 기억이 잘 나지
+                않습니다.
+              </p>
+            </div>
+            <div class="problem-item">
+              <span class="q">Q</span>
+              <p data-i18n="problem.q2">
+                호흡이 빠른 것 같은데, 측정해서 비교할 만한 기준이 없습니다.
+              </p>
+            </div>
+            <div class="problem-item">
+              <span class="q">Q</span>
+              <p data-i18n="problem.q3">
+                피부에 변화가 생겼는데 병원에 갈지 지켜볼지 판단이 어렵습니다.
+              </p>
+            </div>
+            <div class="problem-item">
+              <span class="q">Q</span>
+              <p data-i18n="problem.q4">
+                병원에 다녀와도 진료 기록이 종이나 사진으로 흩어져 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <span class="eyebrow" data-i18n="solution.eyebrow"
+            ><span class="no-upper">Talktail</span>이 하는 일</span
+          >
+          <h2 class="section-title" data-i18n="solution.title">
+            측정, 분석을<br />한 흐름으로 이어줍니다.
+          </h2>
+          <p class="section-lead" data-i18n="solution.lead">
+            디바이스로 데이터를 모으고 플랫폼에서 흐름을 정리하고, 피부 이상이
+            의심되는 부분은<br />AI 분석으로 예측합니다.
+          </p>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="ico">●</div>
+              <h3 data-i18n="pillar1.title">Tailing Device</h3>
+              <p data-i18n="pillar1.desc">
+                목에 걸어두는 웨어러블 기기. 평소 활동과 체온을 자동으로
+                기록합니다.
+              </p>
+              <ul>
+                <li data-i18n="pillar1.li1">심박수와 산소포화도(SpO₂)</li>
+                <li data-i18n="pillar1.li2">체온 변화 감지</li>
+                <li data-i18n="pillar1.li3">걷기·뛰기 등 활동 패턴</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="ico">▤</div>
+              <h3 data-i18n="pillar2.title">Talktail Platform</h3>
+              <p data-i18n="pillar2.desc">
+                수집된 데이터를 확인하고, 평소와 달라진 점을<br />함께 정리해
+                보여줍니다.
+              </p>
+              <ul>
+                <li data-i18n="pillar2.li1">실시간 대시보드</li>
+                <li data-i18n="pillar2.li2">HRV(심박 변이도) 스트레스 분석</li>
+                <li data-i18n="pillar2.li3">이상 징후 발생 시 알림</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="ico">♥</div>
+              <h3 data-i18n="pillar3.title">Talktail Care</h3>
+              <p data-i18n="pillar3.desc">
+                피부 사진을 올리면 AI가 분석하고 의심질환을<br />예측합니다.
+              </p>
+              <ul>
+                <li data-i18n="pillar3.li1">문진 및 사진 기반 분석</li>
+                <li data-i18n="pillar3.li2">알고리즘 및 AI 기반 예측</li>
+                <li data-i18n="pillar3.li3">위치 기반 동물병원 안내</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sensors">
+        <div class="container">
+          <span class="eyebrow" data-i18n="sensors.eyebrow">기술 구성</span>
+          <h2 class="section-title" data-i18n="sensors.title">
+            환축 감시 장치를 웨어러블 타입으로<br />반려동물에 맞게 다시
+            설계했습니다.
+          </h2>
+          <p class="section-lead" data-i18n="sensors.lead">
+            적합한 크기로 줄이고, 털과 움직임이 많은 환경에서도 측정값이
+            흔들리지 않도록 설계했습니다.
+          </p>
+          <div class="sensors-grid">
+            <div class="sensors-list">
+              <div class="sensor">
+                <div class="icon">♡</div>
+                <div>
+                  <h4 data-i18n="sensor1.title">PPG 센서 — 심박수 / SpO₂</h4>
+                  <p data-i18n="sensor1.desc">
+                    털을 깎지 않고도 측정되도록 광학 구조를 설계했습니다. 목
+                    경동맥 부위에서<br />심박과 혈중 산소 포화도를 지속적으로
+                    측정합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="sensor">
+                <div class="icon">°</div>
+                <div>
+                  <h4 data-i18n="sensor2.title">온도 센서 — 체온</h4>
+                  <p data-i18n="sensor2.desc">
+                    피부 접촉 부위의 온도 변화를 측정해 발열 같은 이상 신호를
+                    확인합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="sensor">
+                <div class="icon">⌖</div>
+                <div>
+                  <h4 data-i18n="sensor3.title">IMU 센서 — 자세 / 활동</h4>
+                  <p data-i18n="sensor3.desc">
+                    가속도와 자이로 데이터를 활용해 걷기, 뛰기, 휴식 시간을
+                    자동으로 분류합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="sensor">
+                <div class="icon">✦</div>
+                <div>
+                  <h4 data-i18n="sensor4.title">AI 분석 — 이상징후 추적</h4>
+                  <p data-i18n="sensor4.desc">
+                    수집된 데이터를 기록해 평소 패턴을 학습하고, 달라진 부분이
+                    있으면 알려줍니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="sensors-visual">
+              <div class="vital-card ok">
+                <div>
+                  <div class="lbl" data-i18n="vital.heartLabel">심박수</div>
+                  <div class="val">118 <small>bpm</small></div>
+                </div>
+                <div
+                  style="font-size: 13px; color: #2dbe6c; font-weight: 600"
+                  data-i18n="vital.normal"
+                >
+                  정상
+                </div>
+              </div>
+              <div class="vital-card ok">
+                <div>
+                  <div class="lbl" data-i18n="vital.spo2Label">SpO₂</div>
+                  <div class="val">98 <small>%</small></div>
+                </div>
+                <div
+                  style="font-size: 13px; color: #2dbe6c; font-weight: 600"
+                  data-i18n="vital.normal2"
+                >
+                  정상
+                </div>
+              </div>
+              <div class="vital-card warn">
+                <div>
+                  <div class="lbl" data-i18n="vital.tempLabel">체온</div>
+                  <div class="val">38.6 <small>°C</small></div>
+                </div>
+                <div
+                  style="
+                    font-size: 13px;
+                    color: var(--primary);
+                    font-weight: 600;
+                  "
+                  data-i18n="vital.observe"
+                >
+                  관찰 권장
+                </div>
+              </div>
+              <div class="vital-card ok">
+                <div>
+                  <div class="lbl" data-i18n="vital.activityLabel">
+                    현재 활동 상태
+                  </div>
+                  <div class="val" data-i18n="vital.activityVal">걷는 중</div>
+                </div>
+                <div
+                  style="font-size: 13px; color: #2dbe6c; font-weight: 600"
+                  data-i18n="vital.normalRange"
+                >
+                  10분
+                </div>
+              </div>
+              <p
+                style="
+                  margin-top: 14px;
+                  font-size: 13px;
+                  color: var(--ink-3);
+                  text-align: left;
+                "
+                data-i18n="sensors.note"
+              >
+                ※ 화면은 예시이며, 실제 수치는 반려동물에 따라 다르게
+                보정됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="container">
+          <span class="eyebrow" data-i18n="process.eyebrow">진행 과정</span>
+          <h2 class="section-title" data-i18n="process.title">
+            구독부터 알림까지,<br />5단계로 정리됩니다.
+          </h2>
+          <div class="steps">
+            <div class="step">
+              <span class="num">STEP 01</span>
+              <h4 data-i18n="step1.title">구매 및 구독</h4>
+              <p data-i18n="step1.desc">
+                디바이스와 허브를 구매하고<br />디바이스는 한 허브에 총 5대까지
+                연결됩니다.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num">STEP 02</span>
+              <h4 data-i18n="step2.title">허브 및 디바이스 등록</h4>
+              <p data-i18n="step2.desc">
+                허브, 디바이스, 반려동물을<br />등록한 후에 디바이스를<br />반려동물에
+                착용시킵니다.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num">STEP 03</span>
+              <h4 data-i18n="step3.title">데이터 측정 및 수집</h4>
+              <p data-i18n="step3.desc">
+                측정을 시작하면 디바이스는<br />측정을 하고 허브는 데이터를<br />수집합니다.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num">STEP 04</span>
+              <h4 data-i18n="step4.title">모니터링</h4>
+              <p data-i18n="step4.desc">
+                Talktail 플랫폼으로 디바이스가 수집한 데이터를 확인할 수<br />있습니다.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num">STEP 05</span>
+              <h4 data-i18n="step5.title">이상 신호 알림</h4>
+              <p data-i18n="step5.desc">
+                평소와 다른 패턴이 보이면 Talktail로 알려드립니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section>
+        <div class="container">
+          <span class="eyebrow" data-i18n="diff.eyebrow">왜 탈테일인지</span>
+          <h2 class="section-title" data-i18n="diff.title">
+            기능을 늘리기보다,<br />실제로 쓰는 흐름에 집중했습니다.
+          </h2>
+          <div class="diff-list">
+            <div class="diff-item">
+              <div class="num">01</div>
+              <div>
+                <h3 data-i18n="diff1.title">
+                  스마트폰이 없어도 데이터가 끊기지 않습니다
+                </h3>
+                <p data-i18n="diff1.desc">
+                  외출 중이거나 보호자가 잠시 자리를 비워도 허브가 데이터를 받아
+                  둡니다. 네트워크가 다시 연결되면 그 사이의 기록까지 함께
+                  정리됩니다.
+                </p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="num">02</div>
+              <div>
+                <h3 data-i18n="diff2.title">한 마리만 보지 않습니다</h3>
+                <p data-i18n="diff2.desc">
+                  가정에서 여러 마리를 키우거나, 동물병원·요양시설처럼 여러
+                  개체를 관리해야 하는 경우에도 같은 화면에서 한꺼번에 확인할 수
+                  있도록 만들었습니다.
+                </p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="num">03</div>
+              <div>
+                <h3 data-i18n="diff3.title">
+                  이상 신호와 진료 기록을 분리하지 않습니다
+                </h3>
+                <p data-i18n="diff3.desc">
+                  측정 데이터, AI 피부 분석 결과, 수의사 상담 내용을 하나의
+                  기록으로 묶어 다음 진료 때 다시 설명할 필요가 줄도록
+                  정리합니다.
+                </p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="num">04</div>
+              <div>
+                <h3 data-i18n="diff4.title">
+                  처음부터 모든 기능을 강요하지 않습니다
+                </h3>
+                <p data-i18n="diff4.desc">
+                  월 29달러부터 시작해 필요할 때 상위 플랜으로 옮길 수 있습니다.
+                  AI 분석이나 수의사 상담은 사용 빈도에 맞는 플랜에서만
+                  활성화됩니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="validation">
+        <div class="container">
+          <span class="eyebrow" data-i18n="val.eyebrow">검증과 정확도</span>
+          <h2 class="section-title" data-i18n="val.title">
+            데이터로 신뢰를<br />먼저 만들어두었습니다.
+          </h2>
+          <p class="section-lead" data-i18n="val.lead">
+            측정 정확도, AI 분류 성능, 국내외 인증을 출시 전에 단계별로
+            확인했습니다. 진단을 대신하지는 않지만, 보호자와 수의사가 함께
+            참고할 수 있는 수준을 목표로 합니다.
+          </p>
+          <div class="metric-groups">
+            <div class="metric-group metric-group--device">
+              <span class="metric-group-label">Tailing Device</span>
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <b data-i18n="val.m1.num">98%+</b>
+                  <h4 data-i18n="val.m1.title">측정 정확도</h4>
+                  <p data-i18n="val.m1.desc">입회 시험 기관 검증 결과 기준</p>
+                </div>
+                <div class="metric-card">
+                  <b data-i18n="val.m2.num">96–99%</b>
+                  <h4 data-i18n="val.m2.title">부정맥 탐지 AI</h4>
+                  <p data-i18n="val.m2.desc">
+                    전처리·신호 증강 학습으로 가정 환경<br />노이즈에서도 안정적
+                  </p>
+                </div>
+                <div class="metric-card">
+                  <b data-i18n="val.m4.num">36h+</b>
+                  <h4 data-i18n="val.m4.title">배터리 사용 시간</h4>
+                  <p data-i18n="val.m4.desc">
+                    충전 1회 기준 연속 사용 가능 시간
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="metric-group metric-group--care">
+              <span class="metric-group-label">Talktail Care</span>
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <b data-i18n="val.m3.num">85%</b>
+                  <h4 data-i18n="val.m3.title">피부 질환 분류</h4>
+                  <p data-i18n="val.m3.desc">
+                    사진 한 장으로 의심 질환 종류를 분류, 동물병원<br />진료로
+                    자연스럽게 연결
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="cert-row">
+            <div class="cert">
+              <b>KC</b><span data-i18n="val.cert1">국내 판매 적합성 확보</span>
+            </div>
+            <div class="cert">
+              <b>FCC</b><span data-i18n="val.cert2">북미 판매 적합성 확보</span>
+            </div>
+            <div class="cert">
+              <b data-i18n="val.cert3.b">특허 3건</b
+              ><span data-i18n="val.cert3">PPG · AI 학습 관련 출원</span>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="container">
+          <span class="eyebrow" data-i18n="faq.eyebrow">자주 묻는 질문</span>
+          <h2 class="section-title" data-i18n="faq.title">
+            시작 전에 자주 받는 질문들
+          </h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary data-i18n="faq1.q">
+                어떤 동물에 사용할 수 있나요?
+              </summary>
+              <div class="answer" data-i18n="faq1.a">
+                현재는 반려견을 우선으로 데이터를 보정해두었습니다. 반려묘의
+                경우 베타 단계로 일부 측정 항목이 제한될 수 있어, 도입 전 사용
+                환경을 확인한 뒤 안내드립니다.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq2.q">
+                측정 정확도는 어느 정도인가요?
+              </summary>
+              <div class="answer" data-i18n="faq2.a">
+                가정용 측정기 수준의 참고 데이터입니다. 진단을 대신하지는
+                않으며, 평소 상태를 누적 기록해 변화 시점을 빠르게 알아채는
+                용도로 활용해 주세요. 치료가 필요한 경우 수의사와 함께 데이터를
+                확인하시는 것을 권장합니다.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq3.q">배터리는 얼마나 가나요?</summary>
+              <div class="answer" data-i18n="faq3.a">
+                현재 양산 기준 충전 1회당 36시간 이상 사용 가능하도록 설계되어
+                있습니다. 측정 빈도와 통신 환경에 따라 차이가 생길 수 있어,
+                정확한 충전 주기는 출시 시점에 사용 설명서로 함께 안내드립니다.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq4.q">AI 피부 분석은 정확한가요?</summary>
+              <div class="answer" data-i18n="faq4.a">
+                의심되는 질환의 가능성을 정리해 주는 보조 도구입니다. 확정
+                진단은 수의사의 검사가 필요하며, 분석 결과를 바탕으로 제휴 병원
+                상담을 바로 신청할 수 있도록 연결해 드립니다.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq5.q">
+                한 허브에 디바이스를 몇 대까지 연결할 수 있나요?
+              </summary>
+              <div class="answer" data-i18n="faq5.a">
+                허브 1대당 디바이스 5대까지 연결됩니다. 병원, 호텔, 보호소처럼
+                6대 이상이 필요한 경우 허브를 추가하거나, 기관용 견적으로 별도
+                안내드립니다.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq6.q">
+                구독은 언제든 변경할 수 있나요?
+              </summary>
+              <div class="answer" data-i18n="faq6.a">
+                가능합니다. Basic에서 시작해 필요한 시점에 Standard, Premium으로
+                변경하거나 반대로 낮추는 것도 됩니다. 상위 플랜에서만 제공되는
+                기능은 변경 즉시 활성화·비활성화됩니다.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <div class="container cta-grid">
+          <div>
+            <h2 data-i18n="cta.title">
+              먼저 우리 환경에 맞는지<br />확인해 보고 싶으시다면
+            </h2>
+            <p data-i18n="cta.desc">
+              병원용/시설용 등 사용 환경을 알려주시면, 그에 맞는 구성과
+              견적을<br />정리해 드립니다.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a
+              href="#"
+              class="btn btn-primary"
+              data-page="contact"
+              data-i18n="cta.action1"
+              >상담 신청하기</a
+            >
+            <a
+              href="#"
+              class="btn-light"
+              data-page="ai-skin"
+              data-i18n="cta.action2"
+              >AI 피부분석 체험</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="page" id="page-monitor">
+      <section class="monitor-hero">
+        <div class="container">
+          <span class="live-tag" data-i18n="monitor.bannerTag"
+            >● 24/7 실시간 모니터링</span
+          >
+          <h1
+            style="font-size: 38px; font-weight: 800; margin-bottom: 14px"
+            data-i18n="monitor.bannerTitle"
+          >
+            Tailing이 측정한 건강 데이터,<br />한 화면에서 확인하세요.
+          </h1>
+          <p class="lead" data-i18n="monitor.bannerLead">
+            심박, SpO₂, 체온, 활동량을 실시간으로 보고, 기간별 기록과 HRV
+            스트레스 분석까지 등록한 반려동물 기준으로 한 번에 확인할 수
+            있습니다.
+          </p>
+        </div>
+      </section>
+      <section class="auth-page">
+        <div class="container">
+          <div class="monitor-hub-intro">
+            <div class="hub-content">
+              <h2 data-i18n="monitor.hubTitle">Tailing</h2>
+              <p data-i18n="monitor.hubDesc">
+                Tailing은 반려동물 웨어러블과 연결되어, 스마트폰이 곁에 없어도
+                심박·활동 등 건강 데이터를 안정적으로 수집합니다. 허브 1대당
+                디바이스 최대 5대까지 연결할 수 있으며, 실제 모니터링·관리
+                화면은 Tailing 링크에서 이용할 수 있습니다.
+              </p>
+            </div>
+            <div class="hub-cta-pane">
+              <a
+                class="monitor-hub-cta"
+                href="https://creamoff.o-r.kr"
+                target="_blank"
+                rel="noopener"
+                data-i18n="monitor.hubCta"
+                >Tailing 바로 가기 →</a
+              >
+            </div>
+          </div>
+          <!-- <div class="container" style="max-width: 680px">
+            <div class="monitor-preview">
+              <h3 data-i18n="monitor.previewTitle">
+                로그인 후 어떤 화면을 보게 되나요?
+              </h3>
+              <p data-i18n="monitor.previewDesc">
+                회원 로그인 후에는 등록한 반려동물 기준으로 다음 데이터를 확인할
+                수 있습니다.
+              </p>
+              <ul>
+                <li data-i18n="monitor.li1">
+                  실시간 대시보드 — 심박, SpO₂, 체온, 활동량
+                </li>
+                <li data-i18n="monitor.li2">기간별 기록 다운로드(CSV)</li>
+                <li data-i18n="monitor.li3">HRV 기반 스트레스 분석</li>
+                <li data-i18n="monitor.li4">여러 마리를 한 화면에서 비교</li>
+                <li data-i18n="monitor.li5">
+                  이상 신호 알림 내역과 후속 조치 기록
+                </li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </div>
+
+    <div class="page" id="page-ai-skin">
+      <section class="ai-hero">
+        <div class="container">
+          <span class="free-tag" data-i18n="aiSkin.freeTag"
+            >● 회원가입 없이 무료 체험</span
+          >
+          <h1
+            style="font-size: 38px; font-weight: 800; margin-bottom: 14px"
+            data-i18n="aiSkin.title"
+          >
+            사진 한 장으로<br />피부 상태를 먼저 확인해 보세요.
+          </h1>
+          <p class="lead" data-i18n="aiSkin.lead">
+            의심되는 부위를 촬영해 올리면 AI가 가능한 질환을 정리해
+            알려드립니다. 결과는 참고용이며, 필요할 때는 제휴 동물병원 상담으로
+            바로 이어집니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="ai-flow">
+        <div class="container">
+          <h2
+            class="section-title"
+            style="text-align: center; margin-bottom: 24px; font-size: 26px"
+            data-i18n="aiSkin.flowTitleTrial"
+          >
+            문진 → 사진 업로드 → AI 결과 (로그인 없음)
+          </h2>
+          <div class="ai-steps" style="margin-bottom: 32px">
+            <div class="ai-step">
+              <div class="num">1</div>
+              <h4 data-i18n="aiStep1.title">설문 작성</h4>
+              <p data-i18n="aiStep1.desc">
+                가려움, 발진, 탈모 등 현재 보이는 증상을 체크합니다. 1~2분이면
+                끝납니다.
+              </p>
+            </div>
+            <div class="ai-step">
+              <div class="num">2</div>
+              <h4 data-i18n="aiStep2.title">사진 업로드</h4>
+              <p data-i18n="aiStep2.descCrop">
+                병변 부위를 정사각형으로 잘라 224px 이미지로 보냅니다 (앱과 동일
+                흐름).
+              </p>
+            </div>
+            <div class="ai-step">
+              <div class="num">3</div>
+              <h4 data-i18n="aiStep3.title">AI 분석 결과 확인</h4>
+              <p data-i18n="aiStep3.desc">
+                가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는
+                즉시 확인할 수 있습니다.
+              </p>
+            </div>
+            <div class="ai-step">
+              <div class="num">4</div>
+              <h4 data-i18n="aiStep4.title">필요 시 수의사 상담</h4>
+              <p data-i18n="aiStep4.desc">
+                결과가 애매하거나 진료가 필요해 보이면, 그 자리에서 제휴 병원
+                예약으로 이어집니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="skin-trial" id="skinTrialRoot">
+            <div id="skinTrialMount"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="skinCropModal" class="skin-crop-modal" hidden>
+        <div class="skin-crop-inner">
+          <h3
+            style="margin: 0 0 12px; font-size: 18px"
+            data-i18n="skinTrial.cropTitle"
+          >
+            병변 영역 자르기
+          </h3>
+          <p
+            style="margin: 0 0 12px; color: var(--ink-3); font-size: 14px"
+            data-i18n="skinTrial.cropHint"
+          >
+            정사각형 영역을 맞춘 뒤 확인을 눌러 주세요.
+          </p>
+          <div style="max-height: 60vh"><img id="skinCropImg" alt="" /></div>
+          <div class="skin-crop-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="skinCropCancel"
+              data-i18n="skinTrial.cancel"
+            >
+              취소
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="skinCropOk"
+              data-i18n="skinTrial.cropOk"
+            >
+              자르기 적용
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-</div>
 
-<div class="page" id="page-contact">
-  <section class="contact-hero">
-    <div class="container">
-      <span class="eyebrow" data-i18n="contact.eyebrow">문의</span>
-      <h1 style="font-size:38px;font-weight:800;margin-bottom:12px" data-i18n="contact.title">사용 환경을 알려주시면<br/>맞는 구성으로 회신드립니다.</h1>
-      <p style="color:var(--ink-3);font-size:17px;max-width:620px" data-i18n="contact.desc">가정용, 병원용, 시설용에 따라 권장 구성이 달라집니다. 간단한 정보만 적어 보내주시면 보통 1~2영업일 내에 회신드립니다.</p>
+    <div class="page" id="page-price">
+      <section class="price-hero">
+        <div class="container">
+          <span class="eyebrow" data-i18n="price.eyebrow">가격 안내</span>
+          <h1 data-i18n="price.title">
+            디바이스는 한 번 구매,<br />플랫폼은 필요한 만큼만 구독합니다.
+          </h1>
+          <p data-i18n="price.desc">
+            가정에서 한 마리를 측정하는 경우와, 병원/시설에서 여러 마리를
+            관리하는 경우의 구성이 다릅니다. 현재 환경을 알려주시면 더 적합한
+            구성으로 안내드립니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="price-section">
+        <div class="container">
+          <h2 data-i18n="price.section1">1. 디바이스 가격</h2>
+          <p class="note" data-i18n="price.note1">
+            Tailing Device(웨어러블) + Tailing Hub(통신 허브) 조합으로
+            제공됩니다. 허브 1대에 디바이스 5대까지 연결됩니다.
+          </p>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th data-i18n="price.col1">구분</th>
+                <th data-i18n="price.col2">구성</th>
+                <th class="center">USD</th>
+                <th class="center">EUR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b data-i18n="price.basicPkg">기본 패키지</b></td>
+                <td data-i18n="price.basicDesc">
+                  Tailing Device 1대 + Tailing Hub 1대
+                </td>
+                <td class="center">$299 / set</td>
+                <td class="center">€299 / set</td>
+              </tr>
+              <tr>
+                <td><b data-i18n="price.addDev">추가 디바이스</b></td>
+                <td data-i18n="price.addDevDesc">
+                  허브 1대 기준 최대 4대 추가 (총 5대)
+                </td>
+                <td class="center" data-i18n="price.perDevice">$299 / 대</td>
+                <td class="center" data-i18n="price.perDeviceEur">€299 / 대</td>
+              </tr>
+              <tr>
+                <td><b data-i18n="price.bulk">대량 구매</b></td>
+                <td data-i18n="price.bulkDesc">
+                  디바이스 6대 이상 또는 다수 허브가 필요한 경우
+                </td>
+                <td class="center" colspan="2" data-i18n="price.bulkPrice">
+                  별도 견적 (문의)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 data-i18n="price.section2">2. 솔루션 구독 플랜</h2>
+          <p class="note" data-i18n="price.note2">
+            Basic부터 시작해 필요한 시점에 상위 플랜으로 변경할 수 있습니다.
+          </p>
+
+          <div class="plan-grid">
+            <div class="plan">
+              <div class="name">Basic</div>
+              <div class="price">
+                $29<small data-i18n="plan.month"> / 월</small>
+              </div>
+              <p
+                style="font-size: 14px; color: var(--ink-3); margin: 0"
+                data-i18n="plan.basicSubtitle"
+              >
+                기본 측정과 알림이 필요한 사용자에게.
+              </p>
+              <ul>
+                <li data-i18n="plan.basic.f1">
+                  24/7 실시간 측정 (심박·호흡·활동·수면)
+                </li>
+                <li data-i18n="plan.basic.f2">데이터 저장 / 다운로드</li>
+                <li data-i18n="plan.basic.f3">여러 마리 모니터링</li>
+                <li data-i18n="plan.basic.f4">이상 징후 알림</li>
+                <li class="off" data-i18n="plan.basic.f5">
+                  AI 행동 분석 인사이트
+                </li>
+                <li class="off" data-i18n="plan.basic.f6">HRV 스트레스 분석</li>
+                <li class="off" data-i18n="plan.basic.f7">AI 헬스 요약</li>
+                <li class="off" data-i18n="plan.basic.f8">건강 위험 감지</li>
+              </ul>
+              <a
+                href="#"
+                class="btn btn-secondary"
+                data-page="contact"
+                style="margin-top: 18px; display: block; text-align: center"
+                data-i18n="plan.basicCta"
+                >시작 문의</a
+              >
+            </div>
+            <div class="plan featured">
+              <div class="badge" data-i18n="plan.recommended">추천</div>
+              <div class="name">Standard</div>
+              <div class="price">
+                $59<small data-i18n="plan.month2"> / 월</small>
+              </div>
+              <p
+                style="font-size: 14px; color: var(--ink-3); margin: 0"
+                data-i18n="plan.standardSubtitle"
+              >
+                행동 분석과 스트레스 지표까지 보고 싶을 때.
+              </p>
+              <ul>
+                <li data-i18n="plan.standard.f1">Basic의 모든 기능</li>
+                <li data-i18n="plan.standard.f2">AI 행동 분석 인사이트</li>
+                <li data-i18n="plan.standard.f3">
+                  HRV(심박 변이도) 스트레스 분석
+                </li>
+                <li class="off" data-i18n="plan.standard.f4">AI 헬스 요약</li>
+                <li class="off" data-i18n="plan.standard.f5">건강 위험 감지</li>
+                <li class="off" data-i18n="plan.standard.f6">
+                  AI 챗봇 / Agent
+                </li>
+              </ul>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-page="contact"
+                style="margin-top: 18px; display: block; text-align: center"
+                data-i18n="plan.standardCta"
+                >Standard 문의</a
+              >
+            </div>
+            <div class="plan">
+              <div class="name">Premium</div>
+              <div class="price">
+                $99<small data-i18n="plan.month3"> / 월</small>
+              </div>
+              <p
+                style="font-size: 14px; color: var(--ink-3); margin: 0"
+                data-i18n="plan.premiumSubtitle"
+              >
+                병원·시설 등 여러 개체를 깊게 관리해야 하는 경우.
+              </p>
+              <ul>
+                <li data-i18n="plan.premium.f1">Standard의 모든 기능</li>
+                <li data-i18n="plan.premium.f2">AI 헬스 요약</li>
+                <li data-i18n="plan.premium.f3">건강 위험 감지</li>
+                <li data-i18n="plan.premium.f4">AI 챗봇 지원</li>
+                <li data-i18n="plan.premium.f5">AI Agent 연동</li>
+                <li data-i18n="plan.premium.f6">맞춤형 마케팅 솔루션</li>
+              </ul>
+              <a
+                href="#"
+                class="btn btn-secondary"
+                data-page="contact"
+                style="margin-top: 18px; display: block; text-align: center"
+                data-i18n="plan.premiumCta"
+                >기관용 견적</a
+              >
+            </div>
+          </div>
+
+          <div
+            style="
+              margin-top: 36px;
+              padding: 20px;
+              background: var(--bg-cream);
+              border-radius: var(--radius);
+              font-size: 14px;
+              color: var(--ink-2);
+              line-height: 1.75;
+            "
+          >
+            <b data-i18n="price.notice">안내사항</b><br />
+            <span data-i18n="price.notice1"
+              >· 표시된 가격은 부가세 별도이며, 환율과 결제 방식에 따라 최종
+              결제 금액이 달라질 수 있습니다.</span
+            ><br />
+            <span data-i18n="price.notice2"
+              >· 도입 후 일정 기간 사용 피드백을 받아, 필요한 부분은 함께
+              조정합니다.</span
+            ><br />
+            <span data-i18n="price.notice3"
+              >· 기관/병원 도입은 별도 계약과 결제 방식으로 진행됩니다.</span
+            >
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <section>
-    <div class="container contact-grid">
-      <form class="contact-form" onsubmit="event.preventDefault(); showToast(window.I18N[CURRENT_LANG]['contact.toast']);">
-        <div class="field"><label data-i18n="contact.name">이름 / 담당자명 *</label><input type="text" required /></div>
-        <div class="field"><label data-i18n="contact.phone">연락처 *</label><input type="tel" data-i18n-attr="placeholder:contact.phonePh" placeholder="010-0000-0000" required /></div>
-        <div class="field"><label data-i18n="contact.email">이메일 *</label><input type="email" required /></div>
-        <div class="field">
-          <label data-i18n="contact.type">문의 유형</label>
-          <select>
-            <option data-i18n="contact.type1">개인(가정용) 도입 문의</option>
-            <option data-i18n="contact.type2">동물병원 도입 문의</option>
-            <option data-i18n="contact.type3">호텔/펜션/보호소 등 기관 문의</option>
-            <option data-i18n="contact.type4">제휴 / 파트너십</option>
-            <option data-i18n="contact.type5">기타</option>
-          </select>
+    <div class="page" id="page-contact">
+      <section class="contact-hero">
+        <div class="container">
+          <span class="eyebrow" data-i18n="contact.eyebrow">문의</span>
+          <h1
+            style="font-size: 38px; font-weight: 800; margin-bottom: 12px"
+            data-i18n="contact.title"
+          >
+            사용 환경을 알려주시면<br />맞는 구성으로 회신드립니다.
+          </h1>
+          <p
+            style="color: var(--ink-3); font-size: 17px; max-width: 620px"
+            data-i18n="contact.desc"
+          >
+            병원용, 시설용에 따라 권장 구성이 달라집니다. 간단한 정보만 적어
+            보내주시면<br />보통 1~2영업일 내에 회신드립니다.
+          </p>
         </div>
-        <div class="field">
-          <label data-i18n="contact.count">예상 사용 마리 수</label>
-          <select>
-            <option data-i18n="contact.count1">1~2마리</option>
-            <option data-i18n="contact.count2">3~5마리</option>
-            <option data-i18n="contact.count3">6~20마리</option>
-            <option data-i18n="contact.count4">20마리 이상</option>
-          </select>
-        </div>
-        <div class="field">
-          <label data-i18n="contact.message">문의 내용</label>
-          <textarea data-i18n-attr="placeholder:contact.messagePh" placeholder="현재 어떤 상황에서 사용을 검토하고 계신지 자유롭게 적어주세요."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" data-i18n="contact.submit">문의 보내기</button>
-      </form>
+      </section>
 
-      <aside class="contact-info">
-        <h3>Creamoff Co., Ltd.</h3>
-        <dl>
-          <dt data-i18n="contact.info.address">주소</dt>
-          <dd data-i18n="contact.info.addressVal">309호, Global Venture Building<br/>경북 경산시 삼풍로 27</dd>
-          <dt data-i18n="contact.info.email">대표 이메일</dt>
-          <dd>creamoff2021@creamoff.co.kr</dd>
-          <dt data-i18n="contact.info.phone">전화</dt>
-          <dd>+82 10-4026-5955</dd>
-          <dt data-i18n="contact.info.hours">운영 시간</dt>
-          <dd data-i18n="contact.info.hoursVal">평일 09:30 – 18:30 (KST)</dd>
-          <dt data-i18n="contact.info.web">웹사이트</dt>
-          <dd>www.creamoff.co.kr</dd>
-        </dl>
-        <div class="channels">
-          <a href="tel:+821040265955" data-i18n="contact.channel.call">전화로 문의</a>
-          <a href="mailto:creamoff2021@creamoff.co.kr" data-i18n="contact.channel.mail">이메일 보내기</a>
-          <a href="https://creamoff.co.kr" target="_blank" rel="noopener" data-i18n="contact.channel.web">회사 사이트</a>
+      <section>
+        <div class="container contact-grid">
+          <form
+            class="contact-form"
+            onsubmit="
+              event.preventDefault();
+              showToast(window.I18N[CURRENT_LANG]['contact.toast']);
+            "
+          >
+            <div class="field">
+              <label data-i18n="contact.name">이름 / 담당자명 *</label
+              ><input type="text" required />
+            </div>
+            <div class="field">
+              <label data-i18n="contact.phone">연락처 *</label
+              ><input
+                type="tel"
+                data-i18n-attr="placeholder:contact.phonePh"
+                placeholder="010-0000-0000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label data-i18n="contact.email">이메일 *</label
+              ><input type="email" required />
+            </div>
+            <div class="field">
+              <label data-i18n="contact.type">문의 유형</label>
+              <select>
+                <option data-i18n="contact.type1">
+                  개인(가정용) 도입 문의
+                </option>
+                <option data-i18n="contact.type2">동물병원 도입 문의</option>
+                <option data-i18n="contact.type3">
+                  호텔/펜션/보호소 등 기관 문의
+                </option>
+                <option data-i18n="contact.type4">제휴 / 파트너십</option>
+                <option data-i18n="contact.type5">기타</option>
+              </select>
+            </div>
+            <div class="field">
+              <label data-i18n="contact.count">예상 사용 마리 수</label>
+              <select>
+                <option data-i18n="contact.count1">1~2마리</option>
+                <option data-i18n="contact.count2">3~5마리</option>
+                <option data-i18n="contact.count3">6~20마리</option>
+                <option data-i18n="contact.count4">20마리 이상</option>
+              </select>
+            </div>
+            <div class="field">
+              <label data-i18n="contact.message">문의 내용</label>
+              <textarea
+                data-i18n-attr="placeholder:contact.messagePh"
+                placeholder="현재 어떤 상황에서 사용을 검토하고 계신지 자유롭게 적어주세요."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-i18n="contact.submit"
+            >
+              문의 보내기
+            </button>
+          </form>
+
+          <aside class="contact-info">
+            <h3>Creamoff Co., Ltd.</h3>
+            <dl>
+              <dt data-i18n="contact.info.address">주소</dt>
+              <dd data-i18n="contact.info.addressVal">
+                309호, Global Venture Building<br />경북 경산시 삼풍로 27
+              </dd>
+              <dt data-i18n="contact.info.email">대표 이메일</dt>
+              <dd>creamoff2021@creamoff.co.kr</dd>
+              <!-- <dt data-i18n="contact.info.phone">전화</dt> -->
+              <!-- <dd>+82 10-4026-5955</dd> -->
+              <dt data-i18n="contact.info.hours">운영 시간</dt>
+              <dd data-i18n="contact.info.hoursVal">
+                평일 09:30 – 18:30 (KST)
+              </dd>
+              <dt data-i18n="contact.info.web">웹사이트</dt>
+              <dd>www.creamoff.co.kr</dd>
+            </dl>
+            <div class="channels">
+              <!-- <a href="tel:+821040265955" data-i18n="contact.channel.call"
+                >전화로 문의</a
+              > -->
+              <a
+                href="mailto:creamoff2021@creamoff.co.kr"
+                data-i18n="contact.channel.mail"
+                >이메일 보내기</a
+              >
+              <a
+                href="https://creamoff.co.kr"
+                target="_blank"
+                rel="noopener"
+                data-i18n="contact.channel.web"
+                >회사 사이트</a
+              >
+            </div>
+          </aside>
         </div>
-      </aside>
+      </section>
     </div>
-  </section>
-</div>
 
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-info">
-        <b>Talktail</b>
-        <span data-i18n="footer.brand">반려동물의 건강 신호를 매일 가까이서 확인합니다.<br/>Tailing Device, Talktail Platform, Talktail Care를<br/>하나의 흐름으로 연결합니다.</span>
+    <footer>
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-info">
+            <b>Talktail</b>
+            <span data-i18n="footer.brand"
+              >반려동물의 건강 신호를 매일 가까이서 확인합니다.<br />Tailing
+              Device, Talktail Platform, Talktail Care를<br />하나의 흐름으로
+              연결합니다.</span
+            >
+          </div>
+          <div>
+            <h4 data-i18n="footer.product">제품</h4>
+            <ul>
+              <li><a href="#" data-page="home" data-i18n="nav.home2">홈</a></li>
+              <li>
+                <a href="#" data-page="monitor" data-i18n="nav.monitor2"
+                  >Tailing</a
+                >
+              </li>
+              <li>
+                <a href="#" data-page="ai-skin" data-i18n="nav.aiSkin2"
+                  >Talktail Care</a
+                >
+              </li>
+              <li>
+                <a href="#" data-page="price" data-i18n="nav.price2">가격</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-i18n="footer.companyInfo">회사 정보</h4>
+            <ul>
+              <li>Creamoff Co., Ltd.</li>
+              <li data-i18n="footer.address">경북 경산시 삼풍로 27, 309호</li>
+              <li>creamoff2021@creamoff.co.kr</li>
+              <li>+82 10-4026-5955</li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 Creamoff Co., Ltd. All rights reserved.</span>
+          <span>www.creamoff.co.kr · talktail.co.kr</span>
+        </div>
       </div>
-      <div>
-        <h4 data-i18n="footer.product">제품</h4>
-        <ul>
-          <li><a href="#" data-page="home" data-i18n="nav.home2">홈</a></li>
-          <li><a href="#" data-page="monitor" data-i18n="nav.monitor2">모니터</a></li>
-          <li><a href="#" data-page="ai-skin" data-i18n="nav.aiSkin2">AI 피부분석</a></li>
-          <li><a href="#" data-page="price" data-i18n="nav.price2">가격</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="footer.companyInfo">회사 정보</h4>
-        <ul>
-          <li>Creamoff Co., Ltd.</li>
-          <li data-i18n="footer.address">경북 경산시 삼풍로 27, 309호</li>
-          <li>creamoff2021@creamoff.co.kr</li>
-          <li>+82 10-4026-5955</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Creamoff Co., Ltd. All rights reserved.</span>
-      <span>www.creamoff.co.kr · talktail.co.kr</span>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<div class="toast" id="toast"></div>
+    <div class="toast" id="toast"></div>
 
-<script src="i18n.js"></script>
-<script>
-let CURRENT_LANG = 'ko';
-function applyLang(lang) {
-  if (!window.I18N || !window.I18N[lang]) lang = 'ko';
-  CURRENT_LANG = lang;
-  document.documentElement.lang = lang;
-  const dict = window.I18N[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (dict[key] !== undefined) el.innerHTML = dict[key];
-  });
-  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-    const spec = el.getAttribute('data-i18n-attr');
-    spec.split(',').forEach(pair => {
-      const [attr, key] = pair.trim().split(':');
-      if (dict[key] !== undefined) el.setAttribute(attr, dict[key]);
-    });
-  });
-  if (dict['meta.title']) document.title = dict['meta.title'];
-  document.querySelectorAll('.lang-toggle button').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-  try { localStorage.setItem('talktail.lang', lang); } catch (e) {}
-}
+    <script src="i18n.js"></script>
+    <script>
+      let CURRENT_LANG = "ko";
+      function applyLang(lang) {
+        if (!window.I18N || !window.I18N[lang]) lang = "ko";
+        CURRENT_LANG = lang;
+        window.CURRENT_LANG = lang;
+        document.documentElement.lang = lang;
+        const dict = window.I18N[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+          const spec = el.getAttribute("data-i18n-attr");
+          spec.split(",").forEach((pair) => {
+            const [attr, key] = pair.trim().split(":");
+            if (dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+          });
+        });
+        if (dict["meta.title"]) document.title = dict["meta.title"];
+        document.querySelectorAll(".lang-toggle button").forEach((b) => {
+          b.classList.toggle("active", b.dataset.lang === lang);
+        });
+        try {
+          localStorage.setItem("talktail.lang", lang);
+        } catch (e) {}
+        if (typeof window.skinTrialRerender === "function")
+          window.skinTrialRerender();
+      }
 
-const pages = ['home', 'monitor', 'ai-skin', 'price', 'contact'];
-function go(page) {
-  if (!pages.includes(page)) page = 'home';
-  pages.forEach(p => {
-    const el = document.getElementById('page-' + p);
-    if (el) el.classList.toggle('active', p === page);
-  });
-  document.querySelectorAll('.nav-menu .nav-link').forEach(b => {
-    b.classList.toggle('active', b.dataset.page === page);
-  });
-  window.scrollTo({ top: 0, behavior: 'instant' });
-  history.replaceState(null, '', '#' + page);
-  document.getElementById('navMenu').classList.remove('open');
-}
+      const pages = ["home", "monitor", "ai-skin", "price", "contact"];
+      function go(page) {
+        if (!pages.includes(page)) page = "home";
+        pages.forEach((p) => {
+          const el = document.getElementById("page-" + p);
+          if (el) el.classList.toggle("active", p === page);
+        });
+        document.querySelectorAll(".nav-menu .nav-link").forEach((b) => {
+          b.classList.toggle("active", b.dataset.page === page);
+        });
+        window.scrollTo({ top: 0, behavior: "instant" });
+        history.replaceState(null, "", "#" + page);
+        document.getElementById("navMenu").classList.remove("open");
+        if (
+          page === "ai-skin" &&
+          typeof window.initSkinTrialPage === "function"
+        )
+          window.initSkinTrialPage();
+      }
 
-document.addEventListener('click', (e) => {
-  const langBtn = e.target.closest('.lang-toggle button');
-  if (langBtn) { applyLang(langBtn.dataset.lang); return; }
-  const t = e.target.closest('[data-page]');
-  if (t) { e.preventDefault(); go(t.dataset.page); }
-});
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('navMenu').classList.toggle('open');
-});
+      document.addEventListener("click", (e) => {
+        const langBtn = e.target.closest(".lang-toggle button");
+        if (langBtn) {
+          applyLang(langBtn.dataset.lang);
+          return;
+        }
+        const t = e.target.closest("[data-page]");
+        if (t) {
+          e.preventDefault();
+          go(t.dataset.page);
+        }
+      });
+      document.getElementById("hamburger").addEventListener("click", () => {
+        document.getElementById("navMenu").classList.toggle("open");
+      });
 
-let initialLang = 'ko';
-try {
-  const saved = localStorage.getItem('talktail.lang');
-  if (saved && window.I18N && window.I18N[saved]) initialLang = saved;
-  else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) initialLang = 'en';
-} catch (e) {}
-applyLang(initialLang);
+      let initialLang = "ko";
+      try {
+        const saved = localStorage.getItem("talktail.lang");
+        if (saved && window.I18N && window.I18N[saved]) initialLang = saved;
+        else if (
+          navigator.language &&
+          navigator.language.toLowerCase().startsWith("en")
+        )
+          initialLang = "en";
+      } catch (e) {}
+      applyLang(initialLang);
+      window.CURRENT_LANG = CURRENT_LANG;
 
-const initial = (location.hash || '#home').slice(1);
-go(initial);
+      const initial = (location.hash || "#home").slice(1);
+      go(initial);
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(window._tt);
-  window._tt = setTimeout(() => t.classList.remove('show'), 2400);
-}
-window.showToast = showToast;
-</script>
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(window._tt);
+        window._tt = setTimeout(() => t.classList.remove("show"), 2400);
+      }
+      window.showToast = showToast;
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (function () {
+        const AREA_CATS = [
+          {
+            value: "head_face",
+            ko: "얼굴 · 머리",
+            en: "Head & face",
+            sub: [
+              { key: "ears", ko: "귀", en: "Ears" },
+              { key: "eyeArea", ko: "눈 주변", en: "Eye area" },
+              { key: "noseArea", ko: "코 주변", en: "Nose area" },
+              { key: "mouthArea", ko: "입 주변", en: "Mouth area" },
+              { key: "snoutChin", ko: "주둥이 · 턱", en: "Snout & chin" },
+            ],
+          },
+          {
+            value: "body",
+            ko: "몸통 · 등",
+            en: "Body & back",
+            sub: [
+              { key: "neck", ko: "목", en: "Neck" },
+              { key: "shoulders", ko: "어깨", en: "Shoulders" },
+              { key: "upperBack", ko: "등 상부", en: "Upper back" },
+              { key: "lowerBack", ko: "등 하부", en: "Lower back" },
+              { key: "sides", ko: "옆구리", en: "Sides" },
+            ],
+          },
+          {
+            value: "legs",
+            ko: "다리",
+            en: "Legs",
+            sub: [
+              { key: "frontLegs", ko: "앞다리", en: "Front legs" },
+              { key: "hindLegs", ko: "뒷다리", en: "Hind legs" },
+              { key: "paws", ko: "발바닥", en: "Paws" },
+              { key: "betweenToes", ko: "발가락 사이", en: "Between toes" },
+              { key: "kneeJoint", ko: "무릎 관절", en: "Knee joint" },
+            ],
+          },
+          {
+            value: "belly",
+            ko: "배",
+            en: "Belly",
+            sub: [
+              { key: "chest", ko: "가슴", en: "Chest" },
+              { key: "upperBelly", ko: "윗배", en: "Upper belly" },
+              { key: "lowerBelly", ko: "아랫배", en: "Lower belly" },
+              { key: "groin", ko: "사타구니", en: "Groin" },
+            ],
+          },
+          {
+            value: "other",
+            ko: "기타",
+            en: "Other",
+            sub: [
+              { key: "tail", ko: "꼬리", en: "Tail" },
+              { key: "analArea", ko: "항문 주변", en: "Anal area" },
+              { key: "wholebody", ko: "전신", en: "Whole body" },
+              { key: "genitalArea", ko: "생식기 주변", en: "Genital area" },
+            ],
+          },
+        ];
+        const FALLBACK_BREEDS = [
+          "골든 리트리버",
+          "말티즈",
+          "푸들",
+          "진돗개",
+          "믹스견",
+          "웰시 코기",
+          "비글",
+          "치와와",
+          "닥스훈트",
+          "기타",
+        ];
 
-</body>
+        /** @type {{ko:string,en:string}[]} */
+        let petBreedRows = [];
+        let cropper = null;
+        let pendingOriginalFile = null;
+        let pendingCropObjectUrl = null;
+
+        const st = {
+          phase: "q1",
+          petName: "",
+          petBirthDate: "",
+          weight: "",
+          petBreed: "",
+          customBreed: "",
+          breedSearch: "",
+          showBreedDd: false,
+          pruritus: "",
+          odor: false,
+          alopecia: false,
+          areaCategory: "",
+          subKeys: [],
+          originalFile: null,
+          croppedFile: null,
+          previewUrl: null,
+          loading: false,
+          err: "",
+          result: null,
+        };
+
+        function revokeSkinPreview() {
+          if (st.previewUrl) {
+            try {
+              URL.revokeObjectURL(st.previewUrl);
+            } catch (e) {}
+            st.previewUrl = null;
+          }
+        }
+
+        function T(k) {
+          const d = window.I18N && window.I18N[window.CURRENT_LANG || "ko"];
+          return (d && d[k]) || window.I18N?.ko?.[k] || k;
+        }
+
+        function esc(s) {
+          return String(s ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        /** 피부 체험 업로드 API — 정적 랜딩과 분리된 백엔드 (입력 UI 없음, 여기만 수정) */
+        var SKIN_TRIAL_API_BASE = "http://103.218.158.33:4000";
+
+        function apiTrialUrl() {
+          return (
+            SKIN_TRIAL_API_BASE.replace(/\/$/, "") + "/api/upload/image/trial"
+          );
+        }
+
+        function normalizeBreedRows(raw) {
+          if (!Array.isArray(raw)) return [];
+          return raw
+            .map(function (item) {
+              if (typeof item === "string") return { ko: item, en: item };
+              var ko = item && item.ko != null ? String(item.ko) : "";
+              var en = item && item.en != null ? String(item.en) : ko;
+              return { ko: ko, en: en || ko };
+            })
+            .filter(function (r) {
+              return r.ko;
+            });
+        }
+
+        /** UI용: 현재 언어에서 먼저 쓸 이름 + 보조(다른 언어) 한 줄 */
+        function breedPrimarySecondary(row) {
+          var lang = window.CURRENT_LANG || "ko";
+          var primary = lang === "en" ? row.en || row.ko : row.ko;
+          var secondary = lang === "en" ? row.ko : row.en;
+          if (!secondary || secondary === primary) secondary = "";
+          return { primary: primary, secondary: secondary };
+        }
+
+        function pickedBreedBlock() {
+          if (!st.petBreed) return "";
+          if (st.petBreed === "other") {
+            return (
+              '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' +
+              esc(T("skinTrial.breedOther") + ": " + (st.customBreed || "")) +
+              "</p></div>"
+            );
+          }
+          var row = petBreedRows.find(function (r) {
+            return r.ko === st.petBreed;
+          });
+          if (!row)
+            return (
+              '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' +
+              esc(st.petBreed) +
+              "</p></div>"
+            );
+          return (
+            '<div class="skin-breed-picked"><p class="skin-breed-pick-ko">' +
+            esc(row.ko) +
+            '</p><p class="skin-breed-pick-en">' +
+            esc(row.en) +
+            "</p></div>"
+          );
+        }
+
+        /** HTML과 같은 폴더의 pet-breeds.json (location 기준, #·쿼리 제외) */
+        function petBreedsJsonHref() {
+          try {
+            var href = String(window.location.href || "").split("#")[0];
+            return new URL("pet-breeds.json", href).href;
+          } catch (e) {
+            return "pet-breeds.json";
+          }
+        }
+
+        async function loadBreeds() {
+          try {
+            var r = await fetch(petBreedsJsonHref(), { cache: "no-store" });
+            if (!r.ok) throw new Error("breed http");
+            petBreedRows = normalizeBreedRows(await r.json());
+          } catch (e2) {
+            petBreedRows = normalizeBreedRows(FALLBACK_BREEDS);
+            if (typeof showToast === "function")
+              showToast(T("skinTrial.errBreed"));
+          }
+        }
+
+        function filteredBreeds() {
+          const q = (st.breedSearch || "").trim().toLowerCase();
+          var rows = petBreedRows;
+          if (q) {
+            rows = petBreedRows.filter(function (r) {
+              return (r.ko + " " + r.en).toLowerCase().indexOf(q) >= 0;
+            });
+          }
+          return rows;
+        }
+
+        function pad2(n) {
+          return n < 10 ? "0" + n : String(n);
+        }
+
+        function daysInMonth(year, month) {
+          if (!year || !month) return 31;
+          return new Date(year, month, 0).getDate();
+        }
+
+        function parseBirth(iso) {
+          if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(String(iso)))
+            return { y: "", m: "", d: "" };
+          var p = String(iso).split("-");
+          return {
+            y: parseInt(p[0], 10),
+            m: parseInt(p[1], 10),
+            d: parseInt(p[2], 10),
+          };
+        }
+
+        function birthSelectsHtml() {
+          var p = parseBirth(st.petBirthDate);
+          var y = p.y,
+            m = p.m,
+            d = p.d;
+          var lang = window.CURRENT_LANG || "ko";
+          var isEn = lang === "en";
+          var thisYear = new Date().getFullYear();
+          var years = [];
+          for (var yi = thisYear + 1; yi >= 1990; yi--) years.push(yi);
+          var yearOpts =
+            '<option value="">' +
+            esc(T("skinTrial.yearPh")) +
+            "</option>" +
+            years
+              .map(function (yy) {
+                return (
+                  '<option value="' +
+                  yy +
+                  '"' +
+                  (y === yy ? " selected" : "") +
+                  ">" +
+                  yy +
+                  "</option>"
+                );
+              })
+              .join("");
+          var monthOpts =
+            '<option value="">' + esc(T("skinTrial.monthPh")) + "</option>";
+          for (var mi = 1; mi <= 12; mi++) {
+            monthOpts +=
+              '<option value="' +
+              mi +
+              '"' +
+              (m === mi ? " selected" : "") +
+              ">" +
+              mi +
+              "</option>";
+          }
+          var yPick = y || thisYear;
+          var mPick = m || 1;
+          var maxD = daysInMonth(yPick, mPick);
+          var dVal = d;
+          if (y && m && dVal > maxD) dVal = maxD;
+          var dayOpts =
+            '<option value="">' + esc(T("skinTrial.dayPh")) + "</option>";
+          for (var di = 1; di <= maxD; di++) {
+            dayOpts +=
+              '<option value="' +
+              di +
+              '"' +
+              (y && m && dVal === di ? " selected" : "") +
+              ">" +
+              di +
+              "</option>";
+          }
+          var afterYear = isEn
+            ? '<span class="skin-dob-sep">' +
+              esc(T("skinTrial.dateSep")) +
+              "</span>"
+            : T("skinTrial.dateYearSuffix")
+              ? '<span class="skin-dob-suf">' +
+                esc(T("skinTrial.dateYearSuffix")) +
+                "</span>"
+              : "";
+          var afterMonth = isEn
+            ? '<span class="skin-dob-sep">' +
+              esc(T("skinTrial.dateSep")) +
+              "</span>"
+            : T("skinTrial.dateMonthSuffix")
+              ? '<span class="skin-dob-suf">' +
+                esc(T("skinTrial.dateMonthSuffix")) +
+                "</span>"
+              : "";
+          var afterDay =
+            !isEn && T("skinTrial.dateDaySuffix")
+              ? '<span class="skin-dob-suf">' +
+                esc(T("skinTrial.dateDaySuffix")) +
+                "</span>"
+              : "";
+          return (
+            '<div class="skin-field skin-dob-field"><label>' +
+            esc(T("skinTrial.birth")) +
+            "</label>" +
+            '<div class="skin-dob-selects">' +
+            '<select data-f="birthYear" class="skin-dob-sel">' +
+            yearOpts +
+            "</select>" +
+            afterYear +
+            '<select data-f="birthMonth" class="skin-dob-sel">' +
+            monthOpts +
+            "</select>" +
+            afterMonth +
+            '<select data-f="birthDay" class="skin-dob-sel">' +
+            dayOpts +
+            "</select>" +
+            afterDay +
+            "</div></div>"
+          );
+        }
+
+        function syncBirthFromDom(root) {
+          var yEl = root.querySelector('[data-f="birthYear"]');
+          var mEl = root.querySelector('[data-f="birthMonth"]');
+          var dEl = root.querySelector('[data-f="birthDay"]');
+          if (!yEl || !mEl || !dEl) return;
+          var ys = yEl.value,
+            ms = mEl.value,
+            ds = dEl.value;
+          if (!ys || !ms || !ds) {
+            st.petBirthDate = "";
+            return;
+          }
+          var yi = parseInt(ys, 10),
+            mi = parseInt(ms, 10),
+            di = parseInt(ds, 10);
+          var maxD = daysInMonth(yi, mi);
+          if (di > maxD) di = maxD;
+          st.petBirthDate = yi + "-" + pad2(mi) + "-" + pad2(di);
+        }
+
+        function catByValue(v) {
+          return AREA_CATS.find(function (c) {
+            return c.value === v;
+          });
+        }
+        function subLabel(sub) {
+          return window.CURRENT_LANG === "en" ? sub.en : sub.ko;
+        }
+
+        function validateQ1() {
+          var breedOk =
+            st.petBreed &&
+            (st.petBreed !== "other" ||
+              (st.customBreed && st.customBreed.trim()));
+          return !!(st.petName && st.petBirthDate && st.weight && breedOk);
+        }
+        function validateQ2() {
+          return (
+            st.pruritus !== "" &&
+            st.pruritus != null &&
+            st.areaCategory &&
+            st.subKeys.length > 0
+          );
+        }
+
+        function render() {
+          var m = document.getElementById("skinTrialMount");
+          if (!m) return;
+          var lang = window.CURRENT_LANG || "ko";
+          var stepIdx =
+            st.phase === "q1"
+              ? 0
+              : st.phase === "q2"
+                ? 0
+                : st.phase === "upload"
+                  ? 1
+                  : 2;
+          if (st.phase === "result") stepIdx = 2;
+
+          var stepsHtml =
+            '<div class="skin-trial-steps">' +
+            ["1", "2", "3"]
+              .map(function (num, i) {
+                var active =
+                  (i === 0 && (st.phase === "q1" || st.phase === "q2")) ||
+                  (i === 1 && st.phase === "upload") ||
+                  (i === 2 && (st.phase === "result" || st.loading));
+                var done =
+                  (i === 0 && st.phase !== "q1") ||
+                  (i === 1 && (st.phase === "result" || st.loading)) ||
+                  (i === 2 && st.phase === "result");
+                var cls =
+                  "skin-trial-step" +
+                  (active ? " active" : "") +
+                  (done && !active ? " done" : "");
+                var lbl = [
+                  T("skinTrial.s1Title"),
+                  T("skinTrial.uploadTitle"),
+                  T("skinTrial.resultTitle"),
+                ][i];
+                return (
+                  '<div class="' +
+                  cls +
+                  '"><div class="bubble">' +
+                  (done && !active ? "✓" : num) +
+                  "</div><span>" +
+                  esc(lbl) +
+                  "</span></div>"
+                );
+              })
+              .join("") +
+            "</div>";
+
+          var body = "";
+          if (st.phase === "q1") {
+            var fb = filteredBreeds();
+            var breedListInner = fb.length
+              ? fb
+                  .map(function (row) {
+                    var ps = breedPrimarySecondary(row);
+                    return (
+                      '<button type="button" class="skin-breed-row" data-breed-pick="' +
+                      esc(row.ko) +
+                      '">' +
+                      '<span class="skin-breed-line1">' +
+                      esc(ps.primary) +
+                      "</span>" +
+                      (ps.secondary
+                        ? '<span class="skin-breed-line2">' +
+                          esc(ps.secondary) +
+                          "</span>"
+                        : "") +
+                      "</button>"
+                    );
+                  })
+                  .join("") +
+                '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary)">' +
+                esc(T("skinTrial.breedOther")) +
+                "</button>"
+              : '<div class="skin-breed-empty">' +
+                esc(T("skinTrial.breedEmpty")) +
+                "</div>" +
+                '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary);width:100%">' +
+                esc(T("skinTrial.breedOther")) +
+                "</button>";
+            body =
+              '<div class="skin-trial-card"><h3>' +
+              esc(T("skinTrial.s1Title")) +
+              '</h3><p class="sub">' +
+              esc(T("skinTrial.s1Sub")) +
+              "</p>" +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.petName")) +
+              '</label><input type="text" data-f="petName" value="' +
+              esc(st.petName) +
+              '" /></div>' +
+              birthSelectsHtml() +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.weight")) +
+              '</label><input type="number" step="0.1" data-f="weight" value="' +
+              esc(st.weight) +
+              '" /></div>' +
+              '<div class="skin-field skin-breed-dd"><label>' +
+              esc(T("skinTrial.breed")) +
+              "</label>" +
+              '<input type="text" data-f="breedSearch" placeholder="' +
+              esc(T("skinTrial.breedPh")) +
+              '" value="' +
+              esc(st.breedSearch) +
+              '" autocomplete="off" />' +
+              '<div class="skin-breed-list' +
+              (st.showBreedDd ? " open" : "") +
+              '" id="skinBreedList">' +
+              breedListInner +
+              "</div>" +
+              pickedBreedBlock() +
+              "</div>" +
+              (st.petBreed === "other"
+                ? '<div class="skin-field"><label>' +
+                  esc(T("skinTrial.customBreed")) +
+                  '</label><input type="text" data-f="customBreed" value="' +
+                  esc(st.customBreed) +
+                  '" /></div>'
+                : "") +
+              '<div style="display:flex;gap:10px;margin-top:8px"><button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q1" ' +
+              (!validateQ1() ? "disabled" : "") +
+              ">" +
+              esc(T("skinTrial.next")) +
+              "</button></div></div>";
+          } else if (st.phase === "q2") {
+            var itch = function (val, t1, d1) {
+              var sel = st.pruritus === val ? " selected" : "";
+              return (
+                '<div class="skin-choice skin-pruritus' +
+                sel +
+                '" data-pruritus="' +
+                esc(val) +
+                '"><strong>' +
+                esc(t1) +
+                "</strong><small>" +
+                esc(d1) +
+                "</small></div>"
+              );
+            };
+            body =
+              '<div class="skin-trial-card"><h3>' +
+              esc(T("skinTrial.s2Title")) +
+              '</h3><p class="sub">' +
+              esc(T("skinTrial.s2Sub")) +
+              "</p>" +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.itch")) +
+              "</label>" +
+              '<div style="display:flex;flex-direction:column;gap:8px">' +
+              itch("없음", T("skinTrial.itchNone"), T("skinTrial.itchNoneD")) +
+              itch("보통", T("skinTrial.itchMod"), T("skinTrial.itchModD")) +
+              itch("심함", T("skinTrial.itchSev"), T("skinTrial.itchSevD")) +
+              "</div></div>" +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.odor")) +
+              '</label><div class="skin-choice-grid">' +
+              '<div class="skin-choice' +
+              (st.odor === true ? " selected" : "") +
+              '" data-odor="1"><strong>' +
+              esc(T("skinTrial.yes")) +
+              "</strong><br/><small>" +
+              esc(T("skinTrial.yesD")) +
+              "</small></div>" +
+              '<div class="skin-choice' +
+              (st.odor === false ? " selected" : "") +
+              '" data-odor="0"><strong>' +
+              esc(T("skinTrial.no")) +
+              "</strong><br/><small>" +
+              esc(T("skinTrial.noD")) +
+              "</small></div></div></div>" +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.alopecia")) +
+              '</label><div class="skin-choice-grid">' +
+              '<div class="skin-choice' +
+              (st.alopecia === true ? " selected" : "") +
+              '" data-alo="1"><strong>' +
+              esc(T("skinTrial.yes")) +
+              "</strong></div>" +
+              '<div class="skin-choice' +
+              (st.alopecia === false ? " selected" : "") +
+              '" data-alo="0"><strong>' +
+              esc(T("skinTrial.no")) +
+              "</strong><br/><small>" +
+              esc(T("skinTrial.alopNoD")) +
+              "</small></div></div></div>" +
+              '<div class="skin-field"><label>' +
+              esc(T("skinTrial.areaCat")) +
+              '</label><select data-f="areaCategory">' +
+              '<option value="">' +
+              esc(T("skinTrial.areaCatPh")) +
+              "</option>" +
+              AREA_CATS.map(function (c) {
+                return (
+                  '<option value="' +
+                  esc(c.value) +
+                  '"' +
+                  (st.areaCategory === c.value ? " selected" : "") +
+                  ">" +
+                  esc(lang === "en" ? c.en : c.ko) +
+                  "</option>"
+                );
+              }).join("") +
+              "</select></div>";
+
+            var cat = catByValue(st.areaCategory);
+            if (cat) {
+              body +=
+                '<div class="skin-field"><label>' +
+                esc(T("skinTrial.subArea")) +
+                '</label><div class="skin-subgrid">';
+              body += cat.sub
+                .map(function (s) {
+                  var on = st.subKeys.indexOf(s.key) >= 0;
+                  return (
+                    '<label class="skin-sub"><input type="checkbox" data-sub="' +
+                    esc(s.key) +
+                    '"' +
+                    (on ? " checked" : "") +
+                    "/><span>" +
+                    esc(subLabel(s)) +
+                    "</span></label>"
+                  );
+                })
+                .join("");
+              body += "</div></div>";
+            }
+
+            body +=
+              (st.err ? '<p class="skin-error">' + esc(st.err) + "</p>" : "") +
+              '<div style="display:flex;gap:10px;margin-top:8px">' +
+              '<button type="button" class="btn btn-secondary" style="flex:1;padding:12px" data-act="prev-q2">' +
+              esc(T("skinTrial.prev")) +
+              "</button>" +
+              '<button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q2" ' +
+              (!validateQ2() ? "disabled" : "") +
+              ">" +
+              esc(T("skinTrial.complete")) +
+              "</button></div></div>";
+          } else if (st.phase === "upload") {
+            body =
+              '<div class="skin-trial-card"><h3>' +
+              esc(T("skinTrial.uploadTitle")) +
+              '</h3><p class="sub">' +
+              esc(T("skinTrial.uploadSub")) +
+              "</p>" +
+              '<input type="file" accept="image/*" id="skinFileInput" hidden />' +
+              '<div class="skin-upload-zone" data-act="pick-photo"><strong>' +
+              esc(T("skinTrial.pickPhoto")) +
+              '</strong><p style="margin:8px 0 0;font-size:13px;color:var(--ink-3)">' +
+              esc(T("skinTrial.uploadMimeLine")) +
+              "</p></div>" +
+              (st.previewUrl
+                ? '<div class="skin-preview-wrap"><p class="skin-preview-caption">' +
+                  esc(T("skinTrial.croppedPreviewCaption")) +
+                  '</p><img class="skin-preview-img" src="' +
+                  esc(st.previewUrl) +
+                  '" alt="" /></div>' +
+                  '<p style="margin-top:8px;font-size:13px;color:var(--ink-2)">✓ ' +
+                  esc(
+                    st.croppedFile && st.croppedFile.name
+                      ? st.croppedFile.name
+                      : "croped.jpg",
+                  ) +
+                  "</p>"
+                : "") +
+              '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">' +
+              '<button type="button" class="btn btn-secondary" data-act="prev-upload">' +
+              esc(T("skinTrial.prev")) +
+              "</button>" +
+              '<button type="button" class="btn btn-primary" data-act="run-ai" style="flex:1;min-width:200px;padding:12px" ' +
+              (!st.croppedFile || st.loading ? "disabled" : "") +
+              ">" +
+              esc(
+                st.loading ? T("skinTrial.analyzing") : T("skinTrial.runAi"),
+              ) +
+              "</button></div>" +
+              (st.err ? '<p class="skin-error">' + esc(st.err) + "</p>" : "") +
+              "</div>";
+          } else if (st.phase === "result" && st.result) {
+            var conf = Number(st.result.confidence);
+            var confPct = conf <= 1 ? Math.round(conf * 100) : Math.round(conf);
+            body =
+              '<div class="skin-trial-card"><h3>' +
+              esc(T("skinTrial.resultTitle")) +
+              "</h3>" +
+              (st.previewUrl
+                ? '<div class="skin-preview-wrap skin-preview-result"><p class="skin-preview-caption">' +
+                  esc(T("skinTrial.uploadedPhotoCaption")) +
+                  '</p><img class="skin-preview-img" src="' +
+                  esc(st.previewUrl) +
+                  '" alt="" /></div>'
+                : "") +
+              '<div class="skin-result-box"><h4>' +
+              esc(st.result.predict_class || "") +
+              "</h4>" +
+              "<p><strong>" +
+              esc(st.result.disease_name || "") +
+              "</strong></p>" +
+              '<p style="margin-top:10px">' +
+              esc(st.result.description || "") +
+              "</p>" +
+              '<p style="margin-top:12px;font-weight:700">' +
+              esc(T("skinTrial.confidence")) +
+              ": " +
+              confPct +
+              "%</p></div>" +
+              '<button type="button" class="btn btn-primary" style="width:100%;margin-top:16px;padding:12px" data-act="restart">' +
+              esc(T("skinTrial.restart")) +
+              "</button></div>";
+          }
+
+          m.innerHTML = stepsHtml + body;
+        }
+
+        function bindMount() {
+          var m = document.getElementById("skinTrialMount");
+          if (!m || m._bound) return;
+          m._bound = true;
+          m.addEventListener("input", function (e) {
+            var el = e.target;
+            var f = el.getAttribute && el.getAttribute("data-f");
+            if (f === "petName") st.petName = el.value;
+            else if (f === "weight") st.weight = el.value;
+            else if (f === "customBreed") st.customBreed = el.value;
+            else if (f === "breedSearch") {
+              st.breedSearch = el.value;
+              st.showBreedDd = true;
+              render();
+              bindMount();
+            } else if (f === "areaCategory") {
+              st.areaCategory = el.value;
+              st.subKeys = [];
+              render();
+              bindMount();
+            }
+          });
+          m.addEventListener("change", function (e) {
+            var el = e.target;
+            var df = el && el.getAttribute && el.getAttribute("data-f");
+            if (
+              df === "birthYear" ||
+              df === "birthMonth" ||
+              df === "birthDay"
+            ) {
+              syncBirthFromDom(e.currentTarget);
+              render();
+              bindMount();
+              return;
+            }
+            if (el && el.id === "skinFileInput") {
+              var f = el.files && el.files[0];
+              if (f) {
+                if (!f.type.startsWith("image/")) {
+                  showToast(T("skinTrial.toastImageOnly"));
+                  return;
+                }
+                if (f.size > 10 * 1024 * 1024) {
+                  showToast(T("skinTrial.toastMaxSize"));
+                  return;
+                }
+                pendingOriginalFile = f;
+                openCropModal(f);
+                el.value = "";
+              }
+              return;
+            }
+            if (el && el.getAttribute("data-sub")) {
+              var k = el.getAttribute("data-sub");
+              if (el.checked) {
+                if (st.subKeys.indexOf(k) < 0) st.subKeys.push(k);
+              } else
+                st.subKeys = st.subKeys.filter(function (x) {
+                  return x !== k;
+                });
+              render();
+              bindMount();
+            }
+          });
+          m.addEventListener("focusin", function (e) {
+            if (e.target && e.target.getAttribute("data-f") === "breedSearch") {
+              st.showBreedDd = true;
+              render();
+              bindMount();
+            }
+          });
+          m.addEventListener("click", function (e) {
+            var t = e.target.closest("[data-act]");
+            if (t) {
+              var a = t.getAttribute("data-act");
+              if (a === "next-q1" && validateQ1()) {
+                st.phase = "q2";
+                st.err = "";
+                render();
+                bindMount();
+              } else if (a === "prev-q2") {
+                st.phase = "q1";
+                render();
+                bindMount();
+              } else if (a === "next-q2" && validateQ2()) {
+                st.phase = "upload";
+                st.err = "";
+                render();
+                bindMount();
+              } else if (a === "prev-upload") {
+                st.phase = "q2";
+                st.loading = false;
+                render();
+                bindMount();
+              } else if (a === "pick-photo")
+                document.getElementById("skinFileInput").click();
+              else if (a === "run-ai") submitTrial();
+              else if (a === "restart") {
+                st.phase = "q1";
+                st.petName = "";
+                st.petBirthDate = "";
+                st.weight = "";
+                st.petBreed = "";
+                st.customBreed = "";
+                st.breedSearch = "";
+                st.pruritus = "";
+                st.odor = false;
+                st.alopecia = false;
+                st.areaCategory = "";
+                st.subKeys = [];
+                revokeSkinPreview();
+                st.originalFile = null;
+                st.croppedFile = null;
+                st.result = null;
+                st.err = "";
+                st.loading = false;
+                render();
+                bindMount();
+              }
+              return;
+            }
+            var pr = e.target.closest("[data-pruritus]");
+            if (pr) {
+              st.pruritus = pr.getAttribute("data-pruritus");
+              render();
+              bindMount();
+              return;
+            }
+            var od = e.target.closest("[data-odor]");
+            if (od) {
+              st.odor = od.getAttribute("data-odor") === "1";
+              render();
+              bindMount();
+              return;
+            }
+            var al = e.target.closest("[data-alo]");
+            if (al) {
+              st.alopecia = al.getAttribute("data-alo") === "1";
+              render();
+              bindMount();
+              return;
+            }
+            var bp = e.target.closest("[data-breed-pick]");
+            if (bp) {
+              var v = bp.getAttribute("data-breed-pick");
+              st.petBreed = v;
+              st.breedSearch = "";
+              st.showBreedDd = false;
+              if (v !== "other") st.customBreed = "";
+              render();
+              bindMount();
+            }
+          });
+        }
+
+        function openCropModal(file) {
+          var modal = document.getElementById("skinCropModal");
+          var img = document.getElementById("skinCropImg");
+          if (cropper) {
+            cropper.destroy();
+            cropper = null;
+          }
+          if (pendingCropObjectUrl) {
+            try {
+              URL.revokeObjectURL(pendingCropObjectUrl);
+            } catch (e) {}
+            pendingCropObjectUrl = null;
+          }
+          pendingCropObjectUrl = URL.createObjectURL(file);
+          img.onload = function () {
+            if (cropper) {
+              cropper.destroy();
+              cropper = null;
+            }
+            cropper = new Cropper(img, {
+              aspectRatio: 1,
+              viewMode: 1,
+              autoCropArea: 0.85,
+              responsive: true,
+            });
+          };
+          img.src = pendingCropObjectUrl;
+          modal.hidden = false;
+        }
+
+        function closeCropModal() {
+          document.getElementById("skinCropModal").hidden = true;
+          if (cropper) {
+            cropper.destroy();
+            cropper = null;
+          }
+          var img = document.getElementById("skinCropImg");
+          img.removeAttribute("src");
+          if (pendingCropObjectUrl) {
+            try {
+              URL.revokeObjectURL(pendingCropObjectUrl);
+            } catch (e) {}
+            pendingCropObjectUrl = null;
+          }
+        }
+
+        document
+          .getElementById("skinCropCancel")
+          .addEventListener("click", function () {
+            pendingOriginalFile = null;
+            closeCropModal();
+          });
+        document
+          .getElementById("skinCropOk")
+          .addEventListener("click", function () {
+            if (!cropper || !pendingOriginalFile) return;
+            var canvas = cropper.getCroppedCanvas({ width: 224, height: 224 });
+            if (!canvas) return;
+            canvas.toBlob(
+              function (blob) {
+                st.originalFile = pendingOriginalFile;
+                st.croppedFile = new File([blob], "croped.jpg", {
+                  type: "image/jpeg",
+                });
+                revokeSkinPreview();
+                st.previewUrl = URL.createObjectURL(st.croppedFile);
+                pendingOriginalFile = null;
+                closeCropModal();
+                render();
+                bindMount();
+              },
+              "image/jpeg",
+              0.88,
+            );
+          });
+
+        async function submitTrial() {
+          if (!st.originalFile || !st.croppedFile || st.loading) return;
+          st.loading = true;
+          st.err = "";
+          render();
+          bindMount();
+          var fd = new FormData();
+          fd.append("language", window.CURRENT_LANG || "ko");
+          fd.append("petName", st.petName);
+          fd.append("petBirthDate", st.petBirthDate);
+          fd.append(
+            "petBreed",
+            st.petBreed === "other" ? "other" : st.petBreed,
+          );
+          fd.append(
+            "customBreed",
+            st.petBreed === "other" ? st.customBreed || "" : "",
+          );
+          fd.append("weight", String(st.weight));
+          fd.append("pruritus", st.pruritus);
+          fd.append("alopecia", String(st.alopecia));
+          fd.append("odor", String(st.odor));
+          fd.append("lesionPrimaryCategory", st.areaCategory || "other");
+          fd.append("detaillesionSites", st.subKeys.join(","));
+          fd.append("affectedAreas", st.areaCategory || "other");
+          fd.append(
+            "original",
+            st.originalFile,
+            st.originalFile.name || "original.jpg",
+          );
+          fd.append("croped", st.croppedFile, "croped.jpg");
+          try {
+            var res = await fetch(apiTrialUrl(), { method: "POST", body: fd });
+            var data = await res.json().catch(function () {
+              return {};
+            });
+            if (res.status === 403 && data.errorCode === "HUMAN_DETECTED") {
+              st.err = T("skinTrial.errHuman");
+              st.loading = false;
+              st.phase = "upload";
+              render();
+              bindMount();
+              return;
+            }
+            if (!res.ok || !data.data) {
+              st.err = (data && data.message) || T("skinTrial.errNet");
+              st.loading = false;
+              st.phase = "upload";
+              render();
+              bindMount();
+              return;
+            }
+            st.result = data.data;
+            st.phase = "result";
+            st.loading = false;
+            render();
+            bindMount();
+          } catch (err) {
+            st.err = T("skinTrial.errNet");
+            st.loading = false;
+            st.phase = "upload";
+            render();
+            bindMount();
+          }
+        }
+
+        window.skinTrialRerender = function () {
+          st.err = "";
+          render();
+          bindMount();
+        };
+
+        window.initSkinTrialPage = async function () {
+          await loadBreeds();
+          if (!document.getElementById("skinTrialMount")) return;
+          revokeSkinPreview();
+          st.originalFile = null;
+          st.croppedFile = null;
+          st.phase = "q1";
+          st.loading = false;
+          st.result = null;
+          st.err = "";
+          render();
+          bindMount();
+        };
+      })();
+    </script>
+  </body>
 </html>
