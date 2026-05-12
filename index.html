@@ -2795,65 +2795,20 @@
     <div class="page" id="page-ai-skin">
       <section class="ai-hero">
         <div class="container">
-          <span class="free-tag" data-i18n="aiSkin.freeTag"
-            >● 회원가입 없이 무료 체험</span
-          >
-          <h1
-            style="font-size: 38px; font-weight: 800; margin-bottom: 14px"
-            data-i18n="aiSkin.title"
-          >
-            사진 한 장으로<br />피부 상태를 먼저 확인해 보세요.
-          </h1>
-          <p class="lead" data-i18n="aiSkin.lead">
-            의심되는 부위를 촬영해 올리면 AI가 가능한 질환을 정리해
-            알려드립니다. 결과는 참고용이며, 필요할 때는 제휴 동물병원 상담으로
-            바로 이어집니다.
-          </p>
+          <span class="free-tag" data-i18n="aiSkin.freeTag">● 회원가입 없이 무료 체험</span>
+          <h1 style="font-size:38px;font-weight:800;margin-bottom:14px" data-i18n="aiSkin.title">사진 한 장으로<br/>피부 상태를 먼저 확인해 보세요.</h1>
+          <p class="lead" data-i18n="aiSkin.lead">의심되는 부위를 촬영해 올리면 AI가 가능한 질환을 정리해 알려드립니다. 결과는 참고용이며, 필요할 때는 제휴 동물병원 상담으로 바로 이어집니다.</p>
         </div>
       </section>
 
       <section class="ai-flow">
         <div class="container">
-          <h2
-            class="section-title"
-            style="text-align: center; margin-bottom: 24px; font-size: 26px"
-            data-i18n="aiSkin.flowTitleTrial"
-          >
-            문진 → 사진 업로드 → AI 결과 (로그인 없음)
-          </h2>
-          <div class="ai-steps" style="margin-bottom: 32px">
-            <div class="ai-step">
-              <div class="num">1</div>
-              <h4 data-i18n="aiStep1.title">설문 작성</h4>
-              <p data-i18n="aiStep1.desc">
-                가려움, 발진, 탈모 등 현재 보이는 증상을 체크합니다. 1~2분이면
-                끝납니다.
-              </p>
-            </div>
-            <div class="ai-step">
-              <div class="num">2</div>
-              <h4 data-i18n="aiStep2.title">사진 업로드</h4>
-              <p data-i18n="aiStep2.descCrop">
-                병변 부위를 정사각형으로 잘라 224px 이미지로 보냅니다 (앱과 동일
-                흐름).
-              </p>
-            </div>
-            <div class="ai-step">
-              <div class="num">3</div>
-              <h4 data-i18n="aiStep3.title">AI 분석 결과 확인</h4>
-              <p data-i18n="aiStep3.desc">
-                가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는
-                즉시 확인할 수 있습니다.
-              </p>
-            </div>
-            <div class="ai-step">
-              <div class="num">4</div>
-              <h4 data-i18n="aiStep4.title">필요 시 수의사 상담</h4>
-              <p data-i18n="aiStep4.desc">
-                결과가 애매하거나 진료가 필요해 보이면, 그 자리에서 제휴 병원
-                예약으로 이어집니다.
-              </p>
-            </div>
+          <h2 class="section-title" style="text-align:center;margin-bottom:24px;font-size:26px" data-i18n="aiSkin.flowTitleTrial">문진 → 사진 업로드 → AI 결과 (로그인 없음)</h2>
+          <div class="ai-steps" style="margin-bottom:32px">
+            <div class="ai-step"><div class="num">1</div><h4 data-i18n="aiStep1.title">설문 작성</h4><p data-i18n="aiStep1.desc">가려움, 발진, 탈모 등 현재 보이는 증상을 체크합니다. 1~2분이면 끝납니다.</p></div>
+            <div class="ai-step"><div class="num">2</div><h4 data-i18n="aiStep2.title">사진 업로드</h4><p data-i18n="aiStep2.descCrop">병변 부위를 정사각형으로 잘라 224px 이미지로 보냅니다 (앱과 동일 흐름).</p></div>
+            <div class="ai-step"><div class="num">3</div><h4 data-i18n="aiStep3.title">AI 분석 결과 확인</h4><p data-i18n="aiStep3.desc">가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는 즉시 확인할 수 있습니다.</p></div>
+            <div class="ai-step"><div class="num">4</div><h4 data-i18n="aiStep4.title">필요 시 수의사 상담</h4><p data-i18n="aiStep4.desc">결과가 애매하거나 진료가 필요해 보이면, 그 자리에서 제휴 병원 예약으로 이어집니다.</p></div>
           </div>
 
           <div class="skin-trial" id="skinTrialRoot">
@@ -2864,41 +2819,16 @@
 
       <div id="skinCropModal" class="skin-crop-modal" hidden>
         <div class="skin-crop-inner">
-          <h3
-            style="margin: 0 0 12px; font-size: 18px"
-            data-i18n="skinTrial.cropTitle"
-          >
-            병변 영역 자르기
-          </h3>
-          <p
-            style="margin: 0 0 12px; color: var(--ink-3); font-size: 14px"
-            data-i18n="skinTrial.cropHint"
-          >
-            정사각형 영역을 맞춘 뒤 확인을 눌러 주세요.
-          </p>
-          <div style="max-height: 60vh"><img id="skinCropImg" alt="" /></div>
+          <h3 style="margin:0 0 12px;font-size:18px" data-i18n="skinTrial.cropTitle">병변 영역 자르기</h3>
+          <p style="margin:0 0 12px;color:var(--ink-3);font-size:14px" data-i18n="skinTrial.cropHint">정사각형 영역을 맞춘 뒤 확인을 눌러 주세요.</p>
+          <div style="max-height:60vh"><img id="skinCropImg" alt="" /></div>
           <div class="skin-crop-actions">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              id="skinCropCancel"
-              data-i18n="skinTrial.cancel"
-            >
-              취소
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              id="skinCropOk"
-              data-i18n="skinTrial.cropOk"
-            >
-              자르기 적용
-            </button>
+            <button type="button" class="btn btn-secondary" id="skinCropCancel" data-i18n="skinTrial.cancel">취소</button>
+            <button type="button" class="btn btn-primary" id="skinCropOk" data-i18n="skinTrial.cropOk">자르기 적용</button>
           </div>
         </div>
       </div>
     </div>
-
     <div class="page" id="page-price">
       <section class="price-hero">
         <div class="container">
@@ -3356,1024 +3286,2727 @@
       }
       window.showToast = showToast;
     </script>
+    <script type="application/json" id="pet-breeds-inline">
+    [
+      {
+        "ko": "가멜 댄스크 횐제훈트",
+        "en": "Gamel Dansk Foxhound"
+      },
+      {
+        "ko": "가스콩 생통주아",
+        "en": "Gascon Saintongeois"
+      },
+      {
+        "ko": "고든 세터",
+        "en": "Gordon Setter"
+      },
+      {
+        "ko": "고스 드아투라 카탈라",
+        "en": "Gos d'Atura Catala"
+      },
+      {
+        "ko": "곤치 폴스키",
+        "en": "Gonczy Polski"
+      },
+      {
+        "ko": "골든 두들",
+        "en": "Goldendoodle"
+      },
+      {
+        "ko": "골든 리트리버",
+        "en": "Golden Retriever"
+      },
+      {
+        "ko": "그랑 그리퐁 방데앙",
+        "en": "Grand Griffon Vendeen"
+      },
+      {
+        "ko": "그랑 바셋 그리퐁 방데앙",
+        "en": "Grand Basset Griffon Vendeen"
+      },
+      {
+        "ko": "그랑 블뢰 드 가스코뉴",
+        "en": "Grand Bleu de Gascogne"
+      },
+      {
+        "ko": "그랑 앙글로 프랑세 블랑 엣 누아",
+        "en": "Grand Anglo-Francais Blanc et Noir"
+      },
+      {
+        "ko": "그랑 앙글로 프랑세 블랑 엣 오랑주",
+        "en": "Grand Anglo-Francais Blanc et Orange"
+      },
+      {
+        "ko": "그랑 앙글로 프랑세 트리콜로",
+        "en": "Grand Anglo-Francais Tricolore"
+      },
+      {
+        "ko": "그레이 하운드",
+        "en": "Greyhound"
+      },
+      {
+        "ko": "그레이트 데인",
+        "en": "Great Dane"
+      },
+      {
+        "ko": "그레이트 덴",
+        "en": "Great Dane"
+      },
+      {
+        "ko": "그레이트 스위스 마운틴 도그",
+        "en": "Greater Swiss Mountain Dog"
+      },
+      {
+        "ko": "그레이트 피레니즈",
+        "en": "Great Pyrenees"
+      },
+      {
+        "ko": "그레이하운드",
+        "en": "Greyhound"
+      },
+      {
+        "ko": "그로넨달",
+        "en": "Groenendael"
+      },
+      {
+        "ko": "그로서 슈바이처 제넨훈트",
+        "en": "Grosse Schweizer Sennenhund"
+      },
+      {
+        "ko": "그리스 셰퍼드",
+        "en": "Greek Shepherd"
+      },
+      {
+        "ko": "그리스 헤어하운드",
+        "en": "Greek Harehound"
+      },
+      {
+        "ko": "그리펀 벨지언",
+        "en": "Griffon Belge"
+      },
+      {
+        "ko": "그리펀 브뤼셀",
+        "en": "Griffon Bruxellois"
+      },
+      {
+        "ko": "그리퐁 니베르네",
+        "en": "Griffon Nivernais"
+      },
+      {
+        "ko": "그리퐁 다레 아 푸알 뒤르 코스탈",
+        "en": "Griffon d'Arret a Poil Dur"
+      },
+      {
+        "ko": "그리퐁 블뢰 드 가스코뉴",
+        "en": "Griffon Bleu de Gascogne"
+      },
+      {
+        "ko": "그리퐁 포브 드 브르타뉴",
+        "en": "Griffon Fauve de Bretagne"
+      },
+      {
+        "ko": "그린란드견",
+        "en": "Greenland Dog"
+      },
+      {
+        "ko": "그린랜드 도그",
+        "en": "Greenland Dog"
+      },
+      {
+        "ko": "글렌 오브 이말 테리어",
+        "en": "Glen of Imaal Terrier"
+      },
+      {
+        "ko": "기슈견",
+        "en": "Kishu Ken"
+      },
+      {
+        "ko": "까나리오",
+        "en": "Canario"
+      },
+      {
+        "ko": "꼬동 드 툴레아",
+        "en": "Coton de Tulear"
+      },
+      {
+        "ko": "꼬똥 드 툴레아",
+        "en": "Coton de Tulear"
+      },
+      {
+        "ko": "나폴리탄 마스티프",
+        "en": "Neapolitan Mastiff"
+      },
+      {
+        "ko": "네더르란스 쿠이커혼제",
+        "en": "Nederlandse Kooikerhondje"
+      },
+      {
+        "ko": "노르보텐 스피츠",
+        "en": "Norrbottenspets"
+      },
+      {
+        "ko": "노르보텐스펫츠",
+        "en": "Norrbottenspets"
+      },
+      {
+        "ko": "노르스크 룬데훈트",
+        "en": "Norsk Lundehund"
+      },
+      {
+        "ko": "노르스크 엘휀트 소트",
+        "en": "Norsk Elghund Sort"
+      },
+      {
+        "ko": "노르웨이안 룬트훈트",
+        "en": "Norwegian Lundehund"
+      },
+      {
+        "ko": "노르웨이안 버훈트",
+        "en": "Norwegian Buhund"
+      },
+      {
+        "ko": "노르웨이안 엘크 하운드",
+        "en": "Norwegian Elkhound"
+      },
+      {
+        "ko": "노르위전 버훈드",
+        "en": "Norwegian Buhund"
+      },
+      {
+        "ko": "노르위전 엘크하운드 그레이",
+        "en": "Norwegian Elkhound Grey"
+      },
+      {
+        "ko": "노르위치 테리어",
+        "en": "Norwich Terrier"
+      },
+      {
+        "ko": "노르포크 테리어",
+        "en": "Norfolk Terrier"
+      },
+      {
+        "ko": "노리치 테리어",
+        "en": "Norwich Terrier"
+      },
+      {
+        "ko": "노바 스코샤 덕 톨링 리트리버",
+        "en": "Nova Scotia Duck Tolling Retriever"
+      },
+      {
+        "ko": "노바 스코셔 덕 톨링 리트리버",
+        "en": "Nova Scotia Duck Tolling Retriever"
+      },
+      {
+        "ko": "노퍽 테리어",
+        "en": "Norfolk Terrier"
+      },
+      {
+        "ko": "노포크 테리어",
+        "en": "Norfolk Terrier"
+      },
+      {
+        "ko": "뉴펀들랜드",
+        "en": "Newfoundland"
+      },
+      {
+        "ko": "닥스훈트",
+        "en": "Dachshund"
+      },
+      {
+        "ko": "단스크-스벤스크 고르스훈드",
+        "en": "Dansk-Svensk Gardhund"
+      },
+      {
+        "ko": "달마시안",
+        "en": "Dalmatian"
+      },
+      {
+        "ko": "대니시 스웨디시 팜도그",
+        "en": "Danish Swedish Farmdog"
+      },
+      {
+        "ko": "댄디 딘먼트 테리어",
+        "en": "Dandie Dinmont Terrier"
+      },
+      {
+        "ko": "댄디 딘몬트 테리어",
+        "en": "Dandie Dinmont Terrier"
+      },
+      {
+        "ko": "더치 셰펴드",
+        "en": "Dutch Shepherd"
+      },
+      {
+        "ko": "덩케르",
+        "en": "Dunker"
+      },
+      {
+        "ko": "도고 까나리오",
+        "en": "Dogo Canario"
+      },
+      {
+        "ko": "도고 아르헨티노",
+        "en": "Dogo Argentino"
+      },
+      {
+        "ko": "도그 드 보르도",
+        "en": "Dogue de Bordeaux"
+      },
+      {
+        "ko": "도베르만",
+        "en": "Doberman Pinscher"
+      },
+      {
+        "ko": "도사",
+        "en": "Tosa"
+      },
+      {
+        "ko": "도사견",
+        "en": "Tosa"
+      },
+      {
+        "ko": "도이처 바흐텔훈트",
+        "en": "Deutscher Wachtelhund"
+      },
+      {
+        "ko": "도이처 핀셔",
+        "en": "Deutscher Pinscher"
+      },
+      {
+        "ko": "도이체 브라케",
+        "en": "Deutsche Bracke"
+      },
+      {
+        "ko": "도이치 랑하어",
+        "en": "Deutsch Langhaar"
+      },
+      {
+        "ko": "동경견 (경주개)",
+        "en": "Tosa (Racing Dog)"
+      },
+      {
+        "ko": "드레버",
+        "en": "Drever"
+      },
+      {
+        "ko": "드레베르",
+        "en": "Drever"
+      },
+      {
+        "ko": "드렌츠허 파트레이스혼트",
+        "en": "Drentsche Patrijshond"
+      },
+      {
+        "ko": "드로트쇠뤼 머저르 비줄러",
+        "en": "Drottoszoru Magyar Vizsla"
+      },
+      {
+        "ko": "디어 하운드",
+        "en": "Deerhound"
+      },
+      {
+        "ko": "라고토 로마뇰로",
+        "en": "Lagotto Romagnolo"
+      },
+      {
+        "ko": "라사 압소",
+        "en": "Lhasa Apso"
+      },
+      {
+        "ko": "라사압소",
+        "en": "Lhasa Apso"
+      },
+      {
+        "ko": "라이카",
+        "en": "Laika"
+      },
+      {
+        "ko": "라지 먼스터랜더",
+        "en": "Large Munsterlander"
+      },
+      {
+        "ko": "라케노이즈",
+        "en": "Laekenois"
+      },
+      {
+        "ko": "라포니안 허더",
+        "en": "Laponian Herder"
+      },
+      {
+        "ko": "라포니언 허더",
+        "en": "Laponian Herder"
+      },
+      {
+        "ko": "란트저",
+        "en": "Landseer"
+      },
+      {
+        "ko": "래브라도 리트리버",
+        "en": "Labrador Retriever"
+      },
+      {
+        "ko": "랫 테리어",
+        "en": "Rat Terrier"
+      },
+      {
+        "ko": "랭카셔 힐러",
+        "en": "Lancashire Heeler"
+      },
+      {
+        "ko": "러셀 테리어",
+        "en": "Russell Terrier"
+      },
+      {
+        "ko": "러스키 토이",
+        "en": "Russkiy Toy"
+      },
+      {
+        "ko": "러시안 블랙 테리어",
+        "en": "Russian Black Terrier"
+      },
+      {
+        "ko": "러처",
+        "en": "Lurcher"
+      },
+      {
+        "ko": "러프 콜리",
+        "en": "Rough Collie"
+      },
+      {
+        "ko": "레드본 쿤하운드",
+        "en": "Redbone Coonhound"
+      },
+      {
+        "ko": "레온베르거",
+        "en": "Leonberger"
+      },
+      {
+        "ko": "레이크랜드 테리어",
+        "en": "Lakeland Terrier"
+      },
+      {
+        "ko": "로디지안 리지백",
+        "en": "Rhodesian Ridgeback"
+      },
+      {
+        "ko": "로첸",
+        "en": "Lowchen"
+      },
+      {
+        "ko": "로트바일러",
+        "en": "Rottweiler"
+      },
+      {
+        "ko": "로트와일러",
+        "en": "Rottweiler"
+      },
+      {
+        "ko": "루마니안 미오리틱 셰퍼드 도그",
+        "en": "Romanian Mioritic Shepherd Dog"
+      },
+      {
+        "ko": "루스코예브로페이스카야 라이카",
+        "en": "Russko-Evropeyskaya Laika"
+      },
+      {
+        "ko": "루스키 토이",
+        "en": "Russkiy Toy"
+      },
+      {
+        "ko": "리틀 라이언 도그",
+        "en": "Little Lion Dog"
+      },
+      {
+        "ko": "마스티프",
+        "en": "Mastiff"
+      },
+      {
+        "ko": "마운틴 커",
+        "en": "Mountain Cur"
+      },
+      {
+        "ko": "말리노이즈",
+        "en": "Malinois"
+      },
+      {
+        "ko": "말티즈",
+        "en": "Maltese"
+      },
+      {
+        "ko": "맨체스터 테리어",
+        "en": "Manchester Terrier"
+      },
+      {
+        "ko": "머저르 어가르",
+        "en": "Magyar Agar"
+      },
+      {
+        "ko": "무디",
+        "en": "Mudi"
+      },
+      {
+        "ko": "미니어처 불 테리어",
+        "en": "Miniature Bull Terrier"
+      },
+      {
+        "ko": "미니어처 슈나우저",
+        "en": "Miniature Schnauzer"
+      },
+      {
+        "ko": "미니어처 핀셔",
+        "en": "Miniature Pinscher"
+      },
+      {
+        "ko": "미니어쳐 불 테리어",
+        "en": "Miniature Bull Terrier"
+      },
+      {
+        "ko": "미니어쳐 슈나우져",
+        "en": "Miniature Schnauzer"
+      },
+      {
+        "ko": "미니어쳐 아메리칸 셰퍼드",
+        "en": "Miniature American Shepherd"
+      },
+      {
+        "ko": "미니어쳐 핀셔",
+        "en": "Miniature Pinscher"
+      },
+      {
+        "ko": "바라크 드 아리에주",
+        "en": "Barbet de Ariege"
+      },
+      {
+        "ko": "바라크 드 오베르뉴",
+        "en": "Barbet d'Auvergne"
+      },
+      {
+        "ko": "바라크 생제르맹",
+        "en": "Barbet Saint-Germain"
+      },
+      {
+        "ko": "바베트",
+        "en": "Barbet"
+      },
+      {
+        "ko": "바센지",
+        "en": "Basenji"
+      },
+      {
+        "ko": "바셋 블뢰 드 가스코니",
+        "en": "Basset Bleu de Gascogne"
+      },
+      {
+        "ko": "바셋 아르테지앙 노르망",
+        "en": "Basset Artesien Normand"
+      },
+      {
+        "ko": "바셋 포브 드 브레타뉴",
+        "en": "Basset Fauve de Bretagne"
+      },
+      {
+        "ko": "바셋 포브 드 브르타뉴",
+        "en": "Basset Fauve de Bretagne"
+      },
+      {
+        "ko": "바셋 하운드",
+        "en": "Basset Hound"
+      },
+      {
+        "ko": "바셋하운드",
+        "en": "Basset Hound"
+      },
+      {
+        "ko": "바이마라너",
+        "en": "Weimaraner"
+      },
+      {
+        "ko": "바이서 슈바이처 셰페르훈트",
+        "en": "Weisser Schweizer Schaferhund"
+      },
+      {
+        "ko": "바이에리셔 게비르크스슈바이스훈트",
+        "en": "Bayerischer Gebirgsschweisshund"
+      },
+      {
+        "ko": "배들링턴 테리어",
+        "en": "Bedlington Terrier"
+      },
+      {
+        "ko": "버거 피카드",
+        "en": "Berger Picard"
+      },
+      {
+        "ko": "버니즈 마운틴 도그",
+        "en": "Bernese Mountain Dog"
+      },
+      {
+        "ko": "베들링턴 테리어",
+        "en": "Bedlington Terrier"
+      },
+      {
+        "ko": "베르지 드 피레네 아 파스 라지",
+        "en": "Berger des Pyrenees a Face Rase"
+      },
+      {
+        "ko": "베르지 피카르",
+        "en": "Berger Picard"
+      },
+      {
+        "ko": "베테르하운",
+        "en": "Wetterhoun"
+      },
+      {
+        "ko": "벨지안 셰퍼드 도그",
+        "en": "Belgian Shepherd Dog"
+      },
+      {
+        "ko": "벨지언 셰퍼드 도그",
+        "en": "Belgian Shepherd Dog"
+      },
+      {
+        "ko": "벳괴에타스펫스",
+        "en": "Vastgotaspets"
+      },
+      {
+        "ko": "보더 콜리",
+        "en": "Border Collie"
+      },
+      {
+        "ko": "보더 테리어",
+        "en": "Border Terrier"
+      },
+      {
+        "ko": "보르도 마스티프",
+        "en": "Bordeaux Mastiff"
+      },
+      {
+        "ko": "보르조이",
+        "en": "Borzoi"
+      },
+      {
+        "ko": "보비에 드 플란더스",
+        "en": "Bouvier des Flandres"
+      },
+      {
+        "ko": "보스 쉽도그",
+        "en": "Boerboel"
+      },
+      {
+        "ko": "보스롱(뷰세런)",
+        "en": "Beauceron"
+      },
+      {
+        "ko": "보스턴 테리어",
+        "en": "Boston Terrier"
+      },
+      {
+        "ko": "보어보엘",
+        "en": "Boerboel"
+      },
+      {
+        "ko": "보이킨 스패니얼",
+        "en": "Boykin Spaniel"
+      },
+      {
+        "ko": "복서",
+        "en": "Boxer"
+      },
+      {
+        "ko": "볼로네즈",
+        "en": "Bolognese"
+      },
+      {
+        "ko": "볼피노 이탈리아노",
+        "en": "Volpino Italiano"
+      },
+      {
+        "ko": "부비에 데 아르덴",
+        "en": "Bouvier des Ardennes"
+      },
+      {
+        "ko": "부비에 데 플랑드르",
+        "en": "Bouvier des Flandres"
+      },
+      {
+        "ko": "불 마스티프",
+        "en": "Bull Mastiff"
+      },
+      {
+        "ko": "불 테리어",
+        "en": "Bull Terrier"
+      },
+      {
+        "ko": "불개",
+        "en": "Bulldog"
+      },
+      {
+        "ko": "불도그",
+        "en": "Bulldog"
+      },
+      {
+        "ko": "불리 쿠타",
+        "en": "Bully Kutta"
+      },
+      {
+        "ko": "불마스티프",
+        "en": "Bullmastiff"
+      },
+      {
+        "ko": "브라질리언 가드 도그",
+        "en": "Brazilian Guard Dog"
+      },
+      {
+        "ko": "브라코 이탈리아노",
+        "en": "Bracco Italiano"
+      },
+      {
+        "ko": "브라크 뒤 부르보네",
+        "en": "Braque du Bourbonnais"
+      },
+      {
+        "ko": "브라크 프랑세, 티프 가스코뉴",
+        "en": "Braque Francais Type Gascogne"
+      },
+      {
+        "ko": "브라크 프랑세, 티프 피레네",
+        "en": "Braque Francais Type Pyrenees"
+      },
+      {
+        "ko": "브란틀브라케(피로이글)",
+        "en": "Brandlbracke"
+      },
+      {
+        "ko": "브로홀머",
+        "en": "Broholmer"
+      },
+      {
+        "ko": "브뤼셀 그리펀",
+        "en": "Brussels Griffon"
+      },
+      {
+        "ko": "브리어드",
+        "en": "Briard"
+      },
+      {
+        "ko": "브리케 그리퐁 방데앙",
+        "en": "Briquet Griffon Vendeen"
+      },
+      {
+        "ko": "브리타니 스파니엘",
+        "en": "Brittany Spaniel"
+      },
+      {
+        "ko": "블랙 러시안 테리어",
+        "en": "Black Russian Terrier"
+      },
+      {
+        "ko": "블랙 앤 탄 쿤하운드",
+        "en": "Black and Tan Coonhound"
+      },
+      {
+        "ko": "블러드 하운드",
+        "en": "Bloodhound"
+      },
+      {
+        "ko": "블러드하운드",
+        "en": "Bloodhound"
+      },
+      {
+        "ko": "블루 피카르디 스패니얼",
+        "en": "Blue Picardy Spaniel"
+      },
+      {
+        "ko": "블루틱 쿤하운드",
+        "en": "Bluetick Coonhound"
+      },
+      {
+        "ko": "비글",
+        "en": "Beagle"
+      },
+      {
+        "ko": "비글 해리어",
+        "en": "Beagle Harrier"
+      },
+      {
+        "ko": "비숑 프리제",
+        "en": "Bichon Frise"
+      },
+      {
+        "ko": "비어디드 콜리",
+        "en": "Bearded Collie"
+      },
+      {
+        "ko": "비즐라",
+        "en": "Vizsla"
+      },
+      {
+        "ko": "비촌 아바네로",
+        "en": "Bichon Havanero"
+      },
+      {
+        "ko": "빌리",
+        "en": "Billy"
+      },
+      {
+        "ko": "쁘띠 바셋 그리펀 벤딘",
+        "en": "Petit Basset Griffon Vendeen"
+      },
+      {
+        "ko": "쁘띠 브라바콘",
+        "en": "쁘띠 브라바콘"
+      },
+      {
+        "ko": "쁘띠 브라방송",
+        "en": "Petit Brabancon"
+      },
+      {
+        "ko": "사를로스볼프혼트",
+        "en": "Saarlooswolfhond"
+      },
+      {
+        "ko": "사모예드",
+        "en": "Samoyed"
+      },
+      {
+        "ko": "사부에소 에스파뇰",
+        "en": "Sabueso Espanol"
+      },
+      {
+        "ko": "살루키",
+        "en": "Saluki"
+      },
+      {
+        "ko": "삽살개",
+        "en": "Sapsaree"
+      },
+      {
+        "ko": "샤르플라니나츠",
+        "en": "Sarplaninac"
+      },
+      {
+        "ko": "샤를로스 울프도그",
+        "en": "Saarloos Wolfdog"
+      },
+      {
+        "ko": "샤페이",
+        "en": "Shar Pei"
+      },
+      {
+        "ko": "샤펜도스",
+        "en": "Schapendoes"
+      },
+      {
+        "ko": "서섹스 스패니얼",
+        "en": "Sussex Spaniel"
+      },
+      {
+        "ko": "서식스 스패니얼",
+        "en": "Sussex Spaniel"
+      },
+      {
+        "ko": "세구조 이탈리아노 아 펠로 라소",
+        "en": "Segugio Italiano a Pelo Raso"
+      },
+      {
+        "ko": "세구조 이탈리아노 아 펠로 포르테",
+        "en": "Segugio Italiano a Pelo Forte"
+      },
+      {
+        "ko": "세인트 버나드",
+        "en": "Saint Bernard"
+      },
+      {
+        "ko": "센트럴 아시아 셰퍼드 도그",
+        "en": "Central Asian Shepherd Dog"
+      },
+      {
+        "ko": "센트럴 아시안 오브차카",
+        "en": "Central Asian Ovcharka"
+      },
+      {
+        "ko": "셔틀랜드 쉽도그",
+        "en": "Shetland Sheepdog"
+      },
+      {
+        "ko": "셰틀랜드 쉽도그",
+        "en": "Shetland Sheepdog"
+      },
+      {
+        "ko": "소프트 코티드 휘튼 테리어",
+        "en": "Soft Coated Wheaten Terrier"
+      },
+      {
+        "ko": "숄로이츠퀸틀",
+        "en": "Xoloitzcuintli"
+      },
+      {
+        "ko": "수오메나요코이라",
+        "en": "Suomenajokoira"
+      },
+      {
+        "ko": "수오멘라핑코이라",
+        "en": "Suomenlapinkoira"
+      },
+      {
+        "ko": "수오멘퓌스튀코르바",
+        "en": "Suomenpystykorva"
+      },
+      {
+        "ko": "슈나우저",
+        "en": "Schnauzer"
+      },
+      {
+        "ko": "슈나우져",
+        "en": "Schnauzer"
+      },
+      {
+        "ko": "슈나우져 (미니어쳐)",
+        "en": "Miniature Schnauzer"
+      },
+      {
+        "ko": "슈나우져 (스탠다드)",
+        "en": "Standard Schnauzer"
+      },
+      {
+        "ko": "슈나우져 (자이언트)",
+        "en": "Giant Schnauzer"
+      },
+      {
+        "ko": "슈바이처 라우프훈트",
+        "en": "Schweizer Laufhund"
+      },
+      {
+        "ko": "슈바이체리셔 니데를라우프훈트",
+        "en": "Schweizerischer Niederlaufhund"
+      },
+      {
+        "ko": "슈타이리셰 라우하르브라케",
+        "en": "Steirische Rauhaarbracke"
+      },
+      {
+        "ko": "스르노고르스키 플라닌스키 고니치",
+        "en": "Srnogorski Planinski Gonic"
+      },
+      {
+        "ko": "스르프스키 고니치",
+        "en": "Srpski Gonic"
+      },
+      {
+        "ko": "스르프스키 트로보이니 고니치",
+        "en": "Srpski Trobojni Gonic"
+      },
+      {
+        "ko": "스몰란스퇴바레",
+        "en": "Smalandsstovare"
+      },
+      {
+        "ko": "스무스 콜리",
+        "en": "Smooth Collie"
+      },
+      {
+        "ko": "스무스 폭스 테리어",
+        "en": "Smooth Fox Terrier"
+      },
+      {
+        "ko": "스벤스크 랍훈드",
+        "en": "Svensk Lapphund"
+      },
+      {
+        "ko": "스웨디시 라프훈트",
+        "en": "Swedish Lapphund"
+      },
+      {
+        "ko": "스위디쉬 발훈트",
+        "en": "Swedish Vallhund"
+      },
+      {
+        "ko": "스카이 테리어",
+        "en": "Skye Terrier"
+      },
+      {
+        "ko": "스코티쉬 테리어",
+        "en": "Scottish Terrier"
+      },
+      {
+        "ko": "스코티시 디어하운드",
+        "en": "Scottish Deerhound"
+      },
+      {
+        "ko": "스코티시 테리어",
+        "en": "Scottish Terrier"
+      },
+      {
+        "ko": "스키퍼키",
+        "en": "Schipperke"
+      },
+      {
+        "ko": "스타베이",
+        "en": "Stabyhoun"
+      },
+      {
+        "ko": "스태포드셔 불 테리어",
+        "en": "Staffordshire Bull Terrier"
+      },
+      {
+        "ko": "스탠다드 푸들",
+        "en": "Standard Poodle"
+      },
+      {
+        "ko": "스테비훈",
+        "en": "Stabyhoun"
+      },
+      {
+        "ko": "스티체얼할",
+        "en": "Stichelhaar"
+      },
+      {
+        "ko": "스패니쉬 그레이 하운드",
+        "en": "Spanish Greyhound"
+      },
+      {
+        "ko": "스패니쉬 그레이하운드",
+        "en": "Spanish Greyhound"
+      },
+      {
+        "ko": "스페니쉬 마스티프",
+        "en": "Spanish Mastiff"
+      },
+      {
+        "ko": "스페니쉬 워터 도그",
+        "en": "Spanish Water Dog"
+      },
+      {
+        "ko": "스피노네 이달리아노",
+        "en": "Spinone Italiano"
+      },
+      {
+        "ko": "스피노네 이탈리아노",
+        "en": "Spinone Italiano"
+      },
+      {
+        "ko": "스피츠",
+        "en": "Spitz"
+      },
+      {
+        "ko": "스핑크스",
+        "en": "Sphinx"
+      },
+      {
+        "ko": "스하펜두스",
+        "en": "Schapendoes"
+      },
+      {
+        "ko": "슬로바키안 와이어헤어드 포인터",
+        "en": "Slovakian Wirehaired Pointer"
+      },
+      {
+        "ko": "슬로벤스키 추바치",
+        "en": "Slovensky Cuvac"
+      },
+      {
+        "ko": "슬로벤스키 코포우",
+        "en": "Slovensky Kopov"
+      },
+      {
+        "ko": "슬로벤스키 흐루보스르스티 스타바치",
+        "en": "Slovensky Hrubosrsty Stavac"
+      },
+      {
+        "ko": "슬루기",
+        "en": "Sloughi"
+      },
+      {
+        "ko": "시바",
+        "en": "Shiba Inu"
+      },
+      {
+        "ko": "시바견",
+        "en": "Shiba Inu"
+      },
+      {
+        "ko": "시베리안 허스키",
+        "en": "Siberian Husky"
+      },
+      {
+        "ko": "시베리언 허스키",
+        "en": "Siberian Husky"
+      },
+      {
+        "ko": "시앙 드 아르투아",
+        "en": "Chien d'Artois"
+      },
+      {
+        "ko": "시추",
+        "en": "Shih Tzu"
+      },
+      {
+        "ko": "시코쿠견",
+        "en": "Shikoku Ken"
+      },
+      {
+        "ko": "실레르스퇴바레",
+        "en": "Schillerstovare"
+      },
+      {
+        "ko": "실리햄 테리어",
+        "en": "Sealyham Terrier"
+      },
+      {
+        "ko": "실키 테리어",
+        "en": "Silky Terrier"
+      },
+      {
+        "ko": "아나톨리안 마스티프",
+        "en": "Anatolian Mastiff"
+      },
+      {
+        "ko": "아나톨리안 셰퍼드도그",
+        "en": "Anatolian Shepherd Dog"
+      },
+      {
+        "ko": "아나톨리언 셰퍼드 도그",
+        "en": "Anatolian Shepherd Dog"
+      },
+      {
+        "ko": "아리에주아",
+        "en": "Ariegeois"
+      },
+      {
+        "ko": "아메리칸 밴도지",
+        "en": "American Bandog"
+      },
+      {
+        "ko": "아메리칸 불리",
+        "en": "American Bully"
+      },
+      {
+        "ko": "아메리칸 스태포드셔 테리어",
+        "en": "American Staffordshire Terrier"
+      },
+      {
+        "ko": "아메리칸 스테그 하운드",
+        "en": "American Staghound"
+      },
+      {
+        "ko": "아메리칸 아키타",
+        "en": "American Akita"
+      },
+      {
+        "ko": "아메리칸 에스키모 도그",
+        "en": "American Eskimo Dog"
+      },
+      {
+        "ko": "아메리칸 워터 스패니얼",
+        "en": "American Water Spaniel"
+      },
+      {
+        "ko": "아메리칸 잉글리시 쿤하운드",
+        "en": "American English Coonhound"
+      },
+      {
+        "ko": "아메리칸 코커 스파니엘",
+        "en": "American Cocker Spaniel"
+      },
+      {
+        "ko": "아메리칸 폭스하운드",
+        "en": "American Foxhound"
+      },
+      {
+        "ko": "아메리칸 헤어리스 테리어",
+        "en": "American Hairless Terrier"
+      },
+      {
+        "ko": "아이디",
+        "en": "Aidi"
+      },
+      {
+        "ko": "아이리쉬 레드 세터",
+        "en": "Irish Red Setter"
+      },
+      {
+        "ko": "아이리쉬 레드 앤 화이트 세터",
+        "en": "Irish Red and White Setter"
+      },
+      {
+        "ko": "아이리쉬 소프트코티드 휘튼 테리어",
+        "en": "Irish Soft Coated Wheaten Terrier"
+      },
+      {
+        "ko": "아이리쉬 울프하운드",
+        "en": "Irish Wolfhound"
+      },
+      {
+        "ko": "아이리쉬 워터 스파니엘",
+        "en": "Irish Water Spaniel"
+      },
+      {
+        "ko": "아이리쉬 테리어",
+        "en": "Irish Terrier"
+      },
+      {
+        "ko": "아이리시 글렌 오브 이말 테리어",
+        "en": "Irish Glen of Imaal Terrier"
+      },
+      {
+        "ko": "아이리시 레드 앤 화이트 세터",
+        "en": "Irish Red and White Setter"
+      },
+      {
+        "ko": "아이리시 세터",
+        "en": "Irish Setter"
+      },
+      {
+        "ko": "아이리시 소프트코티드 휘튼 테리어",
+        "en": "Irish Soft Coated Wheaten Terrier"
+      },
+      {
+        "ko": "아이리시 울프 하운드",
+        "en": "Irish Wolfhound"
+      },
+      {
+        "ko": "아이리시 워터 스패니얼",
+        "en": "Irish Water Spaniel"
+      },
+      {
+        "ko": "아이리시 테리어",
+        "en": "Irish Terrier"
+      },
+      {
+        "ko": "아이슬랜딕 쉽도그",
+        "en": "Icelandic Sheepdog"
+      },
+      {
+        "ko": "아자와크",
+        "en": "Azawakh"
+      },
+      {
+        "ko": "아크라이트",
+        "en": "Akbash"
+      },
+      {
+        "ko": "아크바시",
+        "en": "Akbash"
+      },
+      {
+        "ko": "아키타",
+        "en": "Akita"
+      },
+      {
+        "ko": "아펜첼러 제넨훈트",
+        "en": "Appenzeller Sennenhund"
+      },
+      {
+        "ko": "아펜핀셔",
+        "en": "Affenpinscher"
+      },
+      {
+        "ko": "아프간 하운드",
+        "en": "Afghan Hound"
+      },
+      {
+        "ko": "알래스칸 말라뮤트",
+        "en": "Alaskan Malamute"
+      },
+      {
+        "ko": "알렌테조 마스티프",
+        "en": "Alentejo Mastiff"
+      },
+      {
+        "ko": "알펜을렌디셰 닥스브라케",
+        "en": "Alpenlandische Dachsbracke"
+      },
+      {
+        "ko": "앙글로 프랑세 드 프티 베느리",
+        "en": "Anglo-Francais de Petite Venerie"
+      },
+      {
+        "ko": "에르데이 코포",
+        "en": "Erdelyi Kopo"
+      },
+      {
+        "ko": "에스트렐라 마운틴 도그",
+        "en": "Estrela Mountain Dog"
+      },
+      {
+        "ko": "에어데일 테리어",
+        "en": "Airedale Terrier"
+      },
+      {
+        "ko": "에파뉴엘 드 퐁 오드메르",
+        "en": "Epagneul de Pont-Audemer"
+      },
+      {
+        "ko": "에파뉴엘 블뢰 드 피카르디",
+        "en": "Epagneul Bleu de Picardie"
+      },
+      {
+        "ko": "에파뉴엘 프랑세",
+        "en": "Epagneul Francais"
+      },
+      {
+        "ko": "에파뉴엘 피카르",
+        "en": "Epagneul Picard"
+      },
+      {
+        "ko": "엔틀레부허 제넨훈트",
+        "en": "Entlebucher Sennenhund"
+      },
+      {
+        "ko": "엔틀버쳐 마운틴 도그",
+        "en": "Entlebucher Mountain Dog"
+      },
+      {
+        "ko": "엘리니코스 이흐닐라티스",
+        "en": "Ellinikos Ichnilatis"
+      },
+      {
+        "ko": "옘툰드",
+        "en": "Jamthund"
+      },
+      {
+        "ko": "오가르 폴스키",
+        "en": "Ogar Polski"
+      },
+      {
+        "ko": "오브차카",
+        "en": "Ovcharka"
+      },
+      {
+        "ko": "오스트레일리안 셰퍼드 도그",
+        "en": "Australian Shepherd Dog"
+      },
+      {
+        "ko": "오스트레일리안 스텀피 테일 캐틀 도그",
+        "en": "Australian Stumpy Tail Cattle Dog"
+      },
+      {
+        "ko": "오스트레일리안 캐틀 도그",
+        "en": "Australian Cattle Dog"
+      },
+      {
+        "ko": "오스트레일리안 켈피",
+        "en": "Australian Kelpie"
+      },
+      {
+        "ko": "오스트레일리안 테리어",
+        "en": "Australian Terrier"
+      },
+      {
+        "ko": "오스트레일리언 셰퍼드",
+        "en": "Australian Shepherd"
+      },
+      {
+        "ko": "오스트레일리언 실키 테리어",
+        "en": "Australian Silky Terrier"
+      },
+      {
+        "ko": "오스트레일리언 캐틀 도그",
+        "en": "Australian Cattle Dog"
+      },
+      {
+        "ko": "오스트레일리언 캘피",
+        "en": "Australian Kelpie"
+      },
+      {
+        "ko": "오스트레일리언 테리어",
+        "en": "Australian Terrier"
+      },
+      {
+        "ko": "오이라지어",
+        "en": "Eurasier"
+      },
+      {
+        "ko": "오터 하운드",
+        "en": "Otterhound"
+      },
+      {
+        "ko": "오터하운드",
+        "en": "Otterhound"
+      },
+      {
+        "ko": "오프차레크 포트할란스키",
+        "en": "Owtczarek Podhalanski"
+      },
+      {
+        "ko": "올드 잉글리시 쉽도그",
+        "en": "올드 잉글리시 쉽도그"
+      },
+      {
+        "ko": "와이마라너",
+        "en": "Weimaraner"
+      },
+      {
+        "ko": "와이어 폭스 테리어",
+        "en": "Wire Fox Terrier"
+      },
+      {
+        "ko": "와이어헤어드 비즐라",
+        "en": "Wirehaired Vizsla"
+      },
+      {
+        "ko": "와이어헤어드 포인팅 그리폰",
+        "en": "Wirehaired Pointing Griffon"
+      },
+      {
+        "ko": "외스테라이히셔 핀셔",
+        "en": "Osterreichischer Pinscher"
+      },
+      {
+        "ko": "요크셔 테리어",
+        "en": "Yorkshire Terrier"
+      },
+      {
+        "ko": "웨스트 시베리언 라이카",
+        "en": "West Siberian Laika"
+      },
+      {
+        "ko": "웨스트 하이랜드 화이트 테리어",
+        "en": "West Highland White Terrier"
+      },
+      {
+        "ko": "웨스트 하일랜드 화이트 테리어",
+        "en": "West Highland White Terrier"
+      },
+      {
+        "ko": "웰쉬 스프링거 스파니엘",
+        "en": "Welsh Springer Spaniel"
+      },
+      {
+        "ko": "웰쉬 테리어",
+        "en": "Welsh Terrier"
+      },
+      {
+        "ko": "웰시 스프링거 스파니엘",
+        "en": "Welsh Springer Spaniel"
+      },
+      {
+        "ko": "웰시 코기",
+        "en": "Welsh Corgi"
+      },
+      {
+        "ko": "웰시 코기 카디건",
+        "en": "Welsh Corgi Cardigan"
+      },
+      {
+        "ko": "웰시 코기 펨브로크",
+        "en": "Welsh Corgi Pembroke"
+      },
+      {
+        "ko": "웰시 테리어",
+        "en": "Welsh Terrier"
+      },
+      {
+        "ko": "유라시아",
+        "en": "Eurasier"
+      },
+      {
+        "ko": "유즈노루스카야 옵차르카",
+        "en": "Yuzhnorusskaya Ovcharka"
+      },
+      {
+        "ko": "이비잔 하운드",
+        "en": "Ibizan Hound"
+      },
+      {
+        "ko": "이스타르스키 오슈트로들라키 고니치",
+        "en": "Istarski Ostrodlaki Gonic"
+      },
+      {
+        "ko": "이스타르스키 크라트코들라키 고니치",
+        "en": "Istarski Kratkodlaki Gonic"
+      },
+      {
+        "ko": "이스트 시베리언 라이카",
+        "en": "East Siberian Laika"
+      },
+      {
+        "ko": "이슬렌스퀴르 피아우르휜뒤르",
+        "en": "Islenskur Fjarhundur"
+      },
+      {
+        "ko": "이탈리안 그레이 하운드",
+        "en": "Italian Greyhound"
+      },
+      {
+        "ko": "이탈리안 세구죠",
+        "en": "Italian Segugio"
+      },
+      {
+        "ko": "이탈리안 코로소 도그",
+        "en": "Italian Corso Dog"
+      },
+      {
+        "ko": "이탈리언 그레이하운드",
+        "en": "Italian Greyhound"
+      },
+      {
+        "ko": "이탈리언 코르소 도그",
+        "en": "Italian Corso Dog"
+      },
+      {
+        "ko": "잉글리쉬 세터",
+        "en": "English Setter"
+      },
+      {
+        "ko": "잉글리쉬 스프링거 스파니엘",
+        "en": "English Springer Spaniel"
+      },
+      {
+        "ko": "잉글리쉬 코커 스파니엘",
+        "en": "English Cocker Spaniel"
+      },
+      {
+        "ko": "잉글리쉬 토이 테리어",
+        "en": "English Toy Terrier"
+      },
+      {
+        "ko": "잉글리쉬 포인터",
+        "en": "English Pointer"
+      },
+      {
+        "ko": "잉글리시 마스티프",
+        "en": "English Mastiff"
+      },
+      {
+        "ko": "잉글리시 불도그",
+        "en": "English Bulldog"
+      },
+      {
+        "ko": "잉글리시 세터",
+        "en": "English Setter"
+      },
+      {
+        "ko": "잉글리시 스프링거 스패니얼",
+        "en": "English Springer Spaniel"
+      },
+      {
+        "ko": "잉글리시 코카 스패니얼",
+        "en": "English Cocker Spaniel"
+      },
+      {
+        "ko": "잉글리시 포인터",
+        "en": "English Pointer"
+      },
+      {
+        "ko": "잉글리시 폭스 하운드",
+        "en": "English Foxhound"
+      },
+      {
+        "ko": "잉글리시 폭스하운드",
+        "en": "English Foxhound"
+      },
+      {
+        "ko": "자이언트 슈나우저",
+        "en": "Giant Schnauzer"
+      },
+      {
+        "ko": "자이언트 슈나우져",
+        "en": "Giant Schnauzer"
+      },
+      {
+        "ko": "잭 러셀 테리어",
+        "en": "Jack Russell Terrier"
+      },
+      {
+        "ko": "저먼 롱헤어드 포인터",
+        "en": "German Longhaired Pointer"
+      },
+      {
+        "ko": "저먼 셰퍼드 도그",
+        "en": "German Shepherd Dog"
+      },
+      {
+        "ko": "저먼 쇼트헤어드 포인터",
+        "en": "German Shorthaired Pointer"
+      },
+      {
+        "ko": "저먼 숏헤어드 포인팅 도그",
+        "en": "German Shorthaired Pointing Dog"
+      },
+      {
+        "ko": "저먼 스피츠",
+        "en": "German Spitz"
+      },
+      {
+        "ko": "저먼 와이어헤어드 포인터",
+        "en": "German Wirehaired Pointer"
+      },
+      {
+        "ko": "저먼 핀셔",
+        "en": "German Pinscher"
+      },
+      {
+        "ko": "저먼 헌팅 테리어",
+        "en": "German Hunting Terrier"
+      },
+      {
+        "ko": "제주개",
+        "en": "Jeju Dog"
+      },
+      {
+        "ko": "제패니즈 스피츠",
+        "en": "Japanese Spitz"
+      },
+      {
+        "ko": "제패니즈 친",
+        "en": "Japanese Chin"
+      },
+      {
+        "ko": "제패니즈 테리어",
+        "en": "Japanese Terrier"
+      },
+      {
+        "ko": "제페니스 친",
+        "en": "Japanese Chin"
+      },
+      {
+        "ko": "진돗개",
+        "en": "Jindo Dog"
+      },
+      {
+        "ko": "차우 차우",
+        "en": "Chow Chow"
+      },
+      {
+        "ko": "차우차우",
+        "en": "Chow Chow"
+      },
+      {
+        "ko": "차이니스 크레스티드",
+        "en": "Chinese Crested"
+      },
+      {
+        "ko": "차이니즈 크레스티드 도그",
+        "en": "Chinese Crested Dog"
+      },
+      {
+        "ko": "체서피크 베이 리트리버",
+        "en": "Chesapeake Bay Retriever"
+      },
+      {
+        "ko": "체스키 테리어",
+        "en": "Cesky Terrier"
+      },
+      {
+        "ko": "체스키 테리에르",
+        "en": "Cesky Terrier"
+      },
+      {
+        "ko": "체스키 포우세크",
+        "en": "Cesky Fousek"
+      },
+      {
+        "ko": "체코슬로바키안 울프도그",
+        "en": "Czechoslovakian Wolfdog"
+      },
+      {
+        "ko": "체코슬로바키언 울프도그",
+        "en": "Czechoslovakian Wolfdog"
+      },
+      {
+        "ko": "치누크",
+        "en": "Chinook"
+      },
+      {
+        "ko": "치르네코 델레트나",
+        "en": "Cirneco dell'Etna"
+      },
+      {
+        "ko": "치오버네스크 로므네스크 데 부코비나",
+        "en": "Ciobanesc Romanesc de Bucovina"
+      },
+      {
+        "ko": "치오버네스크 로므네스크 미오리티크",
+        "en": "Ciobanesc Romanesc Mioritic"
+      },
+      {
+        "ko": "치오버네스크 로므네스크 카르파틴",
+        "en": "Ciobanesc Romanesc Carpatin"
+      },
+      {
+        "ko": "치와와",
+        "en": "Chihuahua"
+      },
+      {
+        "ko": "친",
+        "en": "Chin"
+      },
+      {
+        "ko": "카네 다 파스토레 베르가마스코",
+        "en": "Cane da Pastore Bergamasco"
+      },
+      {
+        "ko": "카네 코르소",
+        "en": "Cane Corso"
+      },
+      {
+        "ko": "카렐리안 베어 도그",
+        "en": "Karelian Bear Dog"
+      },
+      {
+        "ko": "카리알랑카르후코이라",
+        "en": "Karjalankarhukoira"
+      },
+      {
+        "ko": "카발리에 킹 찰스 스패니얼",
+        "en": "Cavalier King Charles Spaniel"
+      },
+      {
+        "ko": "카이",
+        "en": "Kai"
+      },
+      {
+        "ko": "카이견",
+        "en": "Kai Ken"
+      },
+      {
+        "ko": "카타호울라 레오파트 도그",
+        "en": "Catahoula Leopard Dog"
+      },
+      {
+        "ko": "캉 다 세하 드 아이르스",
+        "en": "Cao da Serra de Aires"
+      },
+      {
+        "ko": "캉 드 카스트루 라보레이루",
+        "en": "Cao de Castro Laboreiro"
+      },
+      {
+        "ko": "캉 드 필라 드 상미겔",
+        "en": "Cao de Fila de Sao Miguel"
+      },
+      {
+        "ko": "캉갈",
+        "en": "Kangal"
+      },
+      {
+        "ko": "캐롤리나 도그",
+        "en": "Carolina Dog"
+      },
+      {
+        "ko": "캐벌리어 킹 찰스 스파니엘",
+        "en": "Cavalier King Charles Spaniel"
+      },
+      {
+        "ko": "컬리 코티드 리트리버",
+        "en": "Curly Coated Retriever"
+      },
+      {
+        "ko": "케니스펜더",
+        "en": "Keeshond"
+      },
+      {
+        "ko": "케리 블루 테리어",
+        "en": "Kerry Blue Terrier"
+      },
+      {
+        "ko": "케언 테리어",
+        "en": "Cairn Terrier"
+      },
+      {
+        "ko": "케이넌 도그",
+        "en": "Canaan Dog"
+      },
+      {
+        "ko": "케이스혼트",
+        "en": "Keeshond"
+      },
+      {
+        "ko": "켈렙 카나아니",
+        "en": "Keleb Kanaani"
+      },
+      {
+        "ko": "코리안 마스티프",
+        "en": "Korean Mastiff"
+      },
+      {
+        "ko": "코몬도르",
+        "en": "Komondor"
+      },
+      {
+        "ko": "코카 스파니엘",
+        "en": "Cocker Spaniel"
+      },
+      {
+        "ko": "코카시언 셰퍼드 도그",
+        "en": "Caucasian Shepherd Dog"
+      },
+      {
+        "ko": "콘티넨탈 토이 스파니엘",
+        "en": "Continental Toy Spaniel"
+      },
+      {
+        "ko": "콜리",
+        "en": "Collie"
+      },
+      {
+        "ko": "콜리 (러프)",
+        "en": "Rough Collie"
+      },
+      {
+        "ko": "콜리 (스무스)",
+        "en": "Smooth Collie"
+      },
+      {
+        "ko": "쿠바츠",
+        "en": "Kuvasz"
+      },
+      {
+        "ko": "쿠버스",
+        "en": "Kuvasz"
+      },
+      {
+        "ko": "크라셰베츠",
+        "en": "Krasky Ovcar"
+      },
+      {
+        "ko": "크레타 하운드",
+        "en": "Cretan Hound"
+      },
+      {
+        "ko": "크로아티안 쉽도그",
+        "en": "Croatian Sheepdog"
+      },
+      {
+        "ko": "클라이너 뮌슈테를렌더",
+        "en": "Kleiner Munsterlander"
+      },
+      {
+        "ko": "클럼버 스파니엘",
+        "en": "Clumber Spaniel"
+      },
+      {
+        "ko": "클럼버 스패니얼",
+        "en": "Clumber Spaniel"
+      },
+      {
+        "ko": "키슈",
+        "en": "Kishu"
+      },
+      {
+        "ko": "키스흔드",
+        "en": "Keeshond"
+      },
+      {
+        "ko": "킹 찰스 스파니엘",
+        "en": "King Charles Spaniel"
+      },
+      {
+        "ko": "타이 리지백 도그",
+        "en": "Thai Ridgeback Dog"
+      },
+      {
+        "ko": "타이 방케우",
+        "en": "Thai Bangkaew"
+      },
+      {
+        "ko": "타이완 도그",
+        "en": "Taiwan Dog"
+      },
+      {
+        "ko": "타이완 도그(포르모산 마운틴 도그)",
+        "en": "Taiwan Dog (Formosan Mountain Dog)"
+      },
+      {
+        "ko": "테디 루즈벨트 테리어",
+        "en": "Teddy Roosevelt Terrier"
+      },
+      {
+        "ko": "테르뷰렌",
+        "en": "Tervuren"
+      },
+      {
+        "ko": "테히에르 브라질레이루",
+        "en": "Terrier Brasileiro"
+      },
+      {
+        "ko": "토르냐크",
+        "en": "Tornjak"
+      },
+      {
+        "ko": "토른쟈크",
+        "en": "Tornjak"
+      },
+      {
+        "ko": "토이 맨체스터 테리어",
+        "en": "Toy Manchester Terrier"
+      },
+      {
+        "ko": "토이 폭스 테리어",
+        "en": "Toy Fox Terrier"
+      },
+      {
+        "ko": "통일개",
+        "en": "Tongil Dog"
+      },
+      {
+        "ko": "트라이 하운드",
+        "en": "Treeing Hound"
+      },
+      {
+        "ko": "트랜시바니안 하운드",
+        "en": "Transylvanian Hound"
+      },
+      {
+        "ko": "트리잉 워커 쿤하운드",
+        "en": "Treeing Walker Coonhound"
+      },
+      {
+        "ko": "트리잉 테네시 브린들",
+        "en": "Treeing Tennessee Brindle"
+      },
+      {
+        "ko": "티롤러 브라케",
+        "en": "Tyrolean Bracke"
+      },
+      {
+        "ko": "티베탄 마스티프",
+        "en": "Tibetan Mastiff"
+      },
+      {
+        "ko": "티베탄 스파니엘",
+        "en": "Tibetan Spaniel"
+      },
+      {
+        "ko": "티베탄 스패니얼",
+        "en": "Tibetan Spaniel"
+      },
+      {
+        "ko": "티베탄 테리어",
+        "en": "Tibetan Terrier"
+      },
+      {
+        "ko": "파라오 하운드",
+        "en": "Pharaoh Hound"
+      },
+      {
+        "ko": "파슨 러셀 테리어",
+        "en": "Parson Russell Terrier"
+      },
+      {
+        "ko": "파피용",
+        "en": "Papillon"
+      },
+      {
+        "ko": "패터데일 테리어",
+        "en": "Patterdale Terrier"
+      },
+      {
+        "ko": "퍼그",
+        "en": "Pug"
+      },
+      {
+        "ko": "페로 데 아과 에스파뇰",
+        "en": "Perro de Agua Espanol"
+      },
+      {
+        "ko": "페로 데 파스토르 마요르킨",
+        "en": "Perro de Pastor Mallorquin"
+      },
+      {
+        "ko": "페로 도고 마요르킨",
+        "en": "Perro Dogo Mallorquin"
+      },
+      {
+        "ko": "페로 드 프레사 카나리오",
+        "en": "Perro de Presa Canario"
+      },
+      {
+        "ko": "페로 시마론 우루과요",
+        "en": "Perro Cimarron Uruguayo"
+      },
+      {
+        "ko": "페루비언 헤어리스 도그",
+        "en": "Peruvian Hairless Dog"
+      },
+      {
+        "ko": "페르디게로 데 부르고스",
+        "en": "Perdiguero de Burgos"
+      },
+      {
+        "ko": "페르디게이루 포르투게스",
+        "en": "Perdigueiro Portugues"
+      },
+      {
+        "ko": "페키니즈",
+        "en": "Pekingese"
+      },
+      {
+        "ko": "포덴코 이비센코",
+        "en": "Podenco Ibicenco"
+      },
+      {
+        "ko": "포뎅구 포르투게스",
+        "en": "Podengo Portugues"
+      },
+      {
+        "ko": "포뎅코 카나리오",
+        "en": "Podenco Canario"
+      },
+      {
+        "ko": "포르셀렌",
+        "en": "Porcelaine"
+      },
+      {
+        "ko": "포르셀엔",
+        "en": "Porcelaine"
+      },
+      {
+        "ko": "포르투갈 워터 도그",
+        "en": "Portuguese Water Dog"
+      },
+      {
+        "ko": "포르투갈 포덴고",
+        "en": "Portuguese Podengo"
+      },
+      {
+        "ko": "포르투갈 포인터",
+        "en": "Portuguese Pointer"
+      },
+      {
+        "ko": "포르투기즈 워터 도그",
+        "en": "Portuguese Water Dog"
+      },
+      {
+        "ko": "포메라니안",
+        "en": "Pomeranian"
+      },
+      {
+        "ko": "포사브스키 고니치",
+        "en": "Posavski Gonic"
+      },
+      {
+        "ko": "포인터",
+        "en": "Pointer"
+      },
+      {
+        "ko": "폭스 테리어",
+        "en": "Fox Terrier"
+      },
+      {
+        "ko": "폴리쉬 로랜드 쉽도그",
+        "en": "Polish Lowland Sheepdog"
+      },
+      {
+        "ko": "폴리시 로랜드 쉽도그",
+        "en": "Polish Lowland Sheepdog"
+      },
+      {
+        "ko": "폼피츠",
+        "en": "Pomeranian"
+      },
+      {
+        "ko": "푸델포인터",
+        "en": "Pudelpointer"
+      },
+      {
+        "ko": "푸들",
+        "en": "Poodle"
+      },
+      {
+        "ko": "푸미",
+        "en": "Pumi"
+      },
+      {
+        "ko": "풀리",
+        "en": "Puli"
+      },
+      {
+        "ko": "풍산개",
+        "en": "Pungsan Dog"
+      },
+      {
+        "ko": "프랑세 블랑 엣 누아",
+        "en": "Francais Blanc et Noir"
+      },
+      {
+        "ko": "프랑세 블랑 엣 오랑주",
+        "en": "Francais Blanc et Orange"
+      },
+      {
+        "ko": "프랑세 트리콜로",
+        "en": "Francais Tricolore"
+      },
+      {
+        "ko": "프레사 까나리오",
+        "en": "Presa Canario"
+      },
+      {
+        "ko": "프렌치 불도그",
+        "en": "French Bulldog"
+      },
+      {
+        "ko": "프렌치 스패니얼",
+        "en": "French Spaniel"
+      },
+      {
+        "ko": "프와트방",
+        "en": "Poitevin"
+      },
+      {
+        "ko": "프티 블뢰 드 가스코뉴",
+        "en": "Petit Bleu de Gascogne"
+      },
+      {
+        "ko": "플랫 코티드 리트리버",
+        "en": "Flat Coated Retriever"
+      },
+      {
+        "ko": "피니시 라프훈트",
+        "en": "Finnish Lapphund"
+      },
+      {
+        "ko": "피니시 스피츠",
+        "en": "Finnish Spitz"
+      },
+      {
+        "ko": "피레니안 마운틴 도그",
+        "en": "Pyrenean Mountain Dog"
+      },
+      {
+        "ko": "피레니안 셰퍼드",
+        "en": "Pyrenean Shepherd"
+      },
+      {
+        "ko": "피레니언 마스티프",
+        "en": "Pyrenean Mastiff"
+      },
+      {
+        "ko": "피레니언 마운틴 도그",
+        "en": "Pyrenean Mountain Dog"
+      },
+      {
+        "ko": "피레니언 쉽도그 롱헤어",
+        "en": "Pyrenean Sheepdog Longhair"
+      },
+      {
+        "ko": "필드 스파니엘",
+        "en": "Field Spaniel"
+      },
+      {
+        "ko": "필드 스패니얼",
+        "en": "Field Spaniel"
+      },
+      {
+        "ko": "필라 브라질레이로",
+        "en": "Fila Brasileiro"
+      },
+      {
+        "ko": "핏 불 테리어",
+        "en": "Pit Bull Terrier"
+      },
+      {
+        "ko": "하노페르셔 슈바이스훈트",
+        "en": "Hannoverscher Schweisshund"
+      },
+      {
+        "ko": "하르트 폴스키",
+        "en": "Chart Polski"
+      },
+      {
+        "ko": "하밀톤스퇴바레",
+        "en": "Hamiltonstovare"
+      },
+      {
+        "ko": "하바니즈(하바네제)",
+        "en": "Havanese"
+      },
+      {
+        "ko": "하페이루 두 알렌테주",
+        "en": "Rafeiro do Alentejo"
+      },
+      {
+        "ko": "할덴스퇴베르",
+        "en": "Haldenstover"
+      },
+      {
+        "ko": "해리어",
+        "en": "Harrier"
+      },
+      {
+        "ko": "헝가리언 숏헤어드 포인터",
+        "en": "Hungarian Shorthaired Pointer"
+      },
+      {
+        "ko": "호바와트",
+        "en": "Hovawart"
+      },
+      {
+        "ko": "호파바르트",
+        "en": "Hovawart"
+      },
+      {
+        "ko": "홀란드서 스마우스혼트",
+        "en": "Hollandse Smoushond"
+      },
+      {
+        "ko": "홀란드서 헤르더르",
+        "en": "Hollandse Herder"
+      },
+      {
+        "ko": "홋카이도",
+        "en": "Hokkaido"
+      },
+      {
+        "ko": "홋카이도견",
+        "en": "Hokkaido Ken"
+      },
+      {
+        "ko": "휘핏",
+        "en": "Whippet"
+      },
+      {
+        "ko": "흐르바트스키 오브차르",
+        "en": "Hrvatski Ovcar"
+      },
+      {
+        "ko": "히겐훈드",
+        "en": "Hygenhund"
+      }
+    ]
+    </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"
       crossorigin="anonymous"
     ></script>
     <script>
       (function () {
-        const AREA_CATS = [
-          {
-            value: "head_face",
-            ko: "얼굴 · 머리",
-            en: "Head & face",
-            sub: [
-              { key: "ears", ko: "귀", en: "Ears" },
-              { key: "eyeArea", ko: "눈 주변", en: "Eye area" },
-              { key: "noseArea", ko: "코 주변", en: "Nose area" },
-              { key: "mouthArea", ko: "입 주변", en: "Mouth area" },
-              { key: "snoutChin", ko: "주둥이 · 턱", en: "Snout & chin" },
-            ],
-          },
-          {
-            value: "body",
-            ko: "몸통 · 등",
-            en: "Body & back",
-            sub: [
-              { key: "neck", ko: "목", en: "Neck" },
-              { key: "shoulders", ko: "어깨", en: "Shoulders" },
-              { key: "upperBack", ko: "등 상부", en: "Upper back" },
-              { key: "lowerBack", ko: "등 하부", en: "Lower back" },
-              { key: "sides", ko: "옆구리", en: "Sides" },
-            ],
-          },
-          {
-            value: "legs",
-            ko: "다리",
-            en: "Legs",
-            sub: [
-              { key: "frontLegs", ko: "앞다리", en: "Front legs" },
-              { key: "hindLegs", ko: "뒷다리", en: "Hind legs" },
-              { key: "paws", ko: "발바닥", en: "Paws" },
-              { key: "betweenToes", ko: "발가락 사이", en: "Between toes" },
-              { key: "kneeJoint", ko: "무릎 관절", en: "Knee joint" },
-            ],
-          },
-          {
-            value: "belly",
-            ko: "배",
-            en: "Belly",
-            sub: [
-              { key: "chest", ko: "가슴", en: "Chest" },
-              { key: "upperBelly", ko: "윗배", en: "Upper belly" },
-              { key: "lowerBelly", ko: "아랫배", en: "Lower belly" },
-              { key: "groin", ko: "사타구니", en: "Groin" },
-            ],
-          },
-          {
-            value: "other",
-            ko: "기타",
-            en: "Other",
-            sub: [
-              { key: "tail", ko: "꼬리", en: "Tail" },
-              { key: "analArea", ko: "항문 주변", en: "Anal area" },
-              { key: "wholebody", ko: "전신", en: "Whole body" },
-              { key: "genitalArea", ko: "생식기 주변", en: "Genital area" },
-            ],
-          },
-        ];
-        const FALLBACK_BREEDS = [
-          "골든 리트리버",
-          "말티즈",
-          "푸들",
-          "진돗개",
-          "믹스견",
-          "웰시 코기",
-          "비글",
-          "치와와",
-          "닥스훈트",
-          "기타",
-        ];
+      const AREA_CATS = [
+        { value: 'head_face', ko: '얼굴 · 머리', en: 'Head & face', sub: [
+          { key: 'ears', ko: '귀', en: 'Ears' }, { key: 'eyeArea', ko: '눈 주변', en: 'Eye area' },
+          { key: 'noseArea', ko: '코 주변', en: 'Nose area' }, { key: 'mouthArea', ko: '입 주변', en: 'Mouth area' },
+          { key: 'snoutChin', ko: '주둥이 · 턱', en: 'Snout & chin' }
+        ]},
+        { value: 'body', ko: '몸통 · 등', en: 'Body & back', sub: [
+          { key: 'neck', ko: '목', en: 'Neck' }, { key: 'shoulders', ko: '어깨', en: 'Shoulders' },
+          { key: 'upperBack', ko: '등 상부', en: 'Upper back' }, { key: 'lowerBack', ko: '등 하부', en: 'Lower back' },
+          { key: 'sides', ko: '옆구리', en: 'Sides' }
+        ]},
+        { value: 'legs', ko: '다리', en: 'Legs', sub: [
+          { key: 'frontLegs', ko: '앞다리', en: 'Front legs' }, { key: 'hindLegs', ko: '뒷다리', en: 'Hind legs' },
+          { key: 'paws', ko: '발바닥', en: 'Paws' }, { key: 'betweenToes', ko: '발가락 사이', en: 'Between toes' },
+          { key: 'kneeJoint', ko: '무릎 관절', en: 'Knee joint' }
+        ]},
+        { value: 'belly', ko: '배', en: 'Belly', sub: [
+          { key: 'chest', ko: '가슴', en: 'Chest' }, { key: 'upperBelly', ko: '윗배', en: 'Upper belly' },
+          { key: 'lowerBelly', ko: '아랫배', en: 'Lower belly' }, { key: 'groin', ko: '사타구니', en: 'Groin' }
+        ]},
+        { value: 'other', ko: '기타', en: 'Other', sub: [
+          { key: 'tail', ko: '꼬리', en: 'Tail' }, { key: 'analArea', ko: '항문 주변', en: 'Anal area' },
+          { key: 'wholebody', ko: '전신', en: 'Whole body' }, { key: 'genitalArea', ko: '생식기 주변', en: 'Genital area' }
+        ]}
+      ];
+      const FALLBACK_BREEDS = ['골든 리트리버', '말티즈', '푸들', '진돗개', '믹스견', '웰시 코기', '비글', '치와와', '닥스훈트', '기타'];
 
-        /** @type {{ko:string,en:string}[]} */
-        let petBreedRows = [];
-        let cropper = null;
-        let pendingOriginalFile = null;
-        let pendingCropObjectUrl = null;
+      /** @type {{ko:string,en:string}[]} */
+      let petBreedRows = [];
+      let cropper = null;
+      let pendingOriginalFile = null;
+      let pendingCropObjectUrl = null;
 
-        const st = {
-          phase: "q1",
-          petName: "",
-          petBirthDate: "",
-          weight: "",
-          petBreed: "",
-          customBreed: "",
-          breedSearch: "",
-          showBreedDd: false,
-          pruritus: "",
-          odor: false,
-          alopecia: false,
-          areaCategory: "",
-          subKeys: [],
-          originalFile: null,
-          croppedFile: null,
-          previewUrl: null,
-          loading: false,
-          err: "",
-          result: null,
-        };
+      const st = {
+        phase: 'q1',
+        petName: '', petBirthDate: '', dobYear: '', dobMonth: '', dobDay: '',
+        weight: '', petBreed: '', customBreed: '',
+        breedSearch: '', showBreedDd: false,
+        pruritus: '', odor: false, alopecia: false,
+        areaCategory: '', subKeys: [],
+        originalFile: null, croppedFile: null, previewUrl: null,
+        loading: false, err: '', result: null
+      };
 
-        function revokeSkinPreview() {
-          if (st.previewUrl) {
-            try {
-              URL.revokeObjectURL(st.previewUrl);
-            } catch (e) {}
-            st.previewUrl = null;
-          }
+      function revokeSkinPreview() {
+        if (st.previewUrl) {
+          try { URL.revokeObjectURL(st.previewUrl); } catch (e) {}
+          st.previewUrl = null;
         }
+      }
 
-        function T(k) {
-          const d = window.I18N && window.I18N[window.CURRENT_LANG || "ko"];
-          return (d && d[k]) || window.I18N?.ko?.[k] || k;
+      function T(k) {
+        const d = window.I18N && window.I18N[window.CURRENT_LANG || 'ko'];
+        return (d && d[k]) || window.I18N?.ko?.[k] || k;
+      }
+
+      function esc(s) {
+        return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      /** 피부 체험 업로드 API — 정적 랜딩과 분리된 백엔드 (입력 UI 없음, 여기만 수정) */
+      var SKIN_TRIAL_API_BASE = 'http://103.218.158.33:4000';
+
+      function apiTrialUrl() {
+        return SKIN_TRIAL_API_BASE.replace(/\/$/, '') + '/api/upload/image/trial';
+      }
+
+      function normalizeBreedRows(raw) {
+        if (!Array.isArray(raw)) return [];
+        return raw.map(function (item) {
+          if (typeof item === 'string') return { ko: item, en: item };
+          var ko = item && item.ko != null ? String(item.ko) : '';
+          var en = item && item.en != null ? String(item.en) : ko;
+          return { ko: ko, en: en || ko };
+        }).filter(function (r) { return r.ko; });
+      }
+
+      /** 품종 UI 언어: en만 영어, 그 외(ko/kr 등)는 한국어만 한 줄 */
+      function breedListIsEnglish() {
+        return String(window.CURRENT_LANG || 'ko').toLowerCase() === 'en';
+      }
+
+      function breedDisplayLine(row) {
+        if (breedListIsEnglish()) return String(row.en || row.ko || '').trim();
+        return String(row.ko || '').trim();
+      }
+
+      function breedPrimarySecondary(row) {
+        var line = breedDisplayLine(row);
+        return { primary: line, secondary: '' };
+      }
+
+      function pickedBreedBlock() {
+        if (!st.petBreed) return '';
+        if (st.petBreed === 'other') {
+          return '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' + esc(T('skinTrial.breedOther') + ': ' + (st.customBreed || '')) + '</p></div>';
         }
+        var row = petBreedRows.find(function (r) { return r.ko === st.petBreed; });
+        if (!row) return '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' + esc(st.petBreed) + '</p></div>';
+        var one = breedDisplayLine(row);
+        return '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' + esc(one) + '</p></div>';
+      }
 
-        function esc(s) {
-          return String(s ?? "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;");
+      /** HTML 내 <script id="pet-breeds-inline" type="application/json"> 에 품종 전체 포함 — 네트워크 없음 */
+      function parseInlinePetBreeds() {
+        var el = document.getElementById('pet-breeds-inline');
+        if (!el || !el.textContent) return null;
+        try {
+          var raw = JSON.parse(el.textContent.trim());
+          return Array.isArray(raw) ? raw : null;
+        } catch (e) {
+          return null;
         }
+      }
 
-        /** 피부 체험 업로드 API — 정적 랜딩과 분리된 백엔드 (입력 UI 없음, 여기만 수정) */
-        var SKIN_TRIAL_API_BASE = "http://103.218.158.33:4000";
-
-        function apiTrialUrl() {
-          return (
-            SKIN_TRIAL_API_BASE.replace(/\/$/, "") + "/api/upload/image/trial"
-          );
+      async function loadBreeds() {
+        var inline = parseInlinePetBreeds();
+        if (inline && inline.length) {
+          petBreedRows = normalizeBreedRows(inline);
+          return;
         }
+        petBreedRows = normalizeBreedRows(FALLBACK_BREEDS);
+        if (typeof showToast === 'function') showToast(T('skinTrial.errBreed'));
+      }
 
-        function normalizeBreedRows(raw) {
-          if (!Array.isArray(raw)) return [];
-          return raw
-            .map(function (item) {
-              if (typeof item === "string") return { ko: item, en: item };
-              var ko = item && item.ko != null ? String(item.ko) : "";
-              var en = item && item.en != null ? String(item.en) : ko;
-              return { ko: ko, en: en || ko };
-            })
-            .filter(function (r) {
-              return r.ko;
-            });
-        }
-
-        /** UI용: 현재 언어에서 먼저 쓸 이름 + 보조(다른 언어) 한 줄 */
-        function breedPrimarySecondary(row) {
-          var lang = window.CURRENT_LANG || "ko";
-          var primary = lang === "en" ? row.en || row.ko : row.ko;
-          var secondary = lang === "en" ? row.ko : row.en;
-          if (!secondary || secondary === primary) secondary = "";
-          return { primary: primary, secondary: secondary };
-        }
-
-        function pickedBreedBlock() {
-          if (!st.petBreed) return "";
-          if (st.petBreed === "other") {
-            return (
-              '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' +
-              esc(T("skinTrial.breedOther") + ": " + (st.customBreed || "")) +
-              "</p></div>"
-            );
-          }
-          var row = petBreedRows.find(function (r) {
-            return r.ko === st.petBreed;
+      function filteredBreeds() {
+        var q = (st.breedSearch || '').trim().toLowerCase();
+        var rows = petBreedRows;
+        if (q) {
+          rows = petBreedRows.filter(function (r) {
+            var hay = breedListIsEnglish()
+              ? String(r.en || r.ko || '').toLowerCase()
+              : String(r.ko || '').toLowerCase();
+            return hay.indexOf(q) >= 0;
           });
-          if (!row)
-            return (
-              '<div class="skin-breed-picked"><p class="skin-breed-pick-ko" style="margin:0">' +
-              esc(st.petBreed) +
-              "</p></div>"
-            );
-          return (
-            '<div class="skin-breed-picked"><p class="skin-breed-pick-ko">' +
-            esc(row.ko) +
-            '</p><p class="skin-breed-pick-en">' +
-            esc(row.en) +
-            "</p></div>"
-          );
         }
+        return rows;
+      }
 
-        /** HTML과 같은 폴더의 pet-breeds.json (location 기준, #·쿼리 제외) */
-        function petBreedsJsonHref() {
-          try {
-            var href = String(window.location.href || "").split("#")[0];
-            return new URL("pet-breeds.json", href).href;
-          } catch (e) {
-            return "pet-breeds.json";
-          }
+      function pad2(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function daysInMonth(year, month) {
+        if (!year || !month) return 31;
+        return new Date(year, month, 0).getDate();
+      }
+
+      function parseBirth(iso) {
+        if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(String(iso))) return { y: '', m: '', d: '' };
+        var p = String(iso).split('-');
+        return { y: parseInt(p[0], 10), m: parseInt(p[1], 10), d: parseInt(p[2], 10) };
+      }
+
+      function birthSelectsHtml() {
+        var p = parseBirth(st.petBirthDate);
+        /* 연/월/일을 순서대로 고를 때마다 render()가 돌기 때문에, 미완성 선택은 petBirthDate가 아닌 dob*에 보존해야 함 */
+        var y = st.dobYear ? parseInt(String(st.dobYear), 10) : p.y;
+        var m = st.dobMonth ? parseInt(String(st.dobMonth), 10) : p.m;
+        var d = st.dobDay ? parseInt(String(st.dobDay), 10) : p.d;
+        var lang = window.CURRENT_LANG || 'ko';
+        var isEn = lang === 'en';
+        var thisYear = new Date().getFullYear();
+        var years = [];
+        for (var yi = thisYear + 1; yi >= 1990; yi--) years.push(yi);
+        var yearOpts = '<option value="">' + esc(T('skinTrial.yearPh')) + '</option>' +
+          years.map(function (yy) {
+            return '<option value="' + yy + '"' + (y === yy ? ' selected' : '') + '>' + yy + '</option>';
+          }).join('');
+        var monthOpts = '<option value="">' + esc(T('skinTrial.monthPh')) + '</option>';
+        for (var mi = 1; mi <= 12; mi++) {
+          monthOpts += '<option value="' + mi + '"' + (m === mi ? ' selected' : '') + '>' + mi + '</option>';
         }
-
-        async function loadBreeds() {
-          try {
-            var r = await fetch(petBreedsJsonHref(), { cache: "no-store" });
-            if (!r.ok) throw new Error("breed http");
-            petBreedRows = normalizeBreedRows(await r.json());
-          } catch (e2) {
-            petBreedRows = normalizeBreedRows(FALLBACK_BREEDS);
-            if (typeof showToast === "function")
-              showToast(T("skinTrial.errBreed"));
-          }
+        var yPick = y || thisYear;
+        var mPick = m || 1;
+        var maxD = daysInMonth(yPick, mPick);
+        var dVal = d;
+        if (y && m && dVal > maxD) dVal = maxD;
+        var dayOpts = '<option value="">' + esc(T('skinTrial.dayPh')) + '</option>';
+        for (var di = 1; di <= maxD; di++) {
+          dayOpts += '<option value="' + di + '"' + (y && m && dVal === di ? ' selected' : '') + '>' + di + '</option>';
         }
+        var afterYear = isEn
+          ? '<span class="skin-dob-sep">' + esc(T('skinTrial.dateSep')) + '</span>'
+          : (T('skinTrial.dateYearSuffix') ? '<span class="skin-dob-suf">' + esc(T('skinTrial.dateYearSuffix')) + '</span>' : '');
+        var afterMonth = isEn
+          ? '<span class="skin-dob-sep">' + esc(T('skinTrial.dateSep')) + '</span>'
+          : (T('skinTrial.dateMonthSuffix') ? '<span class="skin-dob-suf">' + esc(T('skinTrial.dateMonthSuffix')) + '</span>' : '');
+        var afterDay = !isEn && T('skinTrial.dateDaySuffix')
+          ? '<span class="skin-dob-suf">' + esc(T('skinTrial.dateDaySuffix')) + '</span>'
+          : '';
+        return '<div class="skin-field skin-dob-field"><label>' + esc(T('skinTrial.birth')) + '</label>' +
+          '<div class="skin-dob-selects">' +
+          '<select data-f="birthYear" class="skin-dob-sel">' + yearOpts + '</select>' + afterYear +
+          '<select data-f="birthMonth" class="skin-dob-sel">' + monthOpts + '</select>' + afterMonth +
+          '<select data-f="birthDay" class="skin-dob-sel">' + dayOpts + '</select>' + afterDay +
+          '</div></div>';
+      }
 
-        function filteredBreeds() {
-          const q = (st.breedSearch || "").trim().toLowerCase();
-          var rows = petBreedRows;
-          if (q) {
-            rows = petBreedRows.filter(function (r) {
-              return (r.ko + " " + r.en).toLowerCase().indexOf(q) >= 0;
-            });
-          }
-          return rows;
+      function syncBirthFromDom(root) {
+        var yEl = root.querySelector('[data-f="birthYear"]');
+        var mEl = root.querySelector('[data-f="birthMonth"]');
+        var dEl = root.querySelector('[data-f="birthDay"]');
+        if (!yEl || !mEl || !dEl) return;
+        st.dobYear = yEl.value;
+        st.dobMonth = mEl.value;
+        st.dobDay = dEl.value;
+        var ys = st.dobYear, ms = st.dobMonth, ds = st.dobDay;
+        if (!ys || !ms || !ds) {
+          st.petBirthDate = '';
+          return;
         }
+        var yi = parseInt(ys, 10), mi = parseInt(ms, 10), di = parseInt(ds, 10);
+        var maxD = daysInMonth(yi, mi);
+        if (di > maxD) di = maxD;
+        st.petBirthDate = yi + '-' + pad2(mi) + '-' + pad2(di);
+        st.dobDay = String(di);
+      }
 
-        function pad2(n) {
-          return n < 10 ? "0" + n : String(n);
-        }
+      function catByValue(v) { return AREA_CATS.find(function (c) { return c.value === v; }); }
+      function subLabel(sub) { return (window.CURRENT_LANG === 'en') ? sub.en : sub.ko; }
 
-        function daysInMonth(year, month) {
-          if (!year || !month) return 31;
-          return new Date(year, month, 0).getDate();
-        }
+      function validateQ1() {
+        var breedOk = st.petBreed && (st.petBreed !== 'other' || (st.customBreed && st.customBreed.trim()));
+        return !!(st.petName && st.petBirthDate && st.weight && breedOk);
+      }
 
-        function parseBirth(iso) {
-          if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(String(iso)))
-            return { y: "", m: "", d: "" };
-          var p = String(iso).split("-");
-          return {
-            y: parseInt(p[0], 10),
-            m: parseInt(p[1], 10),
-            d: parseInt(p[2], 10),
+      /** 전체 render() 없이 1단계 「다음」만 갱신 — 입력란 DOM 유지 */
+      function updateNextQ1Button() {
+        var root = document.getElementById('skinTrialMount');
+        if (!root || st.phase !== 'q1') return;
+        var btn = root.querySelector('[data-act="next-q1"]');
+        if (!btn) return;
+        btn.disabled = !validateQ1();
+      }
+
+      function validateQ2() {
+        return st.pruritus !== '' && st.pruritus != null && st.areaCategory && st.subKeys.length > 0;
+      }
+
+      function render() {
+        var m = document.getElementById('skinTrialMount');
+        if (!m) return;
+        var lang = window.CURRENT_LANG || 'ko';
+        var stepIdx = st.phase === 'q1' ? 0 : (st.phase === 'q2' ? 0 : (st.phase === 'upload' ? 1 : 2));
+        if (st.phase === 'result') stepIdx = 2;
+
+        var stepsHtml = '<div class="skin-trial-steps">' +
+          ['1','2','3'].map(function (num, i) {
+            var active = (i === 0 && (st.phase === 'q1' || st.phase === 'q2')) || (i === 1 && st.phase === 'upload') || (i === 2 && (st.phase === 'result' || st.loading));
+            var done = (i === 0 && (st.phase !== 'q1')) || (i === 1 && (st.phase === 'result' || st.loading)) || (i === 2 && st.phase === 'result');
+            var cls = 'skin-trial-step' + (active ? ' active' : '') + (done && !active ? ' done' : '');
+            var lbl = [T('skinTrial.s1Title'), T('skinTrial.uploadTitle'), T('skinTrial.resultTitle')][i];
+            return '<div class="' + cls + '"><div class="bubble">' + (done && !active ? '✓' : num) + '</div><span>' + esc(lbl) + '</span></div>';
+          }).join('') + '</div>';
+
+        var body = '';
+        if (st.phase === 'q1') {
+          var fb = filteredBreeds();
+          var breedListInner = fb.length
+            ? fb.map(function (row) {
+              var ps = breedPrimarySecondary(row);
+              return '<button type="button" class="skin-breed-row" data-breed-pick="' + esc(row.ko) + '">' +
+                '<span class="skin-breed-line1">' + esc(ps.primary) + '</span>' +
+                '</button>';
+            }).join('') +
+            '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary)">' + esc(T('skinTrial.breedOther')) + '</button>'
+            : '<div class="skin-breed-empty">' + esc(T('skinTrial.breedEmpty')) + '</div>' +
+              '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary);width:100%">' + esc(T('skinTrial.breedOther')) + '</button>';
+          body = '<div class="skin-trial-card"><h3>' + esc(T('skinTrial.s1Title')) + '</h3><p class="sub">' + esc(T('skinTrial.s1Sub')) + '</p>' +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.petName')) + '</label><input type="text" data-f="petName" value="' + esc(st.petName) + '" /></div>' +
+            birthSelectsHtml() +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.weight')) + '</label><input type="number" step="0.1" data-f="weight" value="' + esc(st.weight) + '" /></div>' +
+            '<div class="skin-field skin-breed-dd"><label>' + esc(T('skinTrial.breed')) + '</label>' +
+            '<input type="text" data-f="breedSearch" placeholder="' + esc(T('skinTrial.breedPh')) + '" value="' + esc(st.breedSearch) + '" autocomplete="off" />' +
+            '<div class="skin-breed-list' + (st.showBreedDd ? ' open' : '') + '" id="skinBreedList">' +
+            breedListInner + '</div>' +
+            pickedBreedBlock() +
+            '</div>' +
+            (st.petBreed === 'other' ? '<div class="skin-field"><label>' + esc(T('skinTrial.customBreed')) + '</label><input type="text" data-f="customBreed" value="' + esc(st.customBreed) + '" /></div>' : '') +
+            '<div style="display:flex;gap:10px;margin-top:8px"><button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q1" ' + (!validateQ1() ? 'disabled' : '') + '>' + esc(T('skinTrial.next')) + '</button></div></div>';
+        } else if (st.phase === 'q2') {
+          var itch = function (val, t1, d1) {
+            var sel = st.pruritus === val ? ' selected' : '';
+            return '<div class="skin-choice skin-pruritus' + sel + '" data-pruritus="' + esc(val) + '"><strong>' + esc(t1) + '</strong><small>' + esc(d1) + '</small></div>';
           };
+          body = '<div class="skin-trial-card"><h3>' + esc(T('skinTrial.s2Title')) + '</h3><p class="sub">' + esc(T('skinTrial.s2Sub')) + '</p>' +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.itch')) + '</label>' +
+            '<div style="display:flex;flex-direction:column;gap:8px">' +
+            itch('없음', T('skinTrial.itchNone'), T('skinTrial.itchNoneD')) +
+            itch('보통', T('skinTrial.itchMod'), T('skinTrial.itchModD')) +
+            itch('심함', T('skinTrial.itchSev'), T('skinTrial.itchSevD')) +
+            '</div></div>' +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.odor')) + '</label><div class="skin-choice-grid">' +
+            '<div class="skin-choice' + (st.odor === true ? ' selected' : '') + '" data-odor="1"><strong>' + esc(T('skinTrial.yes')) + '</strong><br/><small>' + esc(T('skinTrial.yesD')) + '</small></div>' +
+            '<div class="skin-choice' + (st.odor === false ? ' selected' : '') + '" data-odor="0"><strong>' + esc(T('skinTrial.no')) + '</strong><br/><small>' + esc(T('skinTrial.noD')) + '</small></div></div></div>' +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.alopecia')) + '</label><div class="skin-choice-grid">' +
+            '<div class="skin-choice' + (st.alopecia === true ? ' selected' : '') + '" data-alo="1"><strong>' + esc(T('skinTrial.yes')) + '</strong></div>' +
+            '<div class="skin-choice' + (st.alopecia === false ? ' selected' : '') + '" data-alo="0"><strong>' + esc(T('skinTrial.no')) + '</strong><br/><small>' + esc(T('skinTrial.alopNoD')) + '</small></div></div></div>' +
+            '<div class="skin-field"><label>' + esc(T('skinTrial.areaCat')) + '</label><select data-f="areaCategory">' +
+            '<option value="">' + esc(T('skinTrial.areaCatPh')) + '</option>' +
+            AREA_CATS.map(function (c) {
+              return '<option value="' + esc(c.value) + '"' + (st.areaCategory === c.value ? ' selected' : '') + '>' + esc(lang === 'en' ? c.en : c.ko) + '</option>';
+            }).join('') + '</select></div>';
+
+          var cat = catByValue(st.areaCategory);
+          if (cat) {
+            body += '<div class="skin-field"><label>' + esc(T('skinTrial.subArea')) + '</label><div class="skin-subgrid">';
+            body += cat.sub.map(function (s) {
+              var on = st.subKeys.indexOf(s.key) >= 0;
+              return '<label class="skin-sub"><input type="checkbox" data-sub="' + esc(s.key) + '"' + (on ? ' checked' : '') + '/><span>' + esc(subLabel(s)) + '</span></label>';
+            }).join('');
+            body += '</div></div>';
+          }
+
+          body += (st.err ? '<p class="skin-error">' + esc(st.err) + '</p>' : '') +
+            '<div style="display:flex;gap:10px;margin-top:8px">' +
+            '<button type="button" class="btn btn-secondary" style="flex:1;padding:12px" data-act="prev-q2">' + esc(T('skinTrial.prev')) + '</button>' +
+            '<button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q2" ' + (!validateQ2() ? 'disabled' : '') + '>' + esc(T('skinTrial.complete')) + '</button></div></div>';
+        } else if (st.phase === 'upload') {
+          body = '<div class="skin-trial-card"><h3>' + esc(T('skinTrial.uploadTitle')) + '</h3><p class="sub">' + esc(T('skinTrial.uploadSub')) + '</p>' +
+            '<input type="file" accept="image/*" id="skinFileInput" hidden />' +
+            '<div class="skin-upload-zone" data-act="pick-photo"><strong>' + esc(T('skinTrial.pickPhoto')) + '</strong><p style="margin:8px 0 0;font-size:13px;color:var(--ink-3)">' + esc(T('skinTrial.uploadMimeLine')) + '</p></div>' +
+            (st.previewUrl
+              ? '<div class="skin-preview-wrap"><p class="skin-preview-caption">' + esc(T('skinTrial.croppedPreviewCaption')) + '</p><img class="skin-preview-img" src="' + esc(st.previewUrl) + '" alt="" /></div>' +
+                '<p style="margin-top:8px;font-size:13px;color:var(--ink-2)">✓ ' + esc(st.croppedFile && st.croppedFile.name ? st.croppedFile.name : 'croped.jpg') + '</p>'
+              : '') +
+            '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">' +
+            '<button type="button" class="btn btn-secondary" data-act="prev-upload">' + esc(T('skinTrial.prev')) + '</button>' +
+            '<button type="button" class="btn btn-primary" data-act="run-ai" style="flex:1;min-width:200px;padding:12px" ' + (!st.croppedFile || st.loading ? 'disabled' : '') + '>' + esc(st.loading ? T('skinTrial.analyzing') : T('skinTrial.runAi')) + '</button></div>' +
+            (st.err ? '<p class="skin-error">' + esc(st.err) + '</p>' : '') + '</div>';
+        } else if (st.phase === 'result' && st.result) {
+          var conf = Number(st.result.confidence);
+          var confPct = conf <= 1 ? Math.round(conf * 100) : Math.round(conf);
+          body = '<div class="skin-trial-card"><h3>' + esc(T('skinTrial.resultTitle')) + '</h3>' +
+            (st.previewUrl
+              ? '<div class="skin-preview-wrap skin-preview-result"><p class="skin-preview-caption">' + esc(T('skinTrial.uploadedPhotoCaption')) + '</p><img class="skin-preview-img" src="' + esc(st.previewUrl) + '" alt="" /></div>'
+              : '') +
+            '<div class="skin-result-box"><h4>' + esc(st.result.predict_class || '') + '</h4>' +
+            '<p><strong>' + esc(st.result.disease_name || '') + '</strong></p>' +
+            '<p style="margin-top:10px">' + esc(st.result.description || '') + '</p>' +
+            '<p style="margin-top:12px;font-weight:700">' + esc(T('skinTrial.confidence')) + ': ' + confPct + '%</p></div>' +
+            '<button type="button" class="btn btn-primary" style="width:100%;margin-top:16px;padding:12px" data-act="restart">' + esc(T('skinTrial.restart')) + '</button></div>';
         }
 
-        function birthSelectsHtml() {
-          var p = parseBirth(st.petBirthDate);
-          var y = p.y,
-            m = p.m,
-            d = p.d;
-          var lang = window.CURRENT_LANG || "ko";
-          var isEn = lang === "en";
-          var thisYear = new Date().getFullYear();
-          var years = [];
-          for (var yi = thisYear + 1; yi >= 1990; yi--) years.push(yi);
-          var yearOpts =
-            '<option value="">' +
-            esc(T("skinTrial.yearPh")) +
-            "</option>" +
-            years
-              .map(function (yy) {
-                return (
-                  '<option value="' +
-                  yy +
-                  '"' +
-                  (y === yy ? " selected" : "") +
-                  ">" +
-                  yy +
-                  "</option>"
-                );
-              })
-              .join("");
-          var monthOpts =
-            '<option value="">' + esc(T("skinTrial.monthPh")) + "</option>";
-          for (var mi = 1; mi <= 12; mi++) {
-            monthOpts +=
-              '<option value="' +
-              mi +
-              '"' +
-              (m === mi ? " selected" : "") +
-              ">" +
-              mi +
-              "</option>";
-          }
-          var yPick = y || thisYear;
-          var mPick = m || 1;
-          var maxD = daysInMonth(yPick, mPick);
-          var dVal = d;
-          if (y && m && dVal > maxD) dVal = maxD;
-          var dayOpts =
-            '<option value="">' + esc(T("skinTrial.dayPh")) + "</option>";
-          for (var di = 1; di <= maxD; di++) {
-            dayOpts +=
-              '<option value="' +
-              di +
-              '"' +
-              (y && m && dVal === di ? " selected" : "") +
-              ">" +
-              di +
-              "</option>";
-          }
-          var afterYear = isEn
-            ? '<span class="skin-dob-sep">' +
-              esc(T("skinTrial.dateSep")) +
-              "</span>"
-            : T("skinTrial.dateYearSuffix")
-              ? '<span class="skin-dob-suf">' +
-                esc(T("skinTrial.dateYearSuffix")) +
-                "</span>"
-              : "";
-          var afterMonth = isEn
-            ? '<span class="skin-dob-sep">' +
-              esc(T("skinTrial.dateSep")) +
-              "</span>"
-            : T("skinTrial.dateMonthSuffix")
-              ? '<span class="skin-dob-suf">' +
-                esc(T("skinTrial.dateMonthSuffix")) +
-                "</span>"
-              : "";
-          var afterDay =
-            !isEn && T("skinTrial.dateDaySuffix")
-              ? '<span class="skin-dob-suf">' +
-                esc(T("skinTrial.dateDaySuffix")) +
-                "</span>"
-              : "";
-          return (
-            '<div class="skin-field skin-dob-field"><label>' +
-            esc(T("skinTrial.birth")) +
-            "</label>" +
-            '<div class="skin-dob-selects">' +
-            '<select data-f="birthYear" class="skin-dob-sel">' +
-            yearOpts +
-            "</select>" +
-            afterYear +
-            '<select data-f="birthMonth" class="skin-dob-sel">' +
-            monthOpts +
-            "</select>" +
-            afterMonth +
-            '<select data-f="birthDay" class="skin-dob-sel">' +
-            dayOpts +
-            "</select>" +
-            afterDay +
-            "</div></div>"
-          );
-        }
+        m.innerHTML = stepsHtml + body;
+      }
 
-        function syncBirthFromDom(root) {
-          var yEl = root.querySelector('[data-f="birthYear"]');
-          var mEl = root.querySelector('[data-f="birthMonth"]');
-          var dEl = root.querySelector('[data-f="birthDay"]');
-          if (!yEl || !mEl || !dEl) return;
-          var ys = yEl.value,
-            ms = mEl.value,
-            ds = dEl.value;
-          if (!ys || !ms || !ds) {
-            st.petBirthDate = "";
+      function bindMount() {
+        var m = document.getElementById('skinTrialMount');
+        if (!m || m._bound) return;
+        m._bound = true;
+        m.addEventListener('input', function (e) {
+          var el = e.target;
+          var f = el.getAttribute && el.getAttribute('data-f');
+          if (f === 'petName') { st.petName = el.value; updateNextQ1Button(); }
+          else if (f === 'weight') { st.weight = el.value; updateNextQ1Button(); }
+          else if (f === 'customBreed') { st.customBreed = el.value; updateNextQ1Button(); }
+          else if (f === 'breedSearch') { st.breedSearch = el.value; st.showBreedDd = true; render(); bindMount(); }
+          else if (f === 'areaCategory') {
+            st.areaCategory = el.value;
+            st.subKeys = [];
+            render(); bindMount();
+          }
+        });
+        m.addEventListener('change', function (e) {
+          var el = e.target;
+          var df = el && el.getAttribute && el.getAttribute('data-f');
+          if (df === 'birthYear' || df === 'birthMonth' || df === 'birthDay') {
+            syncBirthFromDom(e.currentTarget);
+            render();
+            bindMount();
             return;
           }
-          var yi = parseInt(ys, 10),
-            mi = parseInt(ms, 10),
-            di = parseInt(ds, 10);
-          var maxD = daysInMonth(yi, mi);
-          if (di > maxD) di = maxD;
-          st.petBirthDate = yi + "-" + pad2(mi) + "-" + pad2(di);
-        }
-
-        function catByValue(v) {
-          return AREA_CATS.find(function (c) {
-            return c.value === v;
-          });
-        }
-        function subLabel(sub) {
-          return window.CURRENT_LANG === "en" ? sub.en : sub.ko;
-        }
-
-        function validateQ1() {
-          var breedOk =
-            st.petBreed &&
-            (st.petBreed !== "other" ||
-              (st.customBreed && st.customBreed.trim()));
-          return !!(st.petName && st.petBirthDate && st.weight && breedOk);
-        }
-        function validateQ2() {
-          return (
-            st.pruritus !== "" &&
-            st.pruritus != null &&
-            st.areaCategory &&
-            st.subKeys.length > 0
-          );
-        }
-
-        function render() {
-          var m = document.getElementById("skinTrialMount");
-          if (!m) return;
-          var lang = window.CURRENT_LANG || "ko";
-          var stepIdx =
-            st.phase === "q1"
-              ? 0
-              : st.phase === "q2"
-                ? 0
-                : st.phase === "upload"
-                  ? 1
-                  : 2;
-          if (st.phase === "result") stepIdx = 2;
-
-          var stepsHtml =
-            '<div class="skin-trial-steps">' +
-            ["1", "2", "3"]
-              .map(function (num, i) {
-                var active =
-                  (i === 0 && (st.phase === "q1" || st.phase === "q2")) ||
-                  (i === 1 && st.phase === "upload") ||
-                  (i === 2 && (st.phase === "result" || st.loading));
-                var done =
-                  (i === 0 && st.phase !== "q1") ||
-                  (i === 1 && (st.phase === "result" || st.loading)) ||
-                  (i === 2 && st.phase === "result");
-                var cls =
-                  "skin-trial-step" +
-                  (active ? " active" : "") +
-                  (done && !active ? " done" : "");
-                var lbl = [
-                  T("skinTrial.s1Title"),
-                  T("skinTrial.uploadTitle"),
-                  T("skinTrial.resultTitle"),
-                ][i];
-                return (
-                  '<div class="' +
-                  cls +
-                  '"><div class="bubble">' +
-                  (done && !active ? "✓" : num) +
-                  "</div><span>" +
-                  esc(lbl) +
-                  "</span></div>"
-                );
-              })
-              .join("") +
-            "</div>";
-
-          var body = "";
-          if (st.phase === "q1") {
-            var fb = filteredBreeds();
-            var breedListInner = fb.length
-              ? fb
-                  .map(function (row) {
-                    var ps = breedPrimarySecondary(row);
-                    return (
-                      '<button type="button" class="skin-breed-row" data-breed-pick="' +
-                      esc(row.ko) +
-                      '">' +
-                      '<span class="skin-breed-line1">' +
-                      esc(ps.primary) +
-                      "</span>" +
-                      (ps.secondary
-                        ? '<span class="skin-breed-line2">' +
-                          esc(ps.secondary) +
-                          "</span>"
-                        : "") +
-                      "</button>"
-                    );
-                  })
-                  .join("") +
-                '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary)">' +
-                esc(T("skinTrial.breedOther")) +
-                "</button>"
-              : '<div class="skin-breed-empty">' +
-                esc(T("skinTrial.breedEmpty")) +
-                "</div>" +
-                '<button type="button" data-breed-pick="other" style="font-weight:700;color:var(--primary);width:100%">' +
-                esc(T("skinTrial.breedOther")) +
-                "</button>";
-            body =
-              '<div class="skin-trial-card"><h3>' +
-              esc(T("skinTrial.s1Title")) +
-              '</h3><p class="sub">' +
-              esc(T("skinTrial.s1Sub")) +
-              "</p>" +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.petName")) +
-              '</label><input type="text" data-f="petName" value="' +
-              esc(st.petName) +
-              '" /></div>' +
-              birthSelectsHtml() +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.weight")) +
-              '</label><input type="number" step="0.1" data-f="weight" value="' +
-              esc(st.weight) +
-              '" /></div>' +
-              '<div class="skin-field skin-breed-dd"><label>' +
-              esc(T("skinTrial.breed")) +
-              "</label>" +
-              '<input type="text" data-f="breedSearch" placeholder="' +
-              esc(T("skinTrial.breedPh")) +
-              '" value="' +
-              esc(st.breedSearch) +
-              '" autocomplete="off" />' +
-              '<div class="skin-breed-list' +
-              (st.showBreedDd ? " open" : "") +
-              '" id="skinBreedList">' +
-              breedListInner +
-              "</div>" +
-              pickedBreedBlock() +
-              "</div>" +
-              (st.petBreed === "other"
-                ? '<div class="skin-field"><label>' +
-                  esc(T("skinTrial.customBreed")) +
-                  '</label><input type="text" data-f="customBreed" value="' +
-                  esc(st.customBreed) +
-                  '" /></div>'
-                : "") +
-              '<div style="display:flex;gap:10px;margin-top:8px"><button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q1" ' +
-              (!validateQ1() ? "disabled" : "") +
-              ">" +
-              esc(T("skinTrial.next")) +
-              "</button></div></div>";
-          } else if (st.phase === "q2") {
-            var itch = function (val, t1, d1) {
-              var sel = st.pruritus === val ? " selected" : "";
-              return (
-                '<div class="skin-choice skin-pruritus' +
-                sel +
-                '" data-pruritus="' +
-                esc(val) +
-                '"><strong>' +
-                esc(t1) +
-                "</strong><small>" +
-                esc(d1) +
-                "</small></div>"
-              );
-            };
-            body =
-              '<div class="skin-trial-card"><h3>' +
-              esc(T("skinTrial.s2Title")) +
-              '</h3><p class="sub">' +
-              esc(T("skinTrial.s2Sub")) +
-              "</p>" +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.itch")) +
-              "</label>" +
-              '<div style="display:flex;flex-direction:column;gap:8px">' +
-              itch("없음", T("skinTrial.itchNone"), T("skinTrial.itchNoneD")) +
-              itch("보통", T("skinTrial.itchMod"), T("skinTrial.itchModD")) +
-              itch("심함", T("skinTrial.itchSev"), T("skinTrial.itchSevD")) +
-              "</div></div>" +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.odor")) +
-              '</label><div class="skin-choice-grid">' +
-              '<div class="skin-choice' +
-              (st.odor === true ? " selected" : "") +
-              '" data-odor="1"><strong>' +
-              esc(T("skinTrial.yes")) +
-              "</strong><br/><small>" +
-              esc(T("skinTrial.yesD")) +
-              "</small></div>" +
-              '<div class="skin-choice' +
-              (st.odor === false ? " selected" : "") +
-              '" data-odor="0"><strong>' +
-              esc(T("skinTrial.no")) +
-              "</strong><br/><small>" +
-              esc(T("skinTrial.noD")) +
-              "</small></div></div></div>" +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.alopecia")) +
-              '</label><div class="skin-choice-grid">' +
-              '<div class="skin-choice' +
-              (st.alopecia === true ? " selected" : "") +
-              '" data-alo="1"><strong>' +
-              esc(T("skinTrial.yes")) +
-              "</strong></div>" +
-              '<div class="skin-choice' +
-              (st.alopecia === false ? " selected" : "") +
-              '" data-alo="0"><strong>' +
-              esc(T("skinTrial.no")) +
-              "</strong><br/><small>" +
-              esc(T("skinTrial.alopNoD")) +
-              "</small></div></div></div>" +
-              '<div class="skin-field"><label>' +
-              esc(T("skinTrial.areaCat")) +
-              '</label><select data-f="areaCategory">' +
-              '<option value="">' +
-              esc(T("skinTrial.areaCatPh")) +
-              "</option>" +
-              AREA_CATS.map(function (c) {
-                return (
-                  '<option value="' +
-                  esc(c.value) +
-                  '"' +
-                  (st.areaCategory === c.value ? " selected" : "") +
-                  ">" +
-                  esc(lang === "en" ? c.en : c.ko) +
-                  "</option>"
-                );
-              }).join("") +
-              "</select></div>";
-
-            var cat = catByValue(st.areaCategory);
-            if (cat) {
-              body +=
-                '<div class="skin-field"><label>' +
-                esc(T("skinTrial.subArea")) +
-                '</label><div class="skin-subgrid">';
-              body += cat.sub
-                .map(function (s) {
-                  var on = st.subKeys.indexOf(s.key) >= 0;
-                  return (
-                    '<label class="skin-sub"><input type="checkbox" data-sub="' +
-                    esc(s.key) +
-                    '"' +
-                    (on ? " checked" : "") +
-                    "/><span>" +
-                    esc(subLabel(s)) +
-                    "</span></label>"
-                  );
-                })
-                .join("");
-              body += "</div></div>";
+          if (el && el.id === 'skinFileInput') {
+            var f = el.files && el.files[0];
+            if (f) {
+              if (!f.type.startsWith('image/')) { showToast(T('skinTrial.toastImageOnly')); return; }
+              if (f.size > 10 * 1024 * 1024) { showToast(T('skinTrial.toastMaxSize')); return; }
+              pendingOriginalFile = f;
+              openCropModal(f);
+              el.value = '';
             }
-
-            body +=
-              (st.err ? '<p class="skin-error">' + esc(st.err) + "</p>" : "") +
-              '<div style="display:flex;gap:10px;margin-top:8px">' +
-              '<button type="button" class="btn btn-secondary" style="flex:1;padding:12px" data-act="prev-q2">' +
-              esc(T("skinTrial.prev")) +
-              "</button>" +
-              '<button type="button" class="btn btn-primary" style="flex:1;padding:12px" data-act="next-q2" ' +
-              (!validateQ2() ? "disabled" : "") +
-              ">" +
-              esc(T("skinTrial.complete")) +
-              "</button></div></div>";
-          } else if (st.phase === "upload") {
-            body =
-              '<div class="skin-trial-card"><h3>' +
-              esc(T("skinTrial.uploadTitle")) +
-              '</h3><p class="sub">' +
-              esc(T("skinTrial.uploadSub")) +
-              "</p>" +
-              '<input type="file" accept="image/*" id="skinFileInput" hidden />' +
-              '<div class="skin-upload-zone" data-act="pick-photo"><strong>' +
-              esc(T("skinTrial.pickPhoto")) +
-              '</strong><p style="margin:8px 0 0;font-size:13px;color:var(--ink-3)">' +
-              esc(T("skinTrial.uploadMimeLine")) +
-              "</p></div>" +
-              (st.previewUrl
-                ? '<div class="skin-preview-wrap"><p class="skin-preview-caption">' +
-                  esc(T("skinTrial.croppedPreviewCaption")) +
-                  '</p><img class="skin-preview-img" src="' +
-                  esc(st.previewUrl) +
-                  '" alt="" /></div>' +
-                  '<p style="margin-top:8px;font-size:13px;color:var(--ink-2)">✓ ' +
-                  esc(
-                    st.croppedFile && st.croppedFile.name
-                      ? st.croppedFile.name
-                      : "croped.jpg",
-                  ) +
-                  "</p>"
-                : "") +
-              '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">' +
-              '<button type="button" class="btn btn-secondary" data-act="prev-upload">' +
-              esc(T("skinTrial.prev")) +
-              "</button>" +
-              '<button type="button" class="btn btn-primary" data-act="run-ai" style="flex:1;min-width:200px;padding:12px" ' +
-              (!st.croppedFile || st.loading ? "disabled" : "") +
-              ">" +
-              esc(
-                st.loading ? T("skinTrial.analyzing") : T("skinTrial.runAi"),
-              ) +
-              "</button></div>" +
-              (st.err ? '<p class="skin-error">' + esc(st.err) + "</p>" : "") +
-              "</div>";
-          } else if (st.phase === "result" && st.result) {
-            var conf = Number(st.result.confidence);
-            var confPct = conf <= 1 ? Math.round(conf * 100) : Math.round(conf);
-            body =
-              '<div class="skin-trial-card"><h3>' +
-              esc(T("skinTrial.resultTitle")) +
-              "</h3>" +
-              (st.previewUrl
-                ? '<div class="skin-preview-wrap skin-preview-result"><p class="skin-preview-caption">' +
-                  esc(T("skinTrial.uploadedPhotoCaption")) +
-                  '</p><img class="skin-preview-img" src="' +
-                  esc(st.previewUrl) +
-                  '" alt="" /></div>'
-                : "") +
-              '<div class="skin-result-box"><h4>' +
-              esc(st.result.predict_class || "") +
-              "</h4>" +
-              "<p><strong>" +
-              esc(st.result.disease_name || "") +
-              "</strong></p>" +
-              '<p style="margin-top:10px">' +
-              esc(st.result.description || "") +
-              "</p>" +
-              '<p style="margin-top:12px;font-weight:700">' +
-              esc(T("skinTrial.confidence")) +
-              ": " +
-              confPct +
-              "%</p></div>" +
-              '<button type="button" class="btn btn-primary" style="width:100%;margin-top:16px;padding:12px" data-act="restart">' +
-              esc(T("skinTrial.restart")) +
-              "</button></div>";
+            return;
           }
-
-          m.innerHTML = stepsHtml + body;
-        }
-
-        function bindMount() {
-          var m = document.getElementById("skinTrialMount");
-          if (!m || m._bound) return;
-          m._bound = true;
-          m.addEventListener("input", function (e) {
-            var el = e.target;
-            var f = el.getAttribute && el.getAttribute("data-f");
-            if (f === "petName") st.petName = el.value;
-            else if (f === "weight") st.weight = el.value;
-            else if (f === "customBreed") st.customBreed = el.value;
-            else if (f === "breedSearch") {
-              st.breedSearch = el.value;
-              st.showBreedDd = true;
-              render();
-              bindMount();
-            } else if (f === "areaCategory") {
-              st.areaCategory = el.value;
-              st.subKeys = [];
-              render();
-              bindMount();
-            }
-          });
-          m.addEventListener("change", function (e) {
-            var el = e.target;
-            var df = el && el.getAttribute && el.getAttribute("data-f");
-            if (
-              df === "birthYear" ||
-              df === "birthMonth" ||
-              df === "birthDay"
-            ) {
-              syncBirthFromDom(e.currentTarget);
-              render();
-              bindMount();
-              return;
-            }
-            if (el && el.id === "skinFileInput") {
-              var f = el.files && el.files[0];
-              if (f) {
-                if (!f.type.startsWith("image/")) {
-                  showToast(T("skinTrial.toastImageOnly"));
-                  return;
-                }
-                if (f.size > 10 * 1024 * 1024) {
-                  showToast(T("skinTrial.toastMaxSize"));
-                  return;
-                }
-                pendingOriginalFile = f;
-                openCropModal(f);
-                el.value = "";
-              }
-              return;
-            }
-            if (el && el.getAttribute("data-sub")) {
-              var k = el.getAttribute("data-sub");
-              if (el.checked) {
-                if (st.subKeys.indexOf(k) < 0) st.subKeys.push(k);
-              } else
-                st.subKeys = st.subKeys.filter(function (x) {
-                  return x !== k;
-                });
-              render();
-              bindMount();
-            }
-          });
-          m.addEventListener("focusin", function (e) {
-            if (e.target && e.target.getAttribute("data-f") === "breedSearch") {
-              st.showBreedDd = true;
-              render();
-              bindMount();
-            }
-          });
-          m.addEventListener("click", function (e) {
-            var t = e.target.closest("[data-act]");
-            if (t) {
-              var a = t.getAttribute("data-act");
-              if (a === "next-q1" && validateQ1()) {
-                st.phase = "q2";
-                st.err = "";
-                render();
-                bindMount();
-              } else if (a === "prev-q2") {
-                st.phase = "q1";
-                render();
-                bindMount();
-              } else if (a === "next-q2" && validateQ2()) {
-                st.phase = "upload";
-                st.err = "";
-                render();
-                bindMount();
-              } else if (a === "prev-upload") {
-                st.phase = "q2";
-                st.loading = false;
-                render();
-                bindMount();
-              } else if (a === "pick-photo")
-                document.getElementById("skinFileInput").click();
-              else if (a === "run-ai") submitTrial();
-              else if (a === "restart") {
-                st.phase = "q1";
-                st.petName = "";
-                st.petBirthDate = "";
-                st.weight = "";
-                st.petBreed = "";
-                st.customBreed = "";
-                st.breedSearch = "";
-                st.pruritus = "";
-                st.odor = false;
-                st.alopecia = false;
-                st.areaCategory = "";
-                st.subKeys = [];
-                revokeSkinPreview();
-                st.originalFile = null;
-                st.croppedFile = null;
-                st.result = null;
-                st.err = "";
-                st.loading = false;
-                render();
-                bindMount();
-              }
-              return;
-            }
-            var pr = e.target.closest("[data-pruritus]");
-            if (pr) {
-              st.pruritus = pr.getAttribute("data-pruritus");
-              render();
-              bindMount();
-              return;
-            }
-            var od = e.target.closest("[data-odor]");
-            if (od) {
-              st.odor = od.getAttribute("data-odor") === "1";
-              render();
-              bindMount();
-              return;
-            }
-            var al = e.target.closest("[data-alo]");
-            if (al) {
-              st.alopecia = al.getAttribute("data-alo") === "1";
-              render();
-              bindMount();
-              return;
-            }
-            var bp = e.target.closest("[data-breed-pick]");
-            if (bp) {
-              var v = bp.getAttribute("data-breed-pick");
-              st.petBreed = v;
-              st.breedSearch = "";
-              st.showBreedDd = false;
-              if (v !== "other") st.customBreed = "";
-              render();
-              bindMount();
-            }
-          });
-        }
-
-        function openCropModal(file) {
-          var modal = document.getElementById("skinCropModal");
-          var img = document.getElementById("skinCropImg");
-          if (cropper) {
-            cropper.destroy();
-            cropper = null;
+          if (el && el.getAttribute('data-sub')) {
+            var k = el.getAttribute('data-sub');
+            if (el.checked) { if (st.subKeys.indexOf(k) < 0) st.subKeys.push(k); }
+            else st.subKeys = st.subKeys.filter(function (x) { return x !== k; });
+            render(); bindMount();
           }
-          if (pendingCropObjectUrl) {
-            try {
-              URL.revokeObjectURL(pendingCropObjectUrl);
-            } catch (e) {}
-            pendingCropObjectUrl = null;
+        });
+        m.addEventListener('focusin', function (e) {
+          if (e.target && e.target.getAttribute('data-f') === 'breedSearch') {
+            st.showBreedDd = true;
+            render(); bindMount();
           }
-          pendingCropObjectUrl = URL.createObjectURL(file);
-          img.onload = function () {
-            if (cropper) {
-              cropper.destroy();
-              cropper = null;
+        });
+        m.addEventListener('click', function (e) {
+          /* 품종 검색창 클릭 시에도 목록 열림 (모바일 등) */
+          if (e.target && e.target.getAttribute('data-f') === 'breedSearch') {
+            st.showBreedDd = true;
+            render(); bindMount();
+          }
+          var t = e.target.closest('[data-act]');
+          if (t) {
+            var a = t.getAttribute('data-act');
+            if (a === 'next-q1' && validateQ1()) { st.phase = 'q2'; st.err = ''; render(); bindMount(); }
+            else if (a === 'prev-q2') { st.phase = 'q1'; render(); bindMount(); }
+            else if (a === 'next-q2' && validateQ2()) { st.phase = 'upload'; st.err = ''; render(); bindMount(); }
+            else if (a === 'prev-upload') { st.phase = 'q2'; st.loading = false; render(); bindMount(); }
+            else if (a === 'pick-photo') document.getElementById('skinFileInput').click();
+            else if (a === 'run-ai') submitTrial();
+            else if (a === 'restart') {
+              st.phase = 'q1'; st.petName = ''; st.petBirthDate = ''; st.dobYear = ''; st.dobMonth = ''; st.dobDay = '';
+              st.weight = ''; st.petBreed = ''; st.customBreed = '';
+              st.breedSearch = ''; st.pruritus = ''; st.odor = false; st.alopecia = false; st.areaCategory = ''; st.subKeys = [];
+              revokeSkinPreview();
+              st.originalFile = null; st.croppedFile = null; st.result = null; st.err = ''; st.loading = false;
+              render(); bindMount();
             }
-            cropper = new Cropper(img, {
-              aspectRatio: 1,
-              viewMode: 1,
-              autoCropArea: 0.85,
-              responsive: true,
-            });
-          };
-          img.src = pendingCropObjectUrl;
-          modal.hidden = false;
-        }
-
-        function closeCropModal() {
-          document.getElementById("skinCropModal").hidden = true;
-          if (cropper) {
-            cropper.destroy();
-            cropper = null;
+            return;
           }
-          var img = document.getElementById("skinCropImg");
-          img.removeAttribute("src");
-          if (pendingCropObjectUrl) {
-            try {
-              URL.revokeObjectURL(pendingCropObjectUrl);
-            } catch (e) {}
-            pendingCropObjectUrl = null;
+          var pr = e.target.closest('[data-pruritus]');
+          if (pr) { st.pruritus = pr.getAttribute('data-pruritus'); render(); bindMount(); return; }
+          var od = e.target.closest('[data-odor]');
+          if (od) { st.odor = od.getAttribute('data-odor') === '1'; render(); bindMount(); return; }
+          var al = e.target.closest('[data-alo]');
+          if (al) { st.alopecia = al.getAttribute('data-alo') === '1'; render(); bindMount(); return; }
+          var bp = e.target.closest('[data-breed-pick]');
+          if (bp) {
+            var v = bp.getAttribute('data-breed-pick');
+            st.petBreed = v;
+            st.breedSearch = '';
+            st.showBreedDd = false;
+            if (v !== 'other') st.customBreed = '';
+            render(); bindMount();
           }
-        }
+        });
+      }
 
-        document
-          .getElementById("skinCropCancel")
-          .addEventListener("click", function () {
-            pendingOriginalFile = null;
-            closeCropModal();
-          });
-        document
-          .getElementById("skinCropOk")
-          .addEventListener("click", function () {
-            if (!cropper || !pendingOriginalFile) return;
-            var canvas = cropper.getCroppedCanvas({ width: 224, height: 224 });
-            if (!canvas) return;
-            canvas.toBlob(
-              function (blob) {
-                st.originalFile = pendingOriginalFile;
-                st.croppedFile = new File([blob], "croped.jpg", {
-                  type: "image/jpeg",
-                });
-                revokeSkinPreview();
-                st.previewUrl = URL.createObjectURL(st.croppedFile);
-                pendingOriginalFile = null;
-                closeCropModal();
-                render();
-                bindMount();
-              },
-              "image/jpeg",
-              0.88,
-            );
-          });
-
-        async function submitTrial() {
-          if (!st.originalFile || !st.croppedFile || st.loading) return;
-          st.loading = true;
-          st.err = "";
-          render();
-          bindMount();
-          var fd = new FormData();
-          fd.append("language", window.CURRENT_LANG || "ko");
-          fd.append("petName", st.petName);
-          fd.append("petBirthDate", st.petBirthDate);
-          fd.append(
-            "petBreed",
-            st.petBreed === "other" ? "other" : st.petBreed,
-          );
-          fd.append(
-            "customBreed",
-            st.petBreed === "other" ? st.customBreed || "" : "",
-          );
-          fd.append("weight", String(st.weight));
-          fd.append("pruritus", st.pruritus);
-          fd.append("alopecia", String(st.alopecia));
-          fd.append("odor", String(st.odor));
-          fd.append("lesionPrimaryCategory", st.areaCategory || "other");
-          fd.append("detaillesionSites", st.subKeys.join(","));
-          fd.append("affectedAreas", st.areaCategory || "other");
-          fd.append(
-            "original",
-            st.originalFile,
-            st.originalFile.name || "original.jpg",
-          );
-          fd.append("croped", st.croppedFile, "croped.jpg");
-          try {
-            var res = await fetch(apiTrialUrl(), { method: "POST", body: fd });
-            var data = await res.json().catch(function () {
-              return {};
-            });
-            if (res.status === 403 && data.errorCode === "HUMAN_DETECTED") {
-              st.err = T("skinTrial.errHuman");
-              st.loading = false;
-              st.phase = "upload";
-              render();
-              bindMount();
-              return;
-            }
-            if (!res.ok || !data.data) {
-              st.err = (data && data.message) || T("skinTrial.errNet");
-              st.loading = false;
-              st.phase = "upload";
-              render();
-              bindMount();
-              return;
-            }
-            st.result = data.data;
-            st.phase = "result";
-            st.loading = false;
-            render();
-            bindMount();
-          } catch (err) {
-            st.err = T("skinTrial.errNet");
-            st.loading = false;
-            st.phase = "upload";
-            render();
-            bindMount();
-          }
-        }
-
-        window.skinTrialRerender = function () {
-          st.err = "";
-          render();
-          bindMount();
+      function openCropModal(file) {
+        var modal = document.getElementById('skinCropModal');
+        var img = document.getElementById('skinCropImg');
+        if (cropper) { cropper.destroy(); cropper = null; }
+        if (pendingCropObjectUrl) { try { URL.revokeObjectURL(pendingCropObjectUrl); } catch (e) {} pendingCropObjectUrl = null; }
+        pendingCropObjectUrl = URL.createObjectURL(file);
+        img.onload = function () {
+          if (cropper) { cropper.destroy(); cropper = null; }
+          cropper = new Cropper(img, { aspectRatio: 1, viewMode: 1, autoCropArea: 0.85, responsive: true });
         };
+        img.src = pendingCropObjectUrl;
+        modal.hidden = false;
+      }
 
-        window.initSkinTrialPage = async function () {
-          await loadBreeds();
-          if (!document.getElementById("skinTrialMount")) return;
+      function closeCropModal() {
+        document.getElementById('skinCropModal').hidden = true;
+        if (cropper) { cropper.destroy(); cropper = null; }
+        var img = document.getElementById('skinCropImg');
+        img.removeAttribute('src');
+        if (pendingCropObjectUrl) { try { URL.revokeObjectURL(pendingCropObjectUrl); } catch (e) {} pendingCropObjectUrl = null; }
+      }
+
+      document.getElementById('skinCropCancel').addEventListener('click', function () {
+        pendingOriginalFile = null;
+        closeCropModal();
+      });
+      document.getElementById('skinCropOk').addEventListener('click', function () {
+        if (!cropper || !pendingOriginalFile) return;
+        var canvas = cropper.getCroppedCanvas({ width: 224, height: 224 });
+        if (!canvas) return;
+        canvas.toBlob(function (blob) {
+          st.originalFile = pendingOriginalFile;
+          st.croppedFile = new File([blob], 'croped.jpg', { type: 'image/jpeg' });
           revokeSkinPreview();
-          st.originalFile = null;
-          st.croppedFile = null;
-          st.phase = "q1";
+          st.previewUrl = URL.createObjectURL(st.croppedFile);
+          pendingOriginalFile = null;
+          closeCropModal();
+          render(); bindMount();
+        }, 'image/jpeg', 0.88);
+      });
+
+      async function submitTrial() {
+        if (!st.originalFile || !st.croppedFile || st.loading) return;
+        st.loading = true; st.err = '';
+        render(); bindMount();
+        var fd = new FormData();
+        fd.append('language', window.CURRENT_LANG || 'ko');
+        fd.append('petName', st.petName);
+        fd.append('petBirthDate', st.petBirthDate);
+        fd.append('petBreed', st.petBreed === 'other' ? 'other' : st.petBreed);
+        fd.append('customBreed', st.petBreed === 'other' ? (st.customBreed || '') : '');
+        fd.append('weight', String(st.weight));
+        fd.append('pruritus', st.pruritus);
+        fd.append('alopecia', String(st.alopecia));
+        fd.append('odor', String(st.odor));
+        fd.append('lesionPrimaryCategory', st.areaCategory || 'other');
+        fd.append('detaillesionSites', st.subKeys.join(','));
+        fd.append('affectedAreas', st.areaCategory || 'other');
+        fd.append('original', st.originalFile, st.originalFile.name || 'original.jpg');
+        fd.append('croped', st.croppedFile, 'croped.jpg');
+        try {
+          var res = await fetch(apiTrialUrl(), { method: 'POST', body: fd });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.status === 403 && data.errorCode === 'HUMAN_DETECTED') {
+            st.err = T('skinTrial.errHuman'); st.loading = false; st.phase = 'upload'; render(); bindMount(); return;
+          }
+          if (!res.ok || !data.data) {
+            st.err = (data && data.message) || T('skinTrial.errNet'); st.loading = false; st.phase = 'upload'; render(); bindMount(); return;
+          }
+          st.result = data.data;
+          st.phase = 'result';
           st.loading = false;
-          st.result = null;
-          st.err = "";
-          render();
-          bindMount();
-        };
-      })();
+          render(); bindMount();
+        } catch (err) {
+          st.err = T('skinTrial.errNet');
+          st.loading = false;
+          st.phase = 'upload';
+          render(); bindMount();
+        }
+      }
+
+      window.skinTrialRerender = function () { st.err = ''; render(); bindMount(); };
+
+      window.initSkinTrialPage = async function () {
+        await loadBreeds();
+        if (!document.getElementById('skinTrialMount')) return;
+        revokeSkinPreview();
+        st.originalFile = null; st.croppedFile = null;
+        st.phase = 'q1'; st.loading = false; st.result = null; st.err = '';
+        render();
+        bindMount();
+      };
+    })();
     </script>
+
   </body>
 </html>
