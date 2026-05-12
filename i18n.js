@@ -349,6 +349,8 @@ window.I18N = {
     "aiStep2.title": "사진 업로드",
     "aiStep2.desc":
       "의심 부위가 잘 보이도록 가까이서 촬영해 올려주세요. 여러 장도 가능합니다.",
+    "aiStep2.descCrop":
+      "병변 부위를 정사각형으로 잘라 224px 이미지로 보냅니다 (앱과 동일 흐름).",
     "aiStep3.title": "AI 분석 결과 확인",
     "aiStep3.desc":
       "가능성이 있는 피부 질환과 신뢰도를 표로 보여드립니다. 결과는 즉시 확인할 수 있습니다.",
@@ -906,6 +908,8 @@ window.I18N = {
     "aiStep2.title": "Upload photos",
     "aiStep2.desc":
       "Photograph the area closely so it's clearly visible. Multiple photos are fine.",
+    "aiStep2.descCrop":
+      "Crop the affected area into a 224px square image before sending (same flow as the app).",
     "aiStep3.title": "Review AI analysis",
     "aiStep3.desc":
       "Likely skin conditions and confidence shown in a table instantly.",
