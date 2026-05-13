@@ -781,9 +781,9 @@ window.I18N = {
       "Track heart rate, SpO₂, body temperature, and activity in real time for each registered pet,<br/>with historical records and HRV stress analysis in one view.",
 
     "careIntro.badge": "AI skin health monitoring",
-    "careIntro.heroTitle": "Analyze your pet's skin health with AI",
+    "careIntro.heroTitle": "Analyze your pet's skin health<br/>with AI",
     "careIntro.heroLead":
-      "Upload a photo of your pet's skin and get instant AI analysis",
+      "Upload a photo of your pet's skin<br/>and start AI analysis instantly",
     "careIntro.stepsTitle":
       'Done in <span style="color: var(--talktail-orange)">3 simple steps</span>',
     "careIntro.stepsLead":
@@ -793,7 +793,7 @@ window.I18N = {
       "Take a photo of the affected skin area and upload it.",
     "careIntro.step2Title": "AI analysis",
     "careIntro.step2Desc":
-      "Advanced AI analyzes the skin condition and predicts possible diseases.",
+      "Advanced AI analyzes the skin<br/>and predicts possible conditions.",
     "careIntro.step3Title": "Clinic referral",
     "careIntro.step3Desc": "After analysis, we'll show nearby clinics.",
     "careIntro.avgTime": "💡 Average analysis time: under 30 seconds",
@@ -803,7 +803,7 @@ window.I18N = {
     "careIntro.feat1Title": "85% high accuracy",
     "careIntro.feat1Desc":
       "AI algorithm trained on tens of thousands of data points",
-    "careIntro.feat2Title": "Connect with nearby clinics",
+    "careIntro.feat2Title": "Nearby clinic network",
     "careIntro.feat2Desc": "Instant connection to 500+ partner clinics",
     "careIntro.feat3Title": "Simple to use",
     "careIntro.feat3Desc": "Results in 30 seconds — just upload a photo",
