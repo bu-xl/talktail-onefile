@@ -111,6 +111,104 @@
         font-size: 16px;
       }
       html[lang="en"] body { font-family: "Inter","Pretendard",system-ui,sans-serif; }
+
+      /* ============================================================
+         영어(en): 긴 문장·내비·히어로 — 한국어와 동일한 반응형 밀도
+         (lang은 applyLang에서 documentElement에 설정)
+         ============================================================ */
+      html[lang="en"] body {
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+      html[lang="en"] h1,
+      html[lang="en"] h2,
+      html[lang="en"] h3,
+      html[lang="en"] h4 {
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+      html[lang="en"] .hero h1 .nowrap {
+        white-space: normal;
+      }
+      html[lang="en"] .nav-dropdown-menu {
+        min-width: min(220px, calc(100vw - 32px));
+      }
+      html[lang="en"] .nav-dropdown-menu a {
+        white-space: normal;
+      }
+      @media (min-width: 1025px) {
+        html[lang="en"] .nav-menu {
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          row-gap: 4px;
+          max-width: min(900px, 70vw);
+        }
+        html[lang="en"] .nav-menu button.nav-link {
+          font-size: clamp(12px, 1.05vw, 15px);
+          padding: 9px 10px;
+        }
+        html[lang="en"] .nav-cta {
+          font-size: clamp(12px, 1vw, 14px);
+          padding: 10px 12px;
+        }
+      }
+      html[lang="en"] .hero-meta > span,
+      html[lang="en"] .hero-meta > div {
+        min-width: 0;
+        flex: 1 1 160px;
+      }
+      html[lang="en"] .trust-row > span {
+        flex: 1 1 min(100%, 240px);
+        min-width: 0;
+      }
+      html[lang="en"] .problem-item p,
+      html[lang="en"] .pillar p,
+      html[lang="en"] .pillar ul li,
+      html[lang="en"] .sensor p,
+      html[lang="en"] .step p,
+      html[lang="en"] .metric-card p,
+      html[lang="en"] .faq-item .answer {
+        overflow-wrap: break-word;
+      }
+      html[lang="en"] .price-table th,
+      html[lang="en"] .price-table td {
+        overflow-wrap: anywhere;
+      }
+      html[lang="en"] .plan ul li {
+        padding-left: 20px;
+      }
+      html[lang="en"] .faq-item summary {
+        overflow-wrap: break-word;
+        padding-right: 44px;
+      }
+      html[lang="en"] .page {
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
+      html[lang="en"] .skin-trial-card,
+      html[lang="en"] .skin-trial-card h3,
+      html[lang="en"] .skin-trial-card p,
+      html[lang="en"] .skin-upload-zone {
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
+      /* Talktail Care(Tailwind): 영어 긴 문장 — 균형 줄바꿈·모바일 타이포 */
+      html[lang="en"] #page-care-intro h2,
+      html[lang="en"] #page-care-intro h3 {
+        text-wrap: balance;
+        max-width: 100%;
+      }
+      @media (max-width: 640px) {
+        html[lang="en"] #page-care-intro .text-xl.sm\:text-3xl {
+          font-size: clamp(1.15rem, 5.4vw, 1.65rem);
+          line-height: 1.22;
+        }
+        html[lang="en"] #page-care-intro .text-3xl {
+          font-size: clamp(1.25rem, 5.8vw, 1.75rem);
+        }
+      }
+
       img { max-width: 100%; display: block; }
       a { color: inherit; text-decoration: none; }
       button { font-family: inherit; cursor: pointer; border: none; background: none; }
@@ -124,7 +222,7 @@
 
       /* ============================================================
          내비게이션
-         브레이크포인트: max-width 1024px (tablet-lg 이하)
+         브레이크포인트: max-width 1180px (긴 영어 내비·태블릿 가로)
          ============================================================ */
       .nav {
         position: sticky; top: 0; z-index: 100;
@@ -213,10 +311,10 @@
       .hamburger { display: none; }
 
       /* ──────────────────────────────────────────────────────────────
-         NAV 모바일: max-width 1024px
-         (이전 900px → 1024px / tablet-lg 이하에서 햄버거로 전환)
+         NAV 모바일: max-width 1180px
+         (영어 내비·태블릿 가로에서 텍스트 겹침 방지 — 로고+햄버거만 표시)
       ────────────────────────────────────────────────────────────── */
-      @media (max-width: 1024px) {
+      @media (max-width: 1180px) {
         /* 상단 바: 로고 + 햄버거만 (닫힌 상태에서는 nav-menu 자체를 레이아웃에서 제거) */
         .nav-menu:not(.open) {
           display: none !important;
@@ -259,6 +357,45 @@
           display: flex !important;
           flex-direction: column;
         }
+      }
+
+      /* Talktail Care 소개: 3열 카드 동일 높이·본문 정렬 (영·한 공통) */
+      #page-care-intro section .grid.md\:grid-cols-3 {
+        align-items: stretch;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > .relative {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > .relative > div {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 0;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > .relative > div > p {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > div.p-8.text-center {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > div.p-8.text-center > p {
+        flex: 1 1 auto;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > div.bg-white.p-6 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+      }
+      #page-care-intro section .grid.md\:grid-cols-3 > div.bg-white.p-6 > p.italic {
+        flex: 1 1 auto;
       }
 
       /* ============================================================
@@ -784,11 +921,16 @@
       .plan-grid {
         display: grid; grid-template-columns: repeat(3,1fr);
         gap: 18px; margin-top: 24px;
+        align-items: stretch;
       }
       .plan {
         padding: clamp(20px, 3vw, 30px) clamp(16px, 2.5vw, 26px);
         border: 2px solid var(--primary);
         border-radius: var(--radius); background: #fff; position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
       }
       .plan-header-row {
         display: flex; justify-content: flex-end; align-items: center;
@@ -829,7 +971,7 @@
       .plan .name { font-size: 14px; color: var(--ink-3); font-weight: 600; }
       .plan .price { font-size: clamp(24px, 3.5vw, 32px); font-weight: 800; margin: 8px 0 4px; }
       .plan .price small { font-size: 14px; color: var(--ink-3); font-weight: 500; }
-      .plan ul { list-style: none; padding: 18px 0 0; margin: 16px 0 0; border-top: 1px solid var(--line); }
+      .plan ul { list-style: none; padding: 18px 0 0; margin: 16px 0 0; border-top: 1px solid var(--line); flex: 1 1 auto; }
       .plan ul li {
         padding: 6px 0 6px 22px; position: relative;
         font-size: 14px; color: var(--ink-2);
@@ -989,11 +1131,16 @@
       .ai-flow { padding: clamp(40px, 6vw, 64px) 0; }
       .ai-steps {
         display: grid; grid-template-columns: repeat(4,1fr); gap: 18px;
+        align-items: stretch;
       }
       .ai-step {
         background: #fff; border: 1px solid var(--line);
         border-radius: var(--radius); padding: clamp(18px, 2.5vw, 28px);
         position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
       }
       .ai-step .num {
         width: 32px; height: 32px; border-radius: 50%;
@@ -1002,7 +1149,7 @@
         font-weight: 700; font-size: 14px; margin-bottom: 16px;
       }
       .ai-step h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-      .ai-step p { color: var(--ink-3); font-size: 14px; margin: 0; }
+      .ai-step p { color: var(--ink-3); font-size: 14px; margin: 0; flex: 1 1 auto; }
 
       @media (max-width: 1024px) { .ai-steps { grid-template-columns: repeat(2,1fr); } }
       @media (max-width: 430px) { .ai-steps { grid-template-columns: 1fr; } }
