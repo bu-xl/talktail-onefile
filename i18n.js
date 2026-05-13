@@ -574,9 +574,9 @@ window.I18N = {
     "hero.preLaunch": "Launching July 2026 · Inquiries welcome",
     "hero.eyebrow": "Pet Health, Closer to You",
     "hero.title":
-      'The signals pets give <br/><span class="nowrap">check in every day with <span class="accent">Talktail</span>.</span>',
+      'Tail signals you notice every day—<br/><span class="nowrap">with <span class="accent">Talktail</span>.</span>',
     "hero.lead":
-      "We measure your pet's heart rate, body temperature, and activity 24/7, and let you know when something changes from their usual pattern.",
+      "We measure your pet's heart rate, body temperature, and activity 24/7,<br/>and let you know when something changes from their usual pattern.",
     "hero.cta1": "See pricing",
     "hero.cta2": "Contact sales",
     "hero.cta3": "Try AI skin analysis free →",
@@ -605,7 +605,7 @@ window.I18N = {
     "problem.title":
       "They look fine day to day<br/>then the vet says it's already advanced.",
     "problem.lead":
-      "Pets don't show pain easily. By the time you sense something is off, the illness has often already progressed keeping a numerical record of their normal state helps you catch changes earlier.",
+      "Pets don't show pain easily. By the time you sense something is off, the illness has often already progressed.<br/>Keeping a numerical record of their normal state helps you catch changes earlier.",
     "bg.stat1.num": "15M",
     "bg.stat1.label": "Pet households in Korea",
     "bg.stat1.sub": "About 28% of all households",
@@ -627,7 +627,7 @@ window.I18N = {
     "solution.eyebrow": 'What <span class="no-upper">Talktail</span> does',
     "solution.title": "Measure and analyze<br/>connected in one flow.",
     "solution.lead":
-      "The device collects data, the platform organizes it, and anything that looks like a skin concern is predicted with AI analysis.",
+      "The device collects data, the platform organizes it,<br/>and anything that looks like a skin concern is predicted with AI analysis.",
     "pillar1.title": "Tailing Device",
     "pillar1.desc":
       "A wearable worn on the collar that records daily activity and body temperature automatically.",
@@ -636,13 +636,13 @@ window.I18N = {
     "pillar1.li3": "Walking, running, activity patterns",
     "pillar2.title": "Talktail Platform",
     "pillar2.desc":
-      "Review collected data and see what has changed from the usual pattern.",
+      "Review collected data and see what has changed<br/>from the usual pattern.",
     "pillar2.li1": "Real-time dashboard",
     "pillar2.li2": "HRV (heart rate variability) stress analysis",
     "pillar2.li3": "Alerts when abnormal signs appear",
     "pillar3.title": "Talktail Care",
     "pillar3.desc":
-      "Upload a skin photo — AI analyzes it and predicts likely conditions.",
+      "Upload a skin photo — AI analyzes it and<br/>predicts likely conditions.",
     "pillar3.li1": "Intake from questionnaire and photos",
     "pillar3.li2": "Algorithm- and AI-based prediction",
     "pillar3.li3": "Location-based vet hospital finder",
@@ -654,7 +654,7 @@ window.I18N = {
       "We scaled it down to a fitting size and designed it so readings stay stable through fur and movement.",
     "sensor1.title": "PPG sensor — Heart rate / SpO₂",
     "sensor1.desc":
-      "An optical structure designed to measure without shaving the fur. Heart rate and blood oxygen saturation are sampled continuously at the carotid area on the neck.",
+      "An optical structure designed to measure without shaving the fur.<br/>Heart rate and blood oxygen saturation are sampled continuously at the carotid area on the neck.",
     "sensor2.title": "Temperature sensor — Body temp",
     "sensor2.desc":
       "Tracks temperature changes at the skin contact area to catch fevers and other anomalies.",
@@ -720,11 +720,11 @@ window.I18N = {
     "val.m2.num": "96–99%",
     "val.m2.title": "Arrhythmia detection AI",
     "val.m2.desc":
-      "Pre-processing and signal augmentation keep it stable through home-environment noise",
+      "Pre-processing and signal augmentation keep it stable through home-environment noise.",
     "val.m3.num": "85%",
     "val.m3.title": "Skin disease classification",
     "val.m3.desc":
-      "A single photo classifies likely conditions and connects naturally to a vet visit",
+      "A single photo classifies likely conditions and connects naturally to a vet visit.",
     "val.m4.num": "36h+",
     "val.m4.title": "Battery life",
     "val.m4.desc": "Continuous use on a single charge",
@@ -778,7 +778,7 @@ window.I18N = {
     "monitor.bannerTitle":
       "All the health data Tailing measures,<br/>in one screen.",
     "monitor.bannerLead":
-      "Track heart rate, SpO₂, body temperature, and activity in real time for each registered pet with historical records and HRV stress analysis, all in one view.",
+      "Track heart rate, SpO₂, body temperature, and activity in real time for each registered pet,<br/>with historical records and HRV stress analysis in one view.",
 
     "careIntro.badge": "AI skin health monitoring",
     "careIntro.heroTitle": "Analyze your pet's skin health with AI",
@@ -1011,7 +1011,7 @@ window.I18N = {
     "price.title":
       "Buy the device once,<br/>subscribe to the platform as you need.",
     "price.desc":
-      "The setup varies depending on your business or organization's environment. Share your situation and we'll suggest a better-fit configuration.",
+      "The setup varies depending on your business or organization's environment.<br/>Share your situation and we'll suggest a better-fit configuration.",
     "price.section1": "1. Device pricing",
     "price.note1":
       "Sold as a Tailing Device (wearable) + Tailing Hub combination. One hub supports up to 5 devices.",
@@ -1074,7 +1074,7 @@ window.I18N = {
     "contact.title":
       "Tell us your situation,<br/>we'll respond with a fitting setup.",
     "contact.desc":
-      "The recommended setup differs by clinic or facility use. Share a few details and we typically respond within 1–2 business days.",
+      "The recommended setup differs by clinic or facility use.<br/>Share a few details and we typically respond within 1–2 business days.",
     "contact.company": "Company / Organization *",
     "contact.name": "Contact name *",
     "contact.position": "Title / Position",
