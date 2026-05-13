@@ -100,17 +100,87 @@
          리셋 & 베이스
          ============================================================ */
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+        font-size: 100%;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
       body {
         margin: 0;
         font-family: "Pretendard","Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
         color: var(--ink);
         background: var(--bg);
         -webkit-font-smoothing: antialiased;
-        line-height: 1.65;
-        font-size: 16px;
+        line-height: 1.62;
+        font-size: 1rem;
+        overflow-wrap: break-word;
+        word-break: normal;
       }
       html[lang="en"] body { font-family: "Inter","Pretendard",system-ui,sans-serif; }
+
+      /* ============================================================
+         OS 글자 크기 확대(접근성) — 전 페이지 줄바꿈·내비·본문 공통
+         ============================================================ */
+      .page,
+      section {
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
+      p,
+      li,
+      dd,
+      td,
+      th,
+      label,
+      .lead,
+      .section-lead,
+      .note,
+      .faq-item .answer,
+      .contact-form,
+      .monitor-hub-intro p,
+      .auth-card p,
+      .skin-trial-card p,
+      .skin-upload-zone {
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      .hero h1,
+      h2.section-title,
+      details.faq-item summary {
+        overflow-wrap: break-word;
+        text-wrap: balance;
+        max-width: 100%;
+        padding-right: 44px;
+        box-sizing: border-box;
+      }
+      #page-care-intro h2,
+      #page-care-intro h3 {
+        text-wrap: balance;
+        max-width: 100%;
+      }
+      .hero h1 .nowrap {
+        white-space: normal;
+      }
+      .nav-dropdown-menu a {
+        white-space: normal;
+      }
+
+      @media (max-width: 640px) {
+        #page-care-intro .text-xl.sm\:text-3xl {
+          font-size: clamp(1.1rem, 5.2vw, 1.6rem);
+          line-height: 1.25;
+        }
+        #page-care-intro .text-3xl {
+          font-size: clamp(1.2rem, 5.5vw, 1.7rem);
+        }
+      }
 
       /* ============================================================
          영어(en): 긴 문장·내비·히어로 — 한국어와 동일한 반응형 밀도
@@ -128,14 +198,8 @@
         overflow-wrap: break-word;
         hyphens: auto;
       }
-      html[lang="en"] .hero h1 .nowrap {
-        white-space: normal;
-      }
       html[lang="en"] .nav-dropdown-menu {
         min-width: min(220px, calc(100vw - 32px));
-      }
-      html[lang="en"] .nav-dropdown-menu a {
-        white-space: normal;
       }
       @media (min-width: 1025px) {
         html[lang="en"] .nav-menu {
@@ -180,7 +244,6 @@
       }
       html[lang="en"] .faq-item summary {
         overflow-wrap: break-word;
-        padding-right: 44px;
       }
       html[lang="en"] .page {
         overflow-wrap: break-word;
@@ -193,22 +256,6 @@
         overflow-wrap: break-word;
         word-break: normal;
       }
-      /* Talktail Care(Tailwind): 영어 긴 문장 — 균형 줄바꿈·모바일 타이포 */
-      html[lang="en"] #page-care-intro h2,
-      html[lang="en"] #page-care-intro h3 {
-        text-wrap: balance;
-        max-width: 100%;
-      }
-      @media (max-width: 640px) {
-        html[lang="en"] #page-care-intro .text-xl.sm\:text-3xl {
-          font-size: clamp(1.15rem, 5.4vw, 1.65rem);
-          line-height: 1.22;
-        }
-        html[lang="en"] #page-care-intro .text-3xl {
-          font-size: clamp(1.25rem, 5.8vw, 1.75rem);
-        }
-      }
-
       img { max-width: 100%; display: block; }
       a { color: inherit; text-decoration: none; }
       button { font-family: inherit; cursor: pointer; border: none; background: none; }
@@ -232,7 +279,7 @@
       }
       .nav-inner {
         display: flex; align-items: center;
-        justify-content: space-between; height: 68px;
+        justify-content: space-between; min-height: 68px; height: auto;
       }
       .logo {
         font-weight: 800; font-size: 22px;
@@ -326,7 +373,7 @@
         .nav-menu.open {
           display: flex !important;
           flex-direction: column; align-items: stretch;
-          position: absolute; top: 68px; left: 0; right: 0;
+          position: absolute; top: 100%; left: 0; right: 0;
           background: #fff; border-bottom: 1px solid var(--line);
           padding: 12px 16px; gap: 4px;
         }
@@ -1472,7 +1519,7 @@
       /* ============================================================
          iOS 폼 zoom 방지
          (iOS Safari: font-size < 16px일 때 input focus 시 자동 zoom)
-         max-width 430px 이하에서 font-size: 16px 강제
+         max-width 430px 이하: iOS zoom 방지 + 접근성 글자 크기 반영 (min 16px, rem 상한 없음)
          ============================================================ */
       @media (max-width: 430px) {
         input[type="text"],
@@ -1483,7 +1530,7 @@
         input[type="password"],
         select,
         textarea {
-          font-size: 16px !important;
+          font-size: max(1rem, 16px) !important;
         }
       }
 
